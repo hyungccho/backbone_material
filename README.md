@@ -100,7 +100,7 @@ This is the completed application built in the above video series.
 * **Project**: [Build with Bootstrap][bootstrap-project]
 
 [bootstrap-getting-started]: http://getbootstrap.com/getting-started/
-[bootstrap-project]: ./twitter_bootstrap/build_with_bootstrap.md
+[bootstrap-project]: ./w7d4/build_with_bootstrap.md
 
 ## w7d5
 
