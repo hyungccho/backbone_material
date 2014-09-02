@@ -174,7 +174,7 @@ This is the completed application built in the above video series.
 [node-04-vid]: https://vimeo.com/groups/appacademy/videos/88022116
 [node-05-vid]: https://vimeo.com/groups/appacademy/videos/88022119
 [node-06-vid]: https://vimeo.com/groups/appacademy/videos/88025189
-[node-intro]: ./node_intro/what-is-node-js.md
-[node-tutorial]: ./node_intro/node_demo/node_intro.md
-[node-websockets]: ./node_intro/web-sockets.md
-[chatapp-project]: ./node_intro/chatapp_project.md
+[node-intro]: ./w8d2/what-is-node-js.md
+[node-tutorial]: ./w8d2/node_demo/node_intro.md
+[node-websockets]: ./w8d2/web-sockets.md
+[chatapp-project]: ./w8d2/chatapp_project.md
