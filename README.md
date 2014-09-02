@@ -153,6 +153,7 @@ This is the completed application built in the above video series.
 * **Backbone MiniProject II (SF)**
 * [jQuery UI][jquery-ui]
 
+[assessment-practice]: https://github.com/appacademy/assessment-prep
 [jquery-ui]: https://github.com/appacademy/lightning-talks/blob/master/w9d1/jquery_ui.md
 
 ## w8d2
