@@ -76,7 +76,6 @@ This is the completed application built in the above video series.
 * [Backbone.Collection II][backbone-collection-ii]
 * [Backbone.Router II][backbone-router-ii]
 * [CollectionView pattern][collection-view-pattern]
-* [Backbone `listenTo` and the view-swapping router pattern][listen-to]
 * **Project**: [News reader][news-reader]
 
 
