@@ -1,0 +1,65 @@
+/* styles to go with the tabs */
+.nav {
+padding: 1.5em; 
+}
+.nav li {
+  list-style-type: none;
+  display: inline-block;
+  float: left;
+  padding: 0 0.75em; }
+.nav li a {
+  color: #fff;
+  text-decoration: none; 
+}
+.nav li a:hover {
+  text-decoration: underline; 
+} 
+
+.nav-tabs {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: solid 1px #cecece; }
+.nav-tabs:before, .nav-tabs:after {
+  content: " ";
+  display: table; }
+.nav-tabs:after {
+  clear: both; }
+
+.nav-tabs li {
+  background-color: #4D4D4D;
+  color: white;
+  padding: 1.5em;
+  -webkit-border-radius: 12px 12px 0px 0px;
+  border-radius: 12px 12px 0px 0px;
+  background-clip: padding-box;
+  /* useful if you don't want a bg color from leaking outside the border: */
+  margin-bottom: -2px;
+  margin-left: 1.5em; }
+
+.nav-tabs li.active {
+  background-color: white;
+  border-top: solid 1px #cecece;
+  border-left: solid 1px #cecece;
+  border-right: solid 1px #cecece;
+  /* bottom is white, connecting to the content */
+  border-bottom: solid 1px white; }
+.nav-tabs li.active a {
+  color: #4D4D4D; }
+
+.tab-content {
+  background-color: white;
+  border-left: solid 1px #cecece;
+  border-right: solid 1px #cecece;
+  border-bottom: solid 1px #cecece;
+  padding: 1.5em; }
+.tab-content:before, .tab-content:after {
+  content: " ";
+  display: table; }
+.tab-content:after {
+  clear: both; }
+
+.tab-content > .tab-pane {
+  display: none; }
+
+.tab-content > .active {
+  display: block; }
