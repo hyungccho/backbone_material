@@ -124,23 +124,6 @@ This is the completed application built in the above video series.
 [gmail-clone]: ./projects/w7d4-gmail-clone.md
 [jbuilder-doc]: https://github.com/rails/jbuilder
 
-### CSS Day (NYC)
-* [Semantic HTML][semantic-html]
-* [CSS Selectors][selectors] (Review)
-* [The Box Model][box-model]
-* [CSS Display Attribute][display-attr] (Review)
-* [Positioning and Floating][positioning]
-* **Project**: [Screenshots to CSS][css-assignment]
-* **Demos/Solutions**: [css-demos][css-demos]
-
-[semantic-html]: ./w7d5/CSS/semantic-html.md
-[selectors]: https://github.com/appacademy/js-curriculum/blob/master/w6d2/selectors.md
-[box-model]: ./w7d5/CSS/box-model.md
-[display-attr]: https://github.com/appacademy/js-curriculum/blob/master/w6d2/display.md
-[positioning]: ./w7d5/CSS/positioning-and-floating.md
-[css-assignment]: ./w7d5/CSS/w7d5-css-assignment.md
-[css-demos]: https://github.com/jonathanlemuel/css-demos
-
 ## w7d6-w7d7
 * See [Lightning Talks curriculum][lightning-talks] for readings.
 * Submit final project proposal
