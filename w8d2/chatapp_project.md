@@ -31,7 +31,7 @@ are going to follow convention by using this structure.
 
 ### `package.json`
 
-Run `npm init` to build your package json (you can give the default 
+Run `npm init` to build your package json (you can give the default
 answer for most of the questions by just pressing enter for all of the
 prompts).
 
@@ -54,7 +54,7 @@ we're not going to commit the vendor libraries to github.
 **You will use the [node-static library][node-static] to serve static files.**
 
 Node has a very powerful http module which can be used to respond to http
-requests. For todays project we'll be sending back the contents of some 
+requests. For todays project we'll be sending back the contents of some
 static files. One great node module for serving static files is `node-static`.
 The code below will serve up the files in the `public` directory.
 
@@ -112,9 +112,9 @@ The [Socket.IO documentation][socket-io-docs] has many examples of
 setting up a server.  Here's one:
 
 ```javascript
-var io = require('socket.io').listen(server)
+var io = require('socket.io')(server);
 
-io.sockets.on('connection', function (socket) {
+io.on('connection', function (socket) {
   socket.emit('some_event_name', { hello: 'world' });
   socket.on('some_other_event_name', function (data) {
     console.log(data);
@@ -123,7 +123,7 @@ io.sockets.on('connection', function (socket) {
 ```
 
 The `socket.io` server piggybacks off of a `server`
-defined with `http` such as the one you defined in `app.js` using the 
+defined with `http` such as the one you defined in `app.js` using the
 node-static library. In our code, we'll separate the logic for the
 socket.io server into a `chat_server.js` file.
 
@@ -143,7 +143,7 @@ the `io.on('connection'...` line.
 
 The `socket.emit` command sends a message to the socket that just
 connected.  To send a message to all sockets, use
-`io.sockets.emit('message', { text: 'this is the text' })`.  The first
+`io.emit('message', { text: 'this is the text' })`.  The first
 argument of `emit` is the name of the event it is emitting, and the
 second argument is data to send along with that event.
 
@@ -236,7 +236,7 @@ received.  This could also be implemented as a method on the `Chat`
 class object.
 
 Finally, bind the `submit` event of the `send-message` form to trigger
-the processing of user input.  Remember to wait until the form is on 
+the processing of user input.  Remember to wait until the form is on
 the page and the document is ready before attempting to bind events to it.
 
 You'll need to require the scripts `chat.js` and `chat_ui.js` in your
@@ -341,7 +341,7 @@ supports splitting connections up between many *rooms*.
 
 Here; have some [documentation about rooms in Socket.IO][socket-io-rooms-docs].
 
-[socket-io-rooms-docs]: https://github.com/LearnBoost/socket.io/wiki/Rooms
+[socket-io-rooms-docs]: http://socket.io/docs/rooms-and-namespaces/#rooms
 
 ### Adding the functionality to `lib/chat-server.js`
 
@@ -353,11 +353,11 @@ Here; have some [documentation about rooms in Socket.IO][socket-io-rooms-docs].
 * Automatically have connecting users `join` a `lobby` room when they
   first connect.
 
-* Change all the `io.sockets.emit(...)` events to broadcast only to
+* Change all the `io.emit(...)` events to broadcast only to
   the room specified in the message data:
 
 ```javascript
-  io.sockets.in(room).emit('message', {
+  io.to('some room').emit('message', {
     text: (nicknames[socket.id] + ": " + message.text)
   });
   ```
