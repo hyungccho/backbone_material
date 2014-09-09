@@ -6,9 +6,11 @@
 [intro-backbone]: ./w6d6-w6d7/intro-backbone.md
 
 ### Backbone App Demo - Videos
+
 Watch a perfect Backbone application built from beginning to end.
 Be sure to review every commit diff by clicking the ':notebook: diff' link to the right of the video to observe
 the actual changes made in the video.
+
 * [:movie_camera:  01: API (15 min)](https://vimeo.com/groups/appacademy/videos/84654425) [:notebook: diff][bb-00-01-diff]
 * [:movie_camera:  02: Backbone Intro, Models (27 min)](https://vimeo.com/groups/appacademy/videos/84654427) [:notebook: diff][bb-01-02-diff]
 * [:movie_camera:  03: Collections (23 min)](https://vimeo.com/groups/appacademy/videos/84654428) [:notebook: diff][bb-02-03-diff]
@@ -43,11 +45,8 @@ This is the completed application built in the above video series.
 [backbone-view]: ./w7d2/backbone-view.md
 [backbone-event]: ./w7d2/backbone-event.md
 
+
 ## w7d1
-
-* **Project**: ???
-
-## w7d2
 
 * [:movie_camera:  08: getOrFetch (13min)](https://vimeo.com/groups/appacademy/videos/84656488) [:notebook: diff][bb-07-08-diff]
 * [:movie_camera:  09: associations (12min)](https://vimeo.com/groups/appacademy/videos/84656490) [:notebook: diff][bb-08-09-diff]
@@ -68,7 +67,7 @@ This is the completed application built in the above video series.
 
 [journal-app]: ./projects/w7d2-journal.md
 
-## w7d3
+## w7d2
 * [:movie_camera:  12: Nested View, Markdown (30min)](https://vimeo.com/groups/appacademy/videos/85052093) [:notebook: diff][bb-11-12-diff]
 * [:movie_camera:  13: ZombieView, Swapping Router (20min)](https://vimeo.com/groups/appacademy/videos/85052095) [:notebook: diff][bb-12-13-diff]
 * [:movie_camera:  16: Opening Views (15min)](https://vimeo.com/groups/appacademy/videos/85221709) [:notebook: diff][bb-15-16-diff]
@@ -93,7 +92,7 @@ This is the completed application built in the above video series.
 [backbone-relational]: ./w7d3/relational.md
 [news-reader]: ./projects/w7d3-news-reader.md
 
-## w7d4
+## w7d3
 * **Bootstrap (SF)**
 * [Getting started (bootstrap)][bootstrap-getting-started]
 * **Project**: [Build with Bootstrap][bootstrap-project]
@@ -101,7 +100,7 @@ This is the completed application built in the above video series.
 [bootstrap-getting-started]: http://getbootstrap.com/getting-started/
 [bootstrap-project]: ./w7d4/build_with_bootstrap.md
 
-## w7d5
+## w7d4
 
 ### Backbone MiniProject (SF)
 * [:movie_camera:  17: Composite View 1 (21min)](https://vimeo.com/groups/appacademy/videos/85221711) [:notebook: diff][bb-16-17-diff]
@@ -124,21 +123,22 @@ This is the completed application built in the above video series.
 [gmail-clone]: ./projects/w7d4-gmail-clone.md
 [jbuilder-doc]: https://github.com/rails/jbuilder
 
-## w7d6-w7d7
-* See [Lightning Talks curriculum][lightning-talks] for readings.
-* Submit final project proposal
-
-[lightning-talks]: https://github.com/appacademy/lightning-talks
-
-## w8d1
-* **Assessment06** ([practice][assessment-practice])
+## w7d5
 * **Backbone MiniProject II (SF)**
 * [jQuery UI][jquery-ui]
 
 [assessment-practice]: https://github.com/appacademy/assessment-prep
 [jquery-ui]: https://github.com/appacademy/lightning-talks/blob/master/w9d1/jquery_ui.md
 
-## w8d2
+## w7d6-w7d7
+* See [Lightning Talks curriculum][lightning-talks] for readings.
+* Submit final project proposal
+
+[lightning-talks]: https://github.com/appacademy/lightning-talks
+
+
+## w8d1
+* **Assessment06** ([practice][assessment-practice])
 * **Node.js Day (SF)**
 * [Intro to Node.js][node-intro]
 * [Intro Tutorial][node-tutorial] (Follow along the night before.)
