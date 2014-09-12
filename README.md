@@ -52,7 +52,7 @@ This is the completed application built in the above video series.
 * [:movie_camera:  09: associations (12min)](https://vimeo.com/groups/appacademy/videos/84656490) [:notebook: diff][bb-08-09-diff]
 * [:movie_camera:  10: JBuilder (20min)](https://vimeo.com/groups/appacademy/videos/84656491) [:notebook: diff][bb-09-10-diff]
 * [:movie_camera:  11: Nested JSON responses (15min)](https://vimeo.com/groups/appacademy/videos/85052094) [:notebook: diff][bb-10-11-diff]
-* [:movie_camera:  15: Model#destroy, More nested views (10min)](https://vimeo.com/groups/appacademy/videos/85052096) [diff][bb-13-15-diff]
+* [:movie_camera:  15: Model#destroy, More nested views (10min)](https://vimeo.com/groups/appacademy/videos/85052096) [:notebook: diff][bb-13-15-diff]
 * [Getting Started With Your Very Own Backbone! (gem 'backbone-on-rails')][backbone-intro]
 
 [bb-07-08-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-07...backbone-08
