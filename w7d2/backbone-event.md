@@ -26,8 +26,10 @@ example.set({ title: "new title" });
 listening for the callback. 
 
 **Why not just use other.on(event, callback, object) ?**: `listenTo` will keep 
-track of the events registered and can remove them all at once later on. This 
-will help in the clean up process when we swap views.
+track of the events registered and can remove them all at once later on. If we use
+`on` when we `remove` the view, there will still be events registered to the view,
+which will prevent the view from being garbage collected, which will cause memory leaks
+and potentially other unwanted behavior. 
 
 ## Built-in Events (from backbone docs)
 
