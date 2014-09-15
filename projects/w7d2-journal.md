@@ -91,7 +91,7 @@ started:
 
 ## Phase III: Build a `PostShow` class; write the Router
 
-* Build a view class to show a post.
+* Build a view class and template to show a post.
 * Just show the title/body.
 * Add a `Posts` Router class. You should have two routes:
     * `""`(empty string) : install the `PostsIndex` with all the `Posts`.
@@ -99,6 +99,10 @@ started:
 * When constructing the `Posts` router, you should pass in the DOM
   element that it controls. It should swap content in and out of this
   element.
+* In the show route of the Router, you'll need to provide the appropriate
+  Post model instance as the `model` for your Show view instance. Consider
+  writing a `getOrFetch` method on your `Posts` collection to make it easy
+  to retrieve a post by a given ID.
 * Throw a "back" link on your `PostShow`.
 
 ## Phase IV: Build a `PostForm`
