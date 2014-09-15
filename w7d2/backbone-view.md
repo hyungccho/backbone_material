@@ -29,7 +29,7 @@ the names of the local variables and the values are the values of the variables.
 Lucky for us, JST looks and feels just like ERB.
 
 ```html
-<!-- app/assets/templates/examples/index.ejs.jst -->
+<!-- app/assets/templates/examples/index.jst.ejs -->
 <h1><%= examples.first().escape('title') %></h1>
 ```
 
