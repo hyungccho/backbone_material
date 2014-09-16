@@ -74,7 +74,8 @@ Bootstrap will style them a little by default, but we want to take advantage
 of all the form styling as well as adopting the grid system.
 
 0. Read the documentation for [basic forms][bootstrap-forms]. Read the code. What do we need to change in our code so that it will receive the bootstrap styling?
-0. Put all of the things *inside* the form tag into a new div, and give it the class `form-group`.
+0. Put all the label and input pairs *inside* the form tag into new divs with the class `form-group`.
+   **Note:** The Bootstrap styling won't apply correctly if you nest the inputs inside the labels.
 0. Give all the inputs that are not hidden the class `form-control`. This will give them the bootstrap styling. But now they take up the whole page and look silly! Continue to the next step. 
 0. Read the documentation on the [grid system][bootstrap-grid-system]. It is short; read it. 
 0. To take advantage of the aforementioned grid, we must put all of our html elements into rows and columns. Do this by first putting everything in a `div` with the class `row`. Inside this we need to put a column to control the width of our content. I want it to take up 1/3 of the screen. The screen is divided into twelve columns, so we should put all the content into a column of width 4. To do this, put everything that is *inside* the `row` div into a `div` with the class `col-xs-4`. The `xs` from the class `col-xs-4` indicates to bootstrap's grid system that this is for 'xtra small' devices and to not do some fancy adaptation if the screen resolution is below a certain threshold. Meaning: if we display this page on a mobile device our columns will still be next to each other instead of on top of each other. 
