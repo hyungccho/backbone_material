@@ -26,9 +26,9 @@ feed if `updated_at` is older than `30.seconds.ago`. Return the association,
 `latest_entries` as an association that will give us all `entries`, including those that
 are less than 30 seconds old. You can use [this quickly updating feed][quickfeed]
 to make sure your method works correctly; it updates every 10 seconds.
-0. Let's update the show and index methods for our `FeedsController`. Right now,
+0. Let's update the show method for our `FeedsController`. Right now,
 visiting the show route for a feed only includes the information about the feed
-object. We want all the entries to also be packaged in the JSON. We can do this
+object. We want all the entries for that feed to also be packaged in the JSON. We can do this
 easily by adding an additional arguments to the params hash we give to `render`.
 Now, our only argument is `json: Feed.find(params[:id])`. If we add 
 `include: :latest_entries` it will also include the `latest_entries` for that
