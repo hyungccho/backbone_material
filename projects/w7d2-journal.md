@@ -96,12 +96,15 @@ started:
 * Add a `Posts` Router class. You should have two routes:
     * `""`(empty string) : install the `PostsIndex` with all the `Posts`.
     * `posts/:id` to display a single `Post`.
-* When constructing the `Posts` router, you should pass in the DOM
+* Instantiate the router in the `initialize` method of your app's namespace.
+* When constructing the router, you should pass in the DOM
   element that it controls. It should swap content in and out of this
   element.
+* After the router instantiation, call `Backbone.history.start()` so
+  Backbone will start listening for changes in the URL.
 * In the show route of the Router, you'll need to provide the appropriate
-  Post model instance as the `model` for your Show view instance. Consider
-  writing a `getOrFetch` method on your `Posts` collection to make it easy
+  Post model instance as the `model` for your Show view instance. Write and
+  use a `getOrFetch` method on your `Posts` collection to make it easy
   to retrieve a post by a given ID.
 * Throw a "back" link on your `PostShow`.
 
@@ -118,8 +121,9 @@ started:
       from the form.
     * Call `Model#save` with the attributes as the first argument, and an 
       [options-hash][model-save] as the second argument.
-    * On success, redirect back to the index page. Check out the
-      [router docs][router-docs].
+    * On success, redirect back to the index page. Use
+      `Backbone.history.navigate(url, {trigger: true})`.
+      * **Note:** You'll have issues if you forget `{trigger: true}`.
     * On failure, re-render the form with errors.
       * Note that since you don't want to lose the user input, you may
       want to parameterize your form template with an attributes
