@@ -53,7 +53,7 @@ looking at the `models` inside the collection.
 
 ### Feed Routes and Index View
 
-0. In your `new_reader.js` root file (or whatever you called it) make sure
+0. In your `news_reader.js` root file (or whatever you called it) make sure
 your `initialize` method is being called, creates a new instance of your router,
 and calls `Backbone.history.start();`.
 0. Create a feed index view and template. This should print the titles of all your feeds.
