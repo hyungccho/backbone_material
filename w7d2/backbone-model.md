@@ -23,7 +23,7 @@ var example = new BackboneExample.Models.Example({ title: "First Ex.", id: 1 });
 ## `get` and `set`
 Backbone Models have `get` and `set` methods that allow us to access the model's 
 data which is stored in an `attributes` JSON object. Like ActiveRecord models,
-all the essential data for a Backbone model is stored in an insternal object
+all the essential data for a Backbone model is stored in an internal object
 called `attributes`. Where ActiveRecord provides us getter and setter methods
 for each attribute that abstract away access to `attributes`, Backbone models
 provide access through `get` and `set`.
