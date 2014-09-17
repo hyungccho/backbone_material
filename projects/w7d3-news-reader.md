@@ -170,7 +170,7 @@ when the collection's `fetch` function succeeds.
   * In the router, instead of `get`ing the feed from the collection and passing
   that to the `FeedView`, use our new `getOrFetch(id)` function to get the model.
 
-### More Functionality
+### Bonus: More Functionality
   * Add a refresh button to the FeedShowView.
   * Make the entries in the Feed Show View subviews.
   * Add delete buttons to the Feeds Index.
