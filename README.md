@@ -110,13 +110,13 @@ This is the completed application built in the above video series.
 * [Backbone.View II][backbone-view-ii]
 * [RailsCast on Jbuilder][jbuilder-railscast]
 * Read the [jbuilder doc.][jbuilder-doc]. It is short and purely examples. Do read it.
-* **Solo Project**: [Trello Clone][trello-project]  (Please make sure you are on the skeleton branch!)
+* **Solo Project**: [Trello Clone][trello-project]
 
 [bb-16-17-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-16...backbone-17
 [bb-17-18-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-17...backbone-18
 [bb-18-19-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-18...backbone-19
 [bb-19-20-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-19...backbone-20
-[trello-project]: https://github.com/appacademy/TrelloClone/tree/skeleton
+[trello-project]: https://github.com/appacademy/TrelloClone/
 [backbone-view-ii]: ./w7d4/backbone-view-ii.md
 [jbuilder-railscast]: http://railscasts.com/episodes/320-jbuilder
 [gist-clone]: ./projects/w7d3-gist-clone.md
