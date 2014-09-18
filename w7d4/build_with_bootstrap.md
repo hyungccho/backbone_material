@@ -138,41 +138,49 @@ to simulate validation from the server.
 
 ## Phase 7: Index/Home Page
 0. As you add content to this page, remember to use our grid layout;
-put each section in a row, and give it width and centering with the `col-xs` 
+put each section in a row, and give it width and centering with the `col-xs`
 and `col-xs-offset` classes.
-1. Put a [carousel][carousel] front and center on this page. Use some nice images to populate it. (I like finding CC-licensed images with flickr's 
+1. Put a [carousel][carousel] front and center on this page. Use some nice images to populate it. (I like finding CC-licensed images with flickr's
 advanced search options.  Have some [creative commons kittens][cc-kittens].)
 
 
 Here are some more tips:
  * To add images in a rails project, put them in the `assets/images` directory
   and use the [image_tag helper][rails-image-tag].
- * In this case the code will be similar to the bootstrap example.  
- You can pretty much copy their example, changing the outer div id and the 
+ * In this case the code will be similar to the bootstrap example.
+ You can pretty much copy their example, changing the outer div id and the
  images.
- * You almost [never should use a carousel][should-i-use-a-carousel], 
- but it's a good exercise in 
+ * You almost [never should use a carousel][should-i-use-a-carousel],
+ but it's a good exercise in
  using one of bootstrap's fanciest features.
 
 2. After the carousel, add several [Lorem Ipsum][lorem-generator] headers with paragraphs following them.  We want some dummy content.
-3. In the dummy text, add 5 links that have [tooltips][bootstrap-tooltips]. 
+3. In the dummy text, add 5 links that have [tooltips][bootstrap-tooltips].
 Notice that you must trigger the attachment of the tooltips via javascript,
-like this: 
+like this:
 `javascript
 $(".mySelector").tooltip();
 `
 4. Add scrollspy: You will create new `nav` in the sidebar with links to the headers that we just added, and use the [scrollspy feature][bootstrap-scrollspy] to link the scrolling of the page to clicking of the headers.  Drive for an appearance similar to what is found [here][bootstrap-js]. See the list of topics on the left side of the page? See how they update as you scroll down the list? That's scrollspy! Make yours like that!
 
 Here are some tips:
- * ScrollSpy activates automatically when you add the attributes `data-spy` 
- and `data-target` to the nav that will update when the page scrolls. It works 
- by tracking the scroll position of the page and adding the class `active` to 
- the nav link with a `href` that matches the `id` of the current header.
- * In the sidebar or nav element that will use scrollspy, you must 
- include styling that 
- makes the `active` link look different from the other links.  You can use the 
- class `navbar-default` and `navbar-nav`, or you can add your own styles to 
- make the `active` class stand out.
+ * ScrollSpy activates automatically when you add the attributes `data-spy` and
+   `data-target` to the part of the page whose scrolling you want to monitor.
+   **NOTE**: It works best when you add `data-spy` and `data-target` to the
+   `<body>` tag. It works by tracking the scroll position of the page and adding
+   the class `active` to the nav link with a `href` that matches the `id` of the
+   current header.
+ * The `data-target` attribute links the spied-on element (`<body>`) to the
+   container of the nav menu it should update on scroll. So add an ID or a class
+   to the container of your menu and set the value of `data-target` to a
+   matching CSS/jQuery selector.
+ * In the sidebar or nav element that will use scrollspy, you must include
+   styling that makes the `active` link look different from the other links.
+   You can use the class `navbar-default` and `navbar-nav`, or you can add your
+   own styles to make the `active` class stand out.
+ * If you want your sidebar menu to stay in place as you scroll, add
+   `data-spy="affix"` to it. This will give it `position: fixed` so it stays in
+   view regardless of where you scroll to.
 
 [should-i-use-a-carousel]: http://shouldiuseacarousel.com/
 [carousel]: http://getbootstrap.com/javascript/#carousel
