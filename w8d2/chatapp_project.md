@@ -62,8 +62,7 @@ The code below will serve up the files in the `public` directory.
 ```javascript
 // lib/app.js
 var http = require('http'),
-  static = require('node-static'),
-  socketio = require('socket.io');
+  static = require('node-static');
 
 var file = new static.Server('./public');
 
@@ -107,7 +106,7 @@ Let's start with the server.
 
 Start a file for the Socket.IO server, and require the `socket.io`
 library.  You'll set up your server in this file and then export a
-`createChat` function that can be called in the main `server.js` file.
+`createChat` function that can be called in the main `app.js` file.
 
 The [Socket.IO documentation][socket-io-docs] has many examples of
 setting up a server.  Here's one:
@@ -248,9 +247,6 @@ You'll need to require the scripts `chat.js` and `chat_ui.js` in your
 
 ## Phase IV: Nicknames for Users
 
-We are about to add a new feature to the application.  Now would be a
-great time to commit the current state and start a new branch.
-
 In this app, the client-side and server-side javascript each listen
 for and respond to events.  To implement any feature, you must add the
 logic on each side to listen for and respond to the event.
@@ -261,10 +257,10 @@ them a default username and allowing them to switch once they connect
 to the application.  Users should be able to enter `/nick
 desired_nickname_here` in order to switch nicknames.
 
-### changes to `lib/chat-server.js`
+### changes to `lib/chat_server.js`
 
 We will add the logic for keeping track of and changing nicknames to
-the `chat-server` file.  Use helper functions as needed.
+the `chat_server.js` file.  Use helper functions as needed.
 
 * Add two variables in `chat_server.js` that will track nickname data.
   `guestnumber` should start at 1 and track the number of users who
@@ -287,8 +283,8 @@ the `chat-server` file.  Use helper functions as needed.
 
   ```javascript
   socket.emit('nicknameChangeResult', {
-  success: false,
-  message: 'Names cannot begin with "Guest".'
+    success: false,
+    message: 'Names cannot begin with "Guest".'
   });
   ```
 
@@ -345,7 +341,7 @@ Here; have some [documentation about rooms in Socket.IO][socket-io-rooms-docs].
 
 [socket-io-rooms-docs]: http://socket.io/docs/rooms-and-namespaces/#rooms
 
-### Adding the functionality to `lib/chat-server.js`
+### Adding the functionality to `lib/chat_server.js`
 
 * Just like we track the current nickname of each connected user in
   the `nicknames` variable, let's track the current room of each user
@@ -390,7 +386,7 @@ testing much easier!
 
 ## Phase VI: More Features
 
-* Refactor the nickname management functionality in the `server.js`
+* Refactor the nickname management functionality in the `chat_server.js`
   file to be a class `NicknameManager` with attributes and methods.
 * Caching files (in the static `http` server)
 
@@ -413,7 +409,7 @@ address.  (It will probably be next to the word `inet` and use a
 format of `###.#+.#+.#+`.  It is not `127.0.0.1`: that is your
 localhost address.)
 
-Start up your server with `node server.js`.  On another machine, visit
+Start up your server with `node lib/app.js`.  On another machine, visit
 `http://__your_ip_address_here:your_port_here`, and test the basic
 chat functionality.
 
