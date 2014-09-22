@@ -35,7 +35,7 @@ Run `npm init` to build your package json (you can give the default
 answer for most of the questions by just pressing enter for all of the
 prompts).
 
-Add a [package.json](/node_express/intro.md#setup) file to your root
+Add a [package.json][package_json] file to your root
 directory, and list "socket.io" version "1.0.x", "mime" version
 "~1.2.7", and "node-static" version "^0.7.4" as dependencies.  We'll be using Socket.IO to add
 cross-browser support for websockets, and the "mime" library will
@@ -48,6 +48,7 @@ scripts.  Add a [`.gitignore`][gitignore] with `node_modules` in it;
 we're not going to commit the vendor libraries to github.
 
 [gitignore]: http://www.sujee.net/tech/articles/gitignore/
+[package_json]: https://www.npmjs.org/doc/files/package.json.html
 
 ## Phase II: Serving Static Files
 
