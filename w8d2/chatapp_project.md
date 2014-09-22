@@ -55,7 +55,7 @@ we're not going to commit the vendor libraries to github.
 **You will use the [node-static library][node-static] to serve static files.**
 
 Node has a very powerful http module which can be used to respond to http
-requests. For todays project we'll be sending back the contents of some
+requests. For today's project we'll be sending back the contents of some
 static files. One great node module for serving static files is `node-static`.
 The code below will serve up the files in the `public` directory.
 
@@ -269,7 +269,8 @@ the `chat-server` file.  Use helper functions as needed.
 * Add two variables in `chat_server.js` that will track nickname data.
   `guestnumber` should start at 1 and track the number of users who
   connect.  `nicknames` should be a hash, and will store the names of
-  connected users.
+  connected users. You can use the user's socket object's `.id`
+  property as the key.
 
 * Have the chat server listen for a `nicknameChangeRequest` event.
   The callback for this event will filter for allowed nicknames and
