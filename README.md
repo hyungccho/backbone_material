@@ -148,7 +148,7 @@ This is the completed application built in the above video series.
 * [:movie_camera:  node-04-ruby-io-select][node-04-vid]
 * [:movie_camera:  node-05-ruby-event-reactor][node-05-vid]
 * [:movie_camera:  node-06-node-event-reactor][node-06-vid]
-* **Project**: [ChatApp Project][chatapp-project]
+* **Solo Project**: [ChatApp Project][chatapp-project]
 
 [node-demo]: https://github.com/appacademy/node-demo
 [node-02-vid]: https://vimeo.com/groups/appacademy/videos/88022113
