@@ -62,7 +62,9 @@ window.EX.Models.RecursiveExample = Backbone.Model.extend({
     if (!this._child) {
       this._child = new EX.Models.RecursiveExample( { parent: this } );
     }
-    return this._comments;
+    return this._child;
+  }
+});
 ```
 
 ## `toJSON`
