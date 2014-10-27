@@ -110,7 +110,7 @@ var httpServer = http.createServer(callback);
 
 httpServer.listen(port);
 
-var listen = require('./socketio-server.js).listen;
+var listen = require('./socketio-server.js').listen;
 
 listen(httpServer);
 
