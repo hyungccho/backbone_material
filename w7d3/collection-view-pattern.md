@@ -12,7 +12,7 @@ this is to iterate over the collection of items in the template like this:
 ```
 
 This approach (iterating in template) is fine for simple lists of items, but to 
-add greater functionality and flexability to each of the items, prefer rendering 
+add greater functionality and flexibility to each of the items, prefer rendering 
 a view for each of the items in the list from inside the view.
 
 ```js
