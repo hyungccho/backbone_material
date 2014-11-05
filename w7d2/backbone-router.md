@@ -10,7 +10,7 @@ one for all of our backbone apps**.
 
 ## `routes`
 
-The `routes` hash of a router will map URLs with paramaters to functions in your 
+The `routes` hash of a router will map URLs with parameters to functions in your 
 router. Routes can contain parameters prefixed with colon, similar to symbols in 
 rails. Check this out:
 

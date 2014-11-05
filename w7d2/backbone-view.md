@@ -40,7 +40,7 @@ console.log(content); // => "<h1>First Ex.</h1>"
 
 ### `render`
 
-One primary responsiblity of a view is to "render" content into an element on the DOM. 
+One primary responsibility of a view is to "render" content into an element on the DOM. 
 `render` should:
 
 1.  Compile the template into content
