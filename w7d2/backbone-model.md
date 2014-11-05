@@ -80,9 +80,10 @@ making common `$.ajax` requests:
 
 ## `save`
 
-`save` is a method that will make a `$.ajax` request to your rails controller using the 
-model `url` or `urlRoot` attribute.  It will either make a `POST`, `PUT`, or `PATCH` 
-request depending on whether the model has an id and what options you pass in.
+`save` is a method that will make a `$.ajax` request to your rails controller
+using the model `url` or `urlRoot` attribute.  It will either make a `POST`,
+`PUT`, or `PATCH` request depending on whether the model has an id and what
+options you pass in.
 
 Examples:
 
@@ -104,15 +105,15 @@ example.save({ title: "Example title" }, {
 // AND set the attributes of 'example` to the saved attributes on the javascript side.
 ```
 
-Notice the first argument of `save` is a JS object containing any attributes you want to save.
-If you have already set the attributes on the model, then just pass an empty object as the 
-first argument.
+Notice the first argument of `save` is a JS object containing any attributes
+you want to save.  If you have already set the attributes on the model, then
+just pass an empty object as the first argument.
 
 ## `fetch`
 
-`fetch`, when called on a Backbone model which has an `id`, will make an `$.ajax` request 
-that goes to the controller's `show` method.  On success, it sets the attributes of the 
-model to the response sent by your Rails controller.
+`fetch`, when called on a Backbone model which has an `id`, will make an
+`$.ajax` request that goes to the controller's `show` method.  On success, it
+sets the attributes of the model to the response sent by your Rails controller.
 
 ```javascript
 BackboneExample.Models.Example = Backbone.Model.extend({
@@ -123,13 +124,13 @@ var example = new BackboneExample.Models.Example({ id: 1 });
 // The model must have an id - otherwise Rails doesn't know what to fetch
 example.fetch({
   success: function(model, response, options){
-  //the success callback recieves the model itself as it's first argument
+  //the success callback receives the model itself as it's first argument
   },
   error: function(model, response, options){
   //in the error callback, the response argument will have info about the error
   }
 });
-// a successful fetch sets the attributues of `example` to match the record in 
+// a successful fetch sets the attributes of `example` to match the record in 
 // your Rails database.
 ```
 
