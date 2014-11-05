@@ -12,7 +12,7 @@
 and show urls for the `feeds` resource.
 
 0. Using the rails console use the two custom methods in the `Feed` model to
-create and reload an RSS feed. Make sure you undestand how these methods work.
+create and reload an RSS feed. Make sure you understand how these methods work.
 
 [rss-skeleton]: https://github.com/appacademy/news-reader
 
@@ -89,7 +89,7 @@ when the collection's `fetch` function succeeds.
   a `Feed#parse(response)` function to parse the data from the server. 
 
   The default behavior for `parse` is to take whatever the javascript object
-  response contains, make a dup of it, and set that to the `attributes` of a
+  response contains, make a duplicate of it, and set that to the `attributes` of a
   model. When the response contains data for a nested collection, we must take 
   the nested data out of the response and use it to populate the collection before
   returning the object. 

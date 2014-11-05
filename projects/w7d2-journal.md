@@ -1,7 +1,7 @@
 # Journal
 
-Design a Journal App using a Rails backend and Backbone on the frontend. Try to
-do this without referring to the tutorial. Do the following before getting
+Design a Journal App using Rails on the backend and Backbone on the frontend.
+Try to do this without referring to the tutorial. Do the following to get
 started:
 
 * Add `gem 'backbone-on-rails'` to your Gemfile.
