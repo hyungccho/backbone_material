@@ -110,7 +110,7 @@ remove: function() {
 },
 ```
 
-## A SwappingRouter
+## A Swapping Router
 
 A common method to write for a Backbone Router is `_swapView`. This
 should, given a new view to render, first call `remove` on the old
