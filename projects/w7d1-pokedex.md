@@ -92,7 +92,7 @@ Now our Pokemon are updating and re-rendering, cool! But what about the Pokemon 
  0. Add a "refresh list" button to your `.pokemon-list` `div`.
  0. Set up a listener that calls `addAllPokemonToList` when this button is clicked. Now, when you update your Pokemon, you should be able to click this button, and see its updated details.
 
-#### (automatically) with Backbone `trigger`s
+#### (automatically) with Backbone `trigger`s:
 
 As we are saving, updating, and fetching our Backbone Models and Collections, these objects are firing `trigger`s silently in the background. Similar to binding jQuery events, we can bind callbacks that listen for when these `trigger`s are called. 
 
