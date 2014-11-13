@@ -85,12 +85,14 @@ Now we will convert our Pokemon Detail view into a form that we can use to updat
    
 ### Avoid Poke-info mis-match
 
+#### (manually) With a 'refresh' button:
+
 Now our Pokemon are updating and re-rendering, cool! But what about the Pokemon list? This list may now be showing out-of-date information. Let's make sure that any updates that we make in our Detail view are reflected in the list of Pokemon. 
 
  0. Add a "refresh list" button to your `.pokemon-list` `div`.
  0. Set up a listener that calls `addAllPokemonToList` when this button is clicked. Now, when you update your Pokemon, you should be able to click this button, and see its updated details.
 
-### Listen to Backbone `trigger`s
+#### (automatically) with Backbone `trigger`s
 
 As we are saving, updating, and fetching our Backbone Models and Collections, these objects are firing `trigger`s silently in the background. Similar to binding jQuery events, we can bind callbacks that listen for when these `trigger`s are called. 
 
