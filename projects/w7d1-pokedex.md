@@ -1,4 +1,5 @@
-# w7d1 Backbone Pokedex, or "Gotta Fetch 'em All"
+# w7d1 Backbone Pokedex 
+## or "Gotta Fetch 'em All"
 
 First, run `rake db:create db:migrate db:seed` for the initial
 database setup.
@@ -104,6 +105,8 @@ Now update a Pokemon from the web form - any changes you make should be immediat
 
 Relationships between models in Backbone is a little trickier than in Rails. We don't have access to ActiveRecord methods like `belongs_to` or `has_many`, but we can build our own functions to model these relationships.
 
+Our Pokemon look bored - lets add a new model and associations for Toy in our application.
+
 ### Jbuilder
 
 Extend your current Jbuilder templates to include Toys. We want to deliver the associated models when we call the `show` action, but not the `index`.
@@ -129,3 +132,63 @@ The JSON data returned for a Pokemon should now look something like this:
   ]
 }
 ```
+`toys` is on the same level as the rest of our Pokemon's attributes. But instead of being added as an attribute, we want to create a new `Toys` collection, and store this on our `Pokemon` model. 
+
+To do this, we need to overwrite the `parse` method on our `Pokemon` model. The `parse` method gets called when your model is reading the data coming from the server, before it gets `set` on your model. 
+
+The `parse` method gets passed the `jsonResponse` from the server when you fetch your model, then it returns the data to be set as attributes on your model. By default, it just returns the same `jsonResponse`. We can override this by writing out own `parse` method - we will not disrupt the internal functionality of Backbone as long as we remember to return our model's attributes at the end.
+
+```
+// default:
+
+parse: function (jsonResponse) {
+  return jsonResponse;
+}
+
+// modified:
+
+parse: function (jsonResponse) {
+  // your code here
+  
+  return modifiedJsonResponse; // return attributes for your model
+}
+```
+
+Write the `parse` method for your `Pokemon` model. It should:
+
+ * Check to see if the jsonResponse object has a key named `toys`.
+ * If it does, set `this.toys` to a new `Toys` collection, and pass it the data from `toys`.
+ * Pass `this` as the second argument to the `Toys` constructor. We will see why in a moment.
+ * Remove the `toys` key from the jsonResponse object.
+ * return the modified jsonResponse, which Backbone will use to assign attributes on your model.
+
+Hey cool! Now we can access a collection of all of a Pokemon model's toys when we call `.toys`, just like ActiveRecord! 
+
+Now why did we pass in 'this' to the `Toys` constructor? We want to be able to call `this.pokemon` on the `Toys` collection, and have it return the correct `Pokemon` model. 
+ 
+ * Write an initialize method on the `Toys` collection. It should take two arguments: `models` and `pokemon`. Save `pokemon` in an instance variable, so that we have a pointer to this.
+
+### User Interface
+
+ * render toy list with showPokemonDetail
+ * render new toy form on showPokemonDetail
+ * show toy detail on click of toy list item
+
+Let's use our new functionality to add Toys to the Pokedex UI. 
+
+ * Write a function inside `showPokemonDetail` called `addAllToysToList`. This function should clear any toys from the current list (or remove the current list), then build a list with all of your `pokemon.toys` and append it to `.pokemon-detail`. Include each `toy`'s `data-id`. 
+   * You may also want to include the `toy.pokemon`'s `data-id`.
+ * Call this function when you render the Pokemon Detail, then call it again in the success callback when you fetch the Pokemon.
+ * Bind an event to the 'click' event on a toy list item that will render the Toy Detail view in the final panel. Write a method, `showToyDetailView` that this event can call.
+ 
+Now let's let the user create new toys.
+
+ * Write a `create` route and controller action for Toy. This should be nested under Pokemon.
+ * Render a new-toy form when you render Pokemon detail. Bind an event to the 'submit' of this form that will create a new Toy using the collection.
+ * What is the url for this route? It probably looks something like  'pokemon/:pokemon_id/toys'. To make the correct ajax call, we need to build the correct url. When you submit the Toy form:
+   * Use `this.pokes.get()`, passing in the `id` of the Pokemon currently in the detail view. Use this Pokemon's `.toys` collection `#create` method to make the ajax call.
+     * Our `toys` collection doesn't have a url yet. Since the route is nested under Pokemon, we need to use the id of `this.pokemon` to build it. Assign a function to the `Toys` collection that calls `url` on `this.pokemon` and adds `/toys` to generate the correct string. (Make sure to return this value.)
+     * Test that your `url` method is returning the right value by calling it in the console.
+   * On `success` of your `create` function, add the toy to the toys list and show the Toy detail view.
+ 
+ 
