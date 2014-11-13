@@ -175,10 +175,6 @@ Now why did we pass in 'this' to the `Toys` constructor? We want to be able to c
 
 ### User Interface
 
- * render toy list with showPokemonDetail
- * render new toy form on showPokemonDetail
- * show toy detail on click of toy list item
-
 Let's use our new functionality to add Toys to the Pokedex UI. 
 
  * Write a function inside `showPokemonDetail` called `addAllToysToList`. This function should clear any toys from the current list (or remove the current list), then build a list with all of your `pokemon.toys` and append it to `.pokemon-detail`. Include each `toy`'s `data-id`. 
