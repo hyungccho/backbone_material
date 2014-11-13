@@ -144,7 +144,10 @@ The `parse` method gets passed the `jsonResponse` from the server when you fetch
 parse: function (jsonResponse) {
   return jsonResponse;
 }
-
+```
+**default:**
+![](../images/parse_before.jpg)
+```
 // modified:
 
 parse: function (jsonResponse) {
@@ -153,6 +156,8 @@ parse: function (jsonResponse) {
   return modifiedJsonResponse; // return attributes for your model
 }
 ```
+**modified**
+![](../images/parse_after.jpg)
 
 Write the `parse` method for your `Pokemon` model. It should:
 
