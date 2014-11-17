@@ -55,6 +55,8 @@ This is the completed application built in the above video series.
 * [:movie_camera:  15: Model#destroy, More nested views (10min)](https://vimeo.com/groups/appacademy/videos/85052096) [:notebook: diff][bb-13-15-diff]
 * [Getting Started With Your Very Own Backbone! (gem 'backbone-on-rails')][backbone-intro]
 
+* **Project**: [Pokedex!][pokedex]
+
 [bb-07-08-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-07...backbone-08
 [bb-08-09-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-08...backbone-09
 [bb-09-10-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-09...backbone-10
@@ -62,10 +64,9 @@ This is the completed application built in the above video series.
 [bb-13-15-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-13...backbone-15
 
 [backbone-intro]: ./w7d2/backbone-intro.md
+[pokedex]: https://github.com/appacademy/pokedex/blob/master/README.md
 
-* **Project**: [JournalApp][journal-app]
 
-[journal-app]: ./projects/w7d2-journal.md
 
 ## w7d2
 * [:movie_camera:  12: Nested View, Markdown (30min)](https://vimeo.com/groups/appacademy/videos/85052093) [:notebook: diff][bb-11-12-diff]
@@ -75,8 +76,10 @@ This is the completed application built in the above video series.
 * [Backbone.Collection II][backbone-collection-ii]
 * [Backbone.Router II][backbone-router-ii]
 * [CollectionView pattern][collection-view-pattern]
-* **Project**: [News reader][news-reader]
 
+* **Project**: [JournalApp][journal-app]
+
+[journal-app]: ./projects/w7d2-journal.md
 
 [bb-11-12-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-11...backbone-12
 [bb-12-13-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-12...backbone-13
@@ -90,15 +93,12 @@ This is the completed application built in the above video series.
 [collection-view-pattern]: ./w7d3/collection-view-pattern.md
 [listen-to]: ./w7d3/listen-to.md
 [backbone-relational]: ./w7d3/relational.md
-[news-reader]: ./projects/w7d3-news-reader.md
+
 
 ## w7d3
-* **Bootstrap (SF)**
-* [Getting started (bootstrap)][bootstrap-getting-started]
-* **Project**: [Build with Bootstrap][bootstrap-project]
 
-[bootstrap-getting-started]: http://getbootstrap.com/getting-started/
-[bootstrap-project]: ./w7d4/build_with_bootstrap.md
+* **Project**: [News reader][news-reader]
+[news-reader]: ./projects/w7d3-news-reader.md
 
 ## w7d4
 
