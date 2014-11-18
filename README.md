@@ -77,9 +77,9 @@ This is the completed application built in the above video series.
 * [Backbone.Router II][backbone-router-ii]
 * [CollectionView pattern][collection-view-pattern]
 
-* **Project**: [JournalApp][journal-app]
+* **Project**: [Pokedex Day 2][pokedex2]
 
-[journal-app]: ./projects/w7d2-journal.md
+[pokedex2]: https://github.com/appacademy/pokedex/blob/master/README2.md
 
 [bb-11-12-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-11...backbone-12
 [bb-12-13-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-12...backbone-13
