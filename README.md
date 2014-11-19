@@ -84,12 +84,13 @@ This is the completed application built in the above video series.
 [backbone-collection-ii]: ./w7d3/backbone-collection-ii.md
 [backbone-router-ii]: ./w7d3/backbone-router-ii.md
 [collection-view-pattern]: ./w7d3/collection-view-pattern.md
-[listen-to]: ./w7d3/listen-to.md
 
 ## w7d3
 
+* [Backbone.View II][backbone-view-ii]
 * **Project**: [Journal App][journal-app]
 [journal-app]: ./projects/w7d3-journal-app.md
+[backbone-view-ii]: ./w7d3/backbone-view-ii.md
 
 ## w7d4
 
@@ -103,7 +104,6 @@ This is the completed application built in the above video series.
 * [:movie_camera:  18: Composite View 2 (11min)](https://vimeo.com/groups/appacademy/videos/85221712) [:notebook: diff][bb-17-18-diff]
 * [:movie_camera:  19: Composite View 3 (7 min)](https://vimeo.com/groups/appacademy/videos/85221714) [:notebook: diff][bb-18-19-diff]
 * [:movie_camera:  20: Composite View 4 (9min)](https://vimeo.com/groups/appacademy/videos/85221885) [:notebook: diff][bb-19-20-diff]
-* [Backbone.View II][backbone-view-ii]
 * [RailsCast on Jbuilder][jbuilder-railscast]
 * Read the [jbuilder doc.][jbuilder-doc]. It is short and purely examples. Do read it.
 * **Solo Project**: [Trello Clone][trello-project]
@@ -113,7 +113,6 @@ This is the completed application built in the above video series.
 [bb-18-19-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-18...backbone-19
 [bb-19-20-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-19...backbone-20
 [trello-project]: https://github.com/appacademy/TrelloClone/
-[backbone-view-ii]: ./w7d4/backbone-view-ii.md
 [jbuilder-railscast]: http://railscasts.com/episodes/320-jbuilder
 [gist-clone]: ./projects/w7d3-gist-clone.md
 [gmail-clone]: ./projects/w7d4-gmail-clone.md
