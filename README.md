@@ -37,13 +37,11 @@ This is the completed application built in the above video series.
 * [Backbone.Collection][backbone-collection]
 * [Backbone.Router][backbone-router]
 * [Backbone.View][backbone-view]
-* [Backbone.Event][backbone-event]
 
 [backbone-model]: ./w7d2/backbone-model.md
 [backbone-collection]: ./w7d2/backbone-collection.md
 [backbone-router]: ./w7d2/backbone-router.md
 [backbone-view]: ./w7d2/backbone-view.md
-[backbone-event]: ./w7d2/backbone-event.md
 
 
 ## w7d1
@@ -88,9 +86,11 @@ This is the completed application built in the above video series.
 ## w7d3
 
 * [Backbone.View II][backbone-view-ii]
+* [Backbone.Event][backbone-event]
 * **Project**: [Journal App][journal-app]
 [journal-app]: ./projects/w7d3-journal-app.md
 [backbone-view-ii]: ./w7d3/backbone-view-ii.md
+[backbone-event]: ./w7d3/backbone-event.md
 
 ## w7d4
 
