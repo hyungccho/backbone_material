@@ -33,6 +33,8 @@ and potentially other unwanted behavior.
 
 ## Built-in Events (from backbone docs)
 
+The arguments in parentheses will be passed to the callback when the event is triggered.
+
 +  "add" (model, collection, options) — when a model is added to a collection.
 +  "remove" (model, collection, options) — when a model is removed from a collection.
 +  "reset" (collection, options) — when the collection's entire contents have been replaced.
