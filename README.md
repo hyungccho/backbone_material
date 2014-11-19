@@ -67,7 +67,6 @@ This is the completed application built in the above video series.
 [pokedex]: https://github.com/appacademy/pokedex/blob/master/README.md
 
 
-
 ## w7d2
 * [:movie_camera:  12: Nested View, Markdown (30min)](https://vimeo.com/groups/appacademy/videos/85052093) [:notebook: diff][bb-11-12-diff]
 * [:movie_camera:  13: ZombieView, Swapping Router (20min)](https://vimeo.com/groups/appacademy/videos/85052095) [:notebook: diff][bb-12-13-diff]
@@ -76,31 +75,29 @@ This is the completed application built in the above video series.
 * [Backbone.Collection II][backbone-collection-ii]
 * [Backbone.Router II][backbone-router-ii]
 * [CollectionView pattern][collection-view-pattern]
-
 * **Project**: [Pokedex Day 2][pokedex2]
 
 [pokedex2]: https://github.com/appacademy/pokedex/blob/master/README2.md
-
 [bb-11-12-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-11...backbone-12
 [bb-12-13-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-12...backbone-13
 [bb-15-16-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-15...backbone-16
-[wine-cellar]: http://coenraets.org/blog/2011/12/backbone-js-wine-cellar-tutorial-part-1-getting-started/
-[backbone-on-rails-book]: https://learn.thoughtbot.com/products/1-backbone-js-on-rails
-[backbone-fundamentals]: https://github.com/addyosmani/backbone-fundamentals
 [backbone-model-ii]: ./w7d3/backbone-model-ii.md
 [backbone-collection-ii]: ./w7d3/backbone-collection-ii.md
 [backbone-router-ii]: ./w7d3/backbone-router-ii.md
 [collection-view-pattern]: ./w7d3/collection-view-pattern.md
 [listen-to]: ./w7d3/listen-to.md
-[backbone-relational]: ./w7d3/relational.md
-
 
 ## w7d3
 
-* **Project**: [News reader][news-reader]
-[news-reader]: ./projects/w7d3-news-reader.md
+* **Project**: [Journal App][journal-app]
+[journal-app]: ./projects/w7d3-journal-app.md
 
 ## w7d4
+
+* **Project**: [News reader][news-reader]
+[news-reader]: ./projects/w7d4-news-reader.md
+
+## w7d5
 
 ### Backbone Mini Project (SF)
 * [:movie_camera:  17: Composite View 1 (21min)](https://vimeo.com/groups/appacademy/videos/85221711) [:notebook: diff][bb-16-17-diff]
@@ -123,7 +120,7 @@ This is the completed application built in the above video series.
 [gmail-clone]: ./projects/w7d4-gmail-clone.md
 [jbuilder-doc]: https://github.com/rails/jbuilder
 
-## w7d5
+## w8d1
 * **Backbone Mini Project II (SF)**
 * [jQuery UI][jquery-ui]
 
@@ -136,8 +133,7 @@ This is the completed application built in the above video series.
 
 [lightning-talks]: https://github.com/appacademy/lightning-talks
 
-
-## w8d1
+## w8d2
 * **Assessment06** ([practice][assessment-practice])
 * **Node.js Day (SF)**
 * [Intro to Node.js][node-intro]
