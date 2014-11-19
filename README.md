@@ -62,7 +62,6 @@ This is the completed application built in the above video series.
 * [Backbone.View II][backbone-view-ii]
 * [Backbone.Router][backbone-router]
 * [Backbone.Router II][backbone-router-ii]
-* [CollectionView pattern][collection-view-pattern]
 * [:movie_camera:  12: Nested View, Markdown (30min)](https://vimeo.com/groups/appacademy/videos/85052093) [:notebook: diff][bb-11-12-diff]
 * [:movie_camera:  13: ZombieView, Swapping Router (20min)](https://vimeo.com/groups/appacademy/videos/85052095) [:notebook: diff][bb-12-13-diff]
 * [:movie_camera:  16: Opening Views (15min)](https://vimeo.com/groups/appacademy/videos/85221709) [:notebook: diff][bb-15-16-diff]
@@ -72,7 +71,6 @@ This is the completed application built in the above video series.
 [backbone-view-ii]: ./w7d2/backbone-view-ii.md
 [backbone-router]: ./w7d2/backbone-router.md
 [backbone-router-ii]: ./w7d2/backbone-router-ii.md
-[collection-view-pattern]: ./w7d2/collection-view-pattern.md
 [pokedex2]: https://github.com/appacademy/pokedex/blob/master/README2.md
 [bb-11-12-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-11...backbone-12
 [bb-12-13-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-12...backbone-13
@@ -80,10 +78,12 @@ This is the completed application built in the above video series.
 
 ## w7d3
 
+* [CollectionView pattern][collection-view-pattern]
 * [Backbone.Event][backbone-event]
 * [Getting Started With Your Very Own Backbone! (gem 'backbone-on-rails')][backbone-intro]
 * **Project**: [Journal App][journal-app]
 [journal-app]: ./projects/w7d3-journal-app.md
+[collection-view-pattern]: ./w7d3/collection-view-pattern.md
 [backbone-event]: ./w7d3/backbone-event.md
 [backbone-intro]: ./w7d3/backbone-intro.md
 
