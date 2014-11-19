@@ -54,7 +54,6 @@ This is the completed application built in the above video series.
 * [:movie_camera:  11: Nested JSON responses (15min)](https://vimeo.com/groups/appacademy/videos/85052094) [:notebook: diff][bb-10-11-diff]
 * [:movie_camera:  15: Model#destroy, More nested views (10min)](https://vimeo.com/groups/appacademy/videos/85052096) [:notebook: diff][bb-13-15-diff]
 * [Getting Started With Your Very Own Backbone! (gem 'backbone-on-rails')][backbone-intro]
-
 * **Project**: [Pokedex!][pokedex]
 
 [bb-07-08-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-07...backbone-08
@@ -62,12 +61,12 @@ This is the completed application built in the above video series.
 [bb-09-10-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-09...backbone-10
 [bb-10-11-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-10...backbone-11
 [bb-13-15-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-13...backbone-15
-
 [backbone-intro]: ./w7d2/backbone-intro.md
 [pokedex]: https://github.com/appacademy/pokedex/blob/master/README.md
 
 
 ## w7d2
+
 * [:movie_camera:  12: Nested View, Markdown (30min)](https://vimeo.com/groups/appacademy/videos/85052093) [:notebook: diff][bb-11-12-diff]
 * [:movie_camera:  13: ZombieView, Swapping Router (20min)](https://vimeo.com/groups/appacademy/videos/85052095) [:notebook: diff][bb-12-13-diff]
 * [:movie_camera:  16: Opening Views (15min)](https://vimeo.com/groups/appacademy/videos/85221709) [:notebook: diff][bb-15-16-diff]
@@ -121,6 +120,7 @@ This is the completed application built in the above video series.
 [jbuilder-doc]: https://github.com/rails/jbuilder
 
 ## w8d1
+
 * **Backbone Mini Project II (SF)**
 * [jQuery UI][jquery-ui]
 
@@ -128,12 +128,14 @@ This is the completed application built in the above video series.
 [jquery-ui]: https://github.com/appacademy/lightning-talks/blob/master/w9d1/jquery_ui.md
 
 ## w7d6-w7d7
+
 * See [Lightning Talks curriculum][lightning-talks] for readings.
 * Submit final project proposal
 
 [lightning-talks]: https://github.com/appacademy/lightning-talks
 
 ## w8d2
+
 * **Assessment06** ([practice][assessment-practice])
 * **Node.js Day (SF)**
 * [Intro to Node.js][node-intro]
