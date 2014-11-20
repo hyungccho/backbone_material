@@ -140,10 +140,8 @@ started:
 * Pass the new `Post` model to the `PostForm` view.
 * Also pass the `Posts` collection to the `PostForm` (as attribute
   `collection`).
-* On save, use `Model#isNew` to decide whether to:
-    * Update: call `Model#save`
-    * Create: call `Collection#create`
-* On successful save, use `Backbone.history.navigate` to redirect to
+* On save, add the model to the collection use the `{ merge: true }`
+  option then use `Backbone.history.navigate` to redirect to
   the posts index.
 
 ## Phase V: `listenTo`
