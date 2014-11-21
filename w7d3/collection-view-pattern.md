@@ -8,7 +8,7 @@ this is to iterate over the collection of items in the template like this:
   <% examples.each(function (example) { %>
     <li><%= example.get('title') %></li>
   <% }); %>
-</li>
+</ul>
 ```
 
 This approach (iterating in template) is fine for simple lists of items, but to 
