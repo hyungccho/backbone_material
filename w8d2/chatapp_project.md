@@ -230,7 +230,7 @@ to add untrusted data to your page.
 [This JSFiddle][escaping-with-jquery] demonstrates why.
 
 This file is a fine place to initialize a socket.io connection on
-document ready and tell it to listen for the `messsage` event.  You
+document ready and tell it to listen for the `message` event.  You
 will need to append new messages to the chat window when they are
 received.  This could also be implemented as a method on the `Chat`
 class object.
