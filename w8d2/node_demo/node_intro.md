@@ -135,7 +135,7 @@ Notice that we're not passing the entire router into the
 server.Just the route function and the handle object.  
 It may also make sense to have written the handle object 
 directly in the route function, but it's easier to test 
-this way.  See the [dependency-injection][dependency-injection] reading.
+this way.
 
 Now, in the server, we pass the handle hash and the response to our route 
 function (look familiar?).
