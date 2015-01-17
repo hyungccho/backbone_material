@@ -420,3 +420,9 @@ Seriously, this thing is a gem.
 
 [ngrok]: https://ngrok.com
 
+####Heroku deployment
+Deploying to Heroku is a breeze using [this guide](https://devcenter.heroku.com/articles/getting-started-with-nodejs#prepare-the-app) except for one 'gotcha'.  When you declare a port to listen to in app.js, be sure to listen to the port Heroku gives you:
+```javascript
+server.listen(process.env.PORT || 8000);
+```
+This will check first if there is an environment variable for the PORT (automatically assigned by Heroku).  Lacking that, since you're probably running the app locally, it will set it the hardcoded port of your choosing.
