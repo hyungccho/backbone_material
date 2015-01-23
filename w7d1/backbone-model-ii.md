@@ -41,7 +41,7 @@ window.Todo.Models.Todo = Backbone.Model.extend({
 
 `set` has an optional options hash as a second argument. If you pass in `parse:
  true` through the options hash, `set` will use its `parse` method. This is
-  very useful for dealing data nested more than one level deep.
+  very useful for dealing with data nested more than one level deep.
 
 ```js
 window.EX.Models.RecursiveExample = Backbone.Model.extend({
