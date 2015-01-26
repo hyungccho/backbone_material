@@ -147,7 +147,7 @@ Pokedex.Test.testIndex();
 
 The first thing to do is get your `RootView` displaying `Pokemon`. To do
 this, we should first fill out `addPokemonToList(pokemon)` method in
-`pokedex-1A.js` which takes an instance of `Pokedex.Models.Pokemon` as an 
+`pokedex-1A.js` which takes an instance of `Pokedex.Models.Pokemon` as an
 argument. Create an `li` with jQuery, and list a few high-level
 details of the Pokemon: `name` and `poke_type`. This is just an index
 of Pokemon, so we won't display all data here. Append your `li` to
@@ -187,10 +187,10 @@ What we're going to do next is allow ourselves to see more detail
 about a `Pokemon` by selecting it from the index.
 
 We're going to show the details of the `Pokemon` in the
-`this.$pokeDetail`. In `renderPokemonDetail` create a `div.detail` 
-using jQuery. Add an image tag with the Pokemon's photo; iterate 
-through all the Pokemon properties, adding each to the `div.detail`. 
-Add the `div.detail` to `this.$pokeDetail`.
+`this.$pokeDetail`. In `renderPokemonDetail` create a `div.detail`
+using jQuery. Add an image tag with the Pokemon's photo; iterate
+through all the Pokemon properties, adding each to the `div.detail`.
+Set the content of `this.$pokeDetail` to be the `div.detail`.
 
 You can verify this is working:
 
@@ -212,9 +212,9 @@ can pass that pokemon object to `renderPokemonDetail`.
 
 To do this, modify your `addPokemonToList` method to also set a `id`
 data-attribute on the Pokemon list item. Next, in the `RootView`
-constructor, write a click handler that calls
+constructor, write a click handler that delegates to `li` and calls
 `this.selectPokemonFromList`. In the click handler, recover the `id`
-from `event.target`; look up the `Pokemon` in `this.pokes` with the
+from `event.currentTarget`; look up the `Pokemon` in `this.pokes` with the
 id. Finally, use `renderPokemonDetail` to display the Pokemon.
 
 **Test it out; you should be able to click a Pokemon and see more
