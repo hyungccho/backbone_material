@@ -42,7 +42,7 @@ This is the completed application built in the above video series.
 * [:movie_camera:  10: JBuilder (20min)](https://vimeo.com/groups/appacademy/videos/84656491) [:notebook: diff][bb-09-10-diff]
 * [:movie_camera:  11: Nested JSON responses (15min)](https://vimeo.com/groups/appacademy/videos/85052094) [:notebook: diff][bb-10-11-diff]
 * [:movie_camera:  15: Model#destroy, More nested views (10min)](https://vimeo.com/groups/appacademy/videos/85052096) [:notebook: diff][bb-13-15-diff]
-* **Project**: [Pokedex!][pokedex]
+* **Project**: [Pokedex!][pokedex-i]
 
 [backbone-model]: ./w7d1/backbone-model.md
 [backbone-model-ii]: ./w7d1/backbone-model-ii.md
@@ -53,7 +53,7 @@ This is the completed application built in the above video series.
 [bb-09-10-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-09...backbone-10
 [bb-10-11-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-10...backbone-11
 [bb-13-15-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-13...backbone-15
-[pokedex]: https://github.com/appacademy/pokedex/blob/master/README.md
+[pokedex-i]: ./projects/w7d1-pokedex-i.md
 
 
 ## w7d2
@@ -65,13 +65,13 @@ This is the completed application built in the above video series.
 * [:movie_camera:  12: Nested View, Markdown (30min)](https://vimeo.com/groups/appacademy/videos/85052093) [:notebook: diff][bb-11-12-diff]
 * [:movie_camera:  13: ZombieView, Swapping Router (20min)](https://vimeo.com/groups/appacademy/videos/85052095) [:notebook: diff][bb-12-13-diff]
 * [:movie_camera:  16: Opening Views (15min)](https://vimeo.com/groups/appacademy/videos/85221709) [:notebook: diff][bb-15-16-diff]
-* **Project**: [Pokedex Part 2][pokedex2]
+* **Project**: [Pokedex Part 2][pokedex-ii]
 
 [backbone-view]: ./w7d2/backbone-view.md
 [backbone-view-ii]: ./w7d2/backbone-view-ii.md
 [backbone-router]: ./w7d2/backbone-router.md
 [backbone-router-ii]: ./w7d2/backbone-router-ii.md
-[pokedex2]: https://github.com/appacademy/pokedex/blob/master/README2.md
+[pokedex-ii]: ./projects/w7d2-pokedex-ii.md
 [bb-11-12-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-11...backbone-12
 [bb-12-13-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-12...backbone-13
 [bb-15-16-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-15...backbone-16
