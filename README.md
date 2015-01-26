@@ -113,6 +113,13 @@ This is the completed application built in the above video series.
 [gmail-clone]: ./projects/w7d4-gmail-clone.md
 [jbuilder-doc]: https://github.com/rails/jbuilder
 
+## w7d6-w7d7
+
+* See [Final Project Curriculum][final-project-curriculum] for readings.
+* Submit final project proposal
+
+[final-project-curriculum]: https://github.com/appacademy/final-project-curriculum
+
 ## w8d1
 
 * **Backbone Mini Project II (SF)**
@@ -120,13 +127,6 @@ This is the completed application built in the above video series.
 
 [assessment-practice]: https://github.com/appacademy/assessment-prep
 [jquery-ui]: https://github.com/appacademy/lightning-talks/blob/master/w9d1/jquery_ui.md
-
-## w7d6-w7d7
-
-* See [Lightning Talks curriculum][lightning-talks] for readings.
-* Submit final project proposal
-
-[lightning-talks]: https://github.com/appacademy/lightning-talks
 
 ## w8d2
 
