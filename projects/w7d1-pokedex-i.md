@@ -302,9 +302,10 @@ display the attributes of a toy: `id`, `happiness`, `image_url`,
 `name`, `pokemon_id`, and `price`.
 
 Modify your `pokemon/_pokemon` partial using `json.toys` to display a
-list of toys. In the block you pass to `json.toys`, use `json.array!`
-and render the partial (using `json.partial!`) for each of the toys of
-the Pokemon.
+list of toys. We want to add a `toys` key to our pokemon json object which
+points to an array of json objects representing the toys. Do this using a 
+block and rendering the partial (using `json.partial!`) for each of the toys 
+of the Pokemon.
 
 There is a caveat: we want to display the toys when we go to
 `/pokemon/123`, **but not when we go to `/pokemon`**. When you are
