@@ -22,7 +22,7 @@ _swapView: function (view) {
 When a view renders subviews it is often called a CompositeView. When removing 
 a CompositeView it's important to ensure each child view is also removed.
 
-In _Backbone.js on Rails_ by Thoughtbot, they discus a pattern for removing all 
+In _Backbone.js on Rails_ by Thoughtbot, they discuss a pattern for removing all 
 children when a composite view is removed. The basic idea is to abstract access 
 to the remove method and iterate through the children calling leave. 
 Check it out:
