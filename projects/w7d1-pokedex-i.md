@@ -494,7 +494,8 @@ iterate through the toys, calling `addToyToList` on each.
   `renderToysList`.
 * Change `renderPokemonDetail` to call `renderToysList` in the
   success callback to `pokemon.fetch`.
-* Change `reassignToy` to directly call `renderPokemonDetail`.
+* Change `reassignToy` from directly calling `renderPokemonDetail` to calling
+  `renderToysList`.
 
 ## Bonus: Phase IV
 
