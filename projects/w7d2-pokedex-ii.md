@@ -212,9 +212,9 @@ Okay! Now we need to construct the `PokemonDetail` view. This mostly
 involves moving the old code from `PokemonIndex#selectPokemonFromList`
 to `Pokedex.Router#pokemonDetail`. The first step is finding the
 proper `Pokemon` instance in `#pokemonDetail`. To do this, make sure
-your `Router#pokemonIndex` method saves the `PokemonIndex` view in
-`this._pokemonIndex`. Then you can access
-`this._pokemonIndex.collection` in `#pokemonDetail`.
+your `Router#pokemonIndex` method saves the `PokemonIndex` view as an 
+instance variable of the router called `this._pokemonIndex`. Then you can 
+access `this._pokemonIndex.collection` in `#pokemonDetail`.
 
 **Fixing Direct Navigation to PokemonDetail**
 
