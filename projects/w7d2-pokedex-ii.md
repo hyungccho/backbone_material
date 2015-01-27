@@ -251,7 +251,7 @@ Toy from `this._pokemonDetail.model.toys()`. Therefore, have your
 `Router#pokemonDetail` save a `_pokemonDetail` view.
 
 Again, you'll have to deal with direct navigation to
-`http://localhost:3000#pokemon/123/toy/456`. Use the same callback
+`http://localhost:3000#pokemon/123/toys/456`. Use the same callback
 trick with `Router#pokemonDetail` that you used on
 `Router#pokemonIndex`.
 
