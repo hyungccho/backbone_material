@@ -464,7 +464,7 @@ assigned pokemon, so that the right option is selected initially.
 Reload your code to make sure you see the options box, with the list
 of pokemon.
 
-Next, add a handler for the change even on your select box. There is a
+Next, add a handler for the change event on your select box. There is a
 `RootView#reassignToy` method in `pokedex-3.js`. To start, print the
 id of the old pokemon saved in `data-pokemon-id`, the id of the toy
 saved in `data-toy-id` and the id of the newly selected Pokemon (the
