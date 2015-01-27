@@ -342,12 +342,15 @@ Now each `Pokemon` has a `toys` association. You might be wondering:
 how is this association collection populated?
 
 The Backbone `parse` method gives us the opportunity to massage an
-incoming JSON object into the attributes our Backbone model will have.
-`parse` also happens to be a great place to intercept any nested data
-and use that data to populate associated collections.
+incoming Javascript object into the attributes our Backbone model will have.
+`parse` is called after the JSON string received from Rails is translated
+into a Javascript object, but before the Javascript object's properties
+become the Backbone model's attributes. For this reason, `parse` happens 
+to be a great place to intercept any nested data and use that data to 
+populate associated collections.
 
 Write a `parse(payload)` method on `Pokemon`. `payload` here is the
-raw JSON object. The `parse` method will be called by backbone when
+raw Javascript object. The `parse` method will be called by backbone when
 parsing a single model, or a collection of models returned from the
 server during a fetch. **Remember** we're including `toys` in the
 `show` action, but _not_ the `index` action.  Our `parse` method needs
@@ -355,9 +358,9 @@ to handle either case. If `payload` has a `toys` property, use the
 array of `toys` to populate the `PokemonToys` collection returned by
 the `toys()` method using [`Collection#set`][collection-set].
 
-Finally, we must return a JSON object from `parse`. This object will
+Finally, we must return a Javascript object from `parse`. This object will
 be used to set the attributes of the `Pokemon`. We prefer using our
-shiny new `toys()` association over a raw array of toy JSON objects,
+shiny new `toys()` association over a raw array of toy Javascript objects,
 so lets be sure to `delete` the `toys` property from the `payload`
 before returning the `payload`.
 
@@ -501,7 +504,7 @@ iterate through the toys, calling `addToyToList` on each.
 
 **update and destroy**
 
-Convert your Pokemon Detail and Toy Detail into forms. Instead of just listing the model's attributes, put the attributes in the values of the form inputs, and let the user 'update' their model on the server. Add the corresponding routes and controller actions. It may come in handy to use...
+Convert your Pokemon Detail and Toy Detail into forms. Instead of just listing the model's attributes , put the attributes in the values of the form inputs, and let the user 'update' their model on the server. Add the corresponding routes and controller actions. It may come in handy to use...
 
 <!-- **templates**
 
