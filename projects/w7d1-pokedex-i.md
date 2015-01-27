@@ -501,7 +501,7 @@ iterate through the toys, calling `addToyToList` on each.
 
 **update and destroy**
 
-Convert your Pokemon Detail and Toy Detail into forms. Instead of just listing the model's attributes , put the attributes in the values of the form inputs, and let the user 'update' their model on the server. Add the corresponding routes and controller actions. It may come in handy to use...
+Convert your Pokemon Detail and Toy Detail into forms. Instead of just listing the model's attributes, put the attributes in the values of the form inputs, and let the user 'update' their model on the server. Add the corresponding routes and controller actions. It may come in handy to use...
 
 <!-- **templates**
 
