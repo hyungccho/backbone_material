@@ -195,9 +195,9 @@ DOM. This is not great style; instead, the view should navigate to a
 new URL, and a `Router` should construct the new view and insert it.
 
 To begin, write a route in `pokedex-6.js` that maps the root URL to
-the `pokemonIndex` method. Into this method, copy the initialization
-code from `pokemon-5.js`. Comment out the old initialization code in
-`pokemon-5.js`; we'll rely on the router now.
+the `pokemonIndex` method. Copy the initialization code from the end
+of `pokemon-5.js` into `pokemonIndex`. Comment out the old
+initialization code in `pokemon-5.js`; we'll rely on the router now.
 
 Next, we'll change `PokemonIndex#selectPokemonFromList`. Instead of
 creating a view, use `Backbone.history.navigate` to move to a
@@ -212,9 +212,9 @@ Okay! Now we need to construct the `PokemonDetail` view. This mostly
 involves moving the old code from `PokemonIndex#selectPokemonFromList`
 to `Pokedex.Router#pokemonDetail`. The first step is finding the
 proper `Pokemon` instance in `#pokemonDetail`. To do this, make sure
-your `Router#pokemonIndex` method saves the `PokemonIndex` view as an 
-instance variable of the router called `this._pokemonIndex`. Then you can 
-access `this._pokemonIndex.collection` in `#pokemonDetail`.
+your `Router#pokemonIndex` method saves the `PokemonIndex` view in
+`this._pokemonIndex`. Then you can access
+`this._pokemonIndex.collection` in `#pokemonDetail`.
 
 **Fixing Direct Navigation to PokemonDetail**
 
