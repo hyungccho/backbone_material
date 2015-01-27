@@ -3,7 +3,7 @@
 Backbone.Views are used to organize the user interface into logical views that 
 are backed by data (models or collections). The best pattern to follow is to 
 allow your view to render (without redrawing the entire page) whenever the data 
-the view backs changes.
+being displayed by the view changes.
 
 ## Setup
 
