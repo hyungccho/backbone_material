@@ -95,7 +95,7 @@ BackboneExample.Views.ExampleForm = Backbone.View.extend({
 ## `attributes`
 
 The `attributes` property of Backbone.View is a hash of attributes that will be 
-set as the DOM elements properties.
+set as the DOM element's properties.
 
 ```js
 BackboneExample.Views.ExampleForm = Backbone.View.extend({
