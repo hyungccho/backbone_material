@@ -67,7 +67,7 @@ started:
   different things which can cause the "undefined: JST" error: please ask 
   your TA if you're stuck on it.
 * The render function should populate the `$el` property of the view with 
-  an un ordered list `<ul>` of our post titles.
+  an unordered list `<ul>` of our post titles.
 * Manually instantiate the `PostIndexView` and render it onto the
   page; you don't need a `Router` yet.
     * Go ahead and make an AJAX call on page load to get the `Post`s.  
