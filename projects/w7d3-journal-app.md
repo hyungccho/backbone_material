@@ -107,23 +107,24 @@ started:
 [collectionview]: https://github.com/appacademy/backbone-curriculum/blob/master/w7d3/collection-view-pattern.md
 [bb-el]: http://backbonejs.org/#View-el
 
-## Phase III: Build a `PostShow` class; write the Router
+## Phase III: Build a `PostShow` view class; write the Router
 
 * Build a view class and template to show a post.
 * Just show the title/body.
-* Add a `Posts` Router class. You should have two routes:
-    * `""`(empty string) : install the `PostsIndex` with all the `Posts`.
-    * `posts/:id` to display a single `Post`.
-* Instantiate the router in the `initialize` method of your app's namespace.
+* Add a `PostsRouter` class. You should have two routes:
+    * `""` (empty string): install the `PostsIndex` with all the `Posts`.
+    * `posts/:id`: display a single `Post`.
+* Instantiate the router in the `initialize` method of your Backbone app (found
+  in `your-app-name.js`).
 * When constructing the router, you should pass in the DOM
   element that it controls. It should swap content in and out of this
   element.
-* After the router instantiation, call `Backbone.history.start()` so
+* After the router is instantiated, call `Backbone.history.start()` so
   Backbone will start listening for changes in the URL.
-* In the show route of the Router, you'll need to provide the appropriate
-  Post model instance as the `model` for your Show view instance. Write and
-  use a `getOrFetch` method on your `Posts` collection to make it easy
-  to retrieve a post by a given ID.
+* In the router's `show` route, you'll need to provide the appropriate
+  `Post` model instance as the `model` for your `PostShow` view instance.
+  Write and use a `getOrFetch` method on your `Posts` collection to make it
+  easy to retrieve a post by a given ID.
 * Throw a "back" link on your `PostShow`.
 
 ## Phase IV: Build a `PostForm`
@@ -137,7 +138,7 @@ started:
     * Set the attributes of the `Post`. Check out the
       [jQuery serialization][jquery-serialize] docs to extract values
       from the form.
-    * Call `Model#save` with the attributes as the first argument, and an 
+    * Call `Model#save` with the attributes as the first argument, and an
       [options-hash][model-save] as the second argument.
     * On success, redirect back to the index page. Use
       `Backbone.history.navigate(url, {trigger: true})`.
@@ -184,10 +185,10 @@ started:
 
 ## Phase VI: Fancy edit
 
-* Add the ability to edit an article from the show view. The user double 
-  clicks a particular section (like 'title' or 'body'). Double clicking 
+* Add the ability to edit an article from the show view. The user double
+  clicks a particular section (like 'title' or 'body'). Double clicking
   the attribute should replace it with an input box containing the attribute's
-  content. On blur of that input box, you should save the recently 
+  content. On blur of that input box, you should save the recently
   edited attribute. [Here's a list of events!][js-events] you can bind to.
 * You shouldn't just be rendering a whole edit form
   again. Instead, it should appear as if you are making changes
