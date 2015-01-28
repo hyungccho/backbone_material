@@ -52,7 +52,7 @@ started:
   have a new `Post` created in your database! Thanks backbone! If it didn't 
   work, perhaps you don't have a `create` action in your `PostsController`?
 
-## Phase II: Build a `PostsIndex` class
+## Phase II: Build a `PostsIndex` view
 
 * Build a `PostsIndex` view class.
 * Create a template in the `assets/templates` folder. Assign it to the
