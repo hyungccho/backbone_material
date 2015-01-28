@@ -90,9 +90,9 @@ started:
 * Append the rendered `$el` of the `PostsIndexItem`s into the `ul`
   tag of the `PostsIndex` view.
 * Add a delete button in the `PostsIndexItem` view template, next to the title.
-    * **NB:** Since the view is only responsible for keeping track of a single
-      model, we don't need to add a `data-id` to the delete button. We can
-      simply grab `this.model.id` inside of the delete button's click handler.
+    * **NB:** Since the view already has a reference to the model, we don't
+      need to add any extra information (such as a `data-id`) to the
+      delete button.
     * Set a CSS class for the delete button.
     * In the `events` attribute of the `PostsIndexItem` view, install a click
       handler on the delete button.
