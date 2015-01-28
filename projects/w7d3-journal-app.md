@@ -82,9 +82,9 @@ started:
   step further and build some `PostsIndexItem` views to hold each
   individual post in this list.
 * A `PostsIndexItem` is for rendering a single post in the Posts Index.
-* Create a template for this view that renders the post title.
-* Use the [`tagName`][bb-el] property to make this view's `$el` an `li` tag
-  rather than the default `div`.
+  * Create a template for this view that renders the post title.
+  * Use the [`tagName`][bb-el] property to make this view's `$el` an `li` tag
+    rather than the default `div`.
 * Back in the `render` method of our `PostsIndex` view, iterate over the
   collection of posts, creating `PostsIndexItem`s for each.
 * Append the rendered `$el` of the `PostsIndexItem`s into the `ul`
