@@ -19,7 +19,7 @@ window.Todo.Models.Todo = Backbone.Model.extend({
     // the jsonResp from /api/todos returns nested comments  under each
     // todo model. Rather than keep a `comments` attribute on the model
     // containing array of json objects. It's better to create a Backbone
-    // Collection and store the nested objecs as Backbone Models.
+    // Collection and store the nested objects as Backbone Models.
     if (jsonResp.comments) {
       this.comments().set(jsonResp.comments);
       delete jsonResp.comments;
