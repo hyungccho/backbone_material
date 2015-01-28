@@ -20,9 +20,9 @@ generate HTML.
 
 Let's start by writing the `pokemon-detail-template` in
 `app/views/shared/_templates`. In this file are a series of script
-tags; your template code will go here. 
+tags; your template code will go here.
 
-For example: 
+For example:
 ```html
 <script type="text/template" id="pokemon-detail-template">
   <div class="detail">
@@ -38,7 +38,7 @@ of this script tag, we need to pass the content to the `_.template` function.
 The return value is a function that, when called and passed `{pokemon: pokemon}`
 as an argument should return the actual rendered html.
 
-Write the template code to display a single Pokemon, recreating 
+Write the template code to display a single Pokemon, recreating
 `renderPokemonDetail` to display the Pokemon (but not
 the list of toys yet!). Remember to use `<%%= ... %>` in your template, so that Rails
 doesn't try to interpret it.
@@ -56,10 +56,10 @@ pokemon.fetch({
   }
 });
 ```
-For today's project, we have already grabbed all the template script tags from 
+For today's project, we have already grabbed all the template script tags from
 `app/views/shared/_templates` using jQuery and turned them into template functions
 in `app/assets/javascripts/pokedex-4.js` storing them in a `JST` namespace. For
-example, the `#pokemon-detail-template` has been processed into the template 
+example, the `#pokemon-detail-template` has been processed into the template
 function `JST["pokemonDetail"]`. Check it out in `pokedex-4`.
 
 Last, modify your `renderPokemonDetail` to use
@@ -210,11 +210,11 @@ set correctly. Remember to pass `{ trigger: true }` as an option to
 
 Okay! Now we need to construct the `PokemonDetail` view. This mostly
 involves moving the old code from `PokemonIndex#selectPokemonFromList`
-to `Pokedex.Router#pokemonDetail`. The first step is finding the
-proper `Pokemon` instance in `#pokemonDetail`. To do this, make sure
-your `Router#pokemonIndex` method saves the `PokemonIndex` view in
-`this._pokemonIndex`. Then you can access
-`this._pokemonIndex.collection` in `#pokemonDetail`.
+to `Pokedex.Router#pokemonDetail`. The first step is finding the proper
+`Pokemon` instance in `#pokemonDetail`. To do this, have your
+`Router#pokemonIndex` method save the `PokemonIndex` view as an
+instance variable of the router called `this._pokemonIndex`. Then you
+can access `this._pokemonIndex.collection` in `#pokemonDetail`.
 
 **Fixing Direct Navigation to PokemonDetail**
 
