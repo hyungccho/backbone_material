@@ -54,7 +54,7 @@ started:
 
 ## Phase II: Build a `PostsIndex` class
 
-* Build a `PostsIndex` view class.
+* Build a `PostsIndexView` view class.
 * Create a template in the `assets/templates` folder. Assign it to the 
   `template` property of the view. Now we can call `this.template()` and 
   it will return the rendered template. Templates are nothing to fear. 
@@ -68,26 +68,45 @@ started:
   your TA if you're stuck on it.
 * The render function should populate the `$el` property of the view with 
   an unordered list `<ul>` of our post titles.
-* Manually instantiate the `PostIndexView` and render it onto the
+* At first we can just iterate over the list of posts in the template. In 
+  just a minute, we'll convert the `render` method to use the 
+  [CollectionView pattern][collectionview].
+* Manually instantiate the `PostsIndexView` and render it onto the
   page; you don't need a `Router` yet.
     * Go ahead and make an AJAX call on page load to get the `Post`s.  
       This AJAX call will happen outside the view (usually would happen 
       in your router). **NOTE:** You don't need to do this manually with 
       `$.ajax()`. Instead, use your `Posts` collection's `fetch()` method 
       to do the dirty work for you.
-* Add a delete button next to each.
-    * Button should have a data-id attribute to store the id of the
-      `Post` it deletes.
+* Now that we see our collection is being fetched properly lets take this a
+  step further and build some `PostsIndexItemView`s to hold each
+  individual post in this list.
+* A `PostsIndexItemView` is for rendering a single post in the Posts Index. 
+* Create a template for this view that renders the post title 
+* Use the [`tagName`][bb-el] property to make this view's `$el` an `li` tag 
+  rather than the default `div`.
+* Back In the `render` method of our `PostsIndexView` iterate over the 
+  collection of posts, creating `PostsIndexItemView`s for each.
+* Append the rendered `$el` of the `PostsIndexItemView`s into the `ul`
+  tag of the `PostsIndexView`.
+* Add a delete button in the item view template next to the title.
+    * **NB:** Because this view is backed by a single model, we don't
+      need to encode any information into the html of the button to refer 
+      directly to the `Post` model that this view is displaying. (i.e.
+      no data-id necessary here.
     * Set a CSS class for the delete button.
-    * In the `events` attribute of the View, install a click handler
-      on the delete button.
+    * In the `events` attribute of the `PostsIndexItemView`, install a click 
+      handler on the delete button.
 * Use `listenTo` to listen for the `"remove"` event that will be fired 
-  from the underlying collection. Rerender the view in this case.
+  from the underlying collection. Rerender the `PostsIndexView` in this case.
 * Also go ahead and `listenTo`:
     * `"add"`
     * `"change:title"`
     * `"remove"`
     * `"reset"`
+
+[collectionview]: https://github.com/appacademy/backbone-curriculum/blob/master/w7d3/collection-view-pattern.md
+[bb-el]: http://backbonejs.org/#View-el
 
 ## Phase III: Build a `PostShow` class; write the Router
 
