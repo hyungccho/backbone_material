@@ -18,38 +18,38 @@ started:
   controller to handle this. You can call it `RootController` or
   `StaticPagesController`. In your Rails routes, set the root page
   of the app to the controller's `root` action.
-* Create a view for the `root` controller action. All it needs is an `<h1>` 
-  with the name of your app so that we know it's working. This will be the 
-  only page that rails will ever render i.e. the only time we won't 
-  `render :json => ...`. From here on out, Rails' only duty will be 
-  communicating with our Backbone javascript client side application using 
+* Create a view for the `root` controller action. All it needs is an `<h1>`
+  with the name of your app so that we know it's working. This will be the
+  only page that rails will ever render i.e. the only time we won't
+  `render :json => ...`. From here on out, Rails' only duty will be
+  communicating with our Backbone javascript client side application using
   the API.
 * Next, write a Backbone.Model called `Post`.
     * Set up the `urlRoot` property.
-    * You don't need to give it any other attributes or methods, merely 
-      extending `Backbone.Model` will be enough because our api will 
-      exhibit default *restful* behavior and our model will not require 
+    * You don't need to give it any other attributes or methods, merely
+      extending `Backbone.Model` will be enough because our api will
+      exhibit default *restful* behavior and our model will not require
       any custom functionality.
-* Next, write a Backbone.Collection named `Posts`. We need to give it just 
-  a couple small pieces of information so that it knows how to communicate 
-  with the server. By default, backbone collections trust that the api they 
-  are communicating with follows the default *restful* conventions. If this 
-  is true, merely giving them a `url` property pointing to the root of the 
-  resources, `posts` in our case, will be adequate. This is why Backbone.js 
-  is great! No more tedious AJAXing! Backbone can take care of all of that 
-  for us. 
+* Next, write a Backbone.Collection named `Posts`. We need to give it just
+  a couple small pieces of information so that it knows how to communicate
+  with the server. By default, backbone collections trust that the api they
+  are communicating with follows the default *restful* conventions. If this
+  is true, merely giving them a `url` property pointing to the root of the
+  resources, `posts` in our case, will be adequate. This is why Backbone.js
+  is great! No more tedious AJAXing! Backbone can take care of all of that
+  for us.
     * set the `model` property so the collection knows what kind of
       objects it contains.
     * set the `url` property so it knows where to fetch/post `Post`s.
-* Visit the rails view we created earlier. If we do not visit one of our 
-  own pages, Backbone will not be loaded. Did Backbone load? By default it 
+* Visit the rails view we created earlier. If we do not visit one of our
+  own pages, Backbone will not be loaded. Did Backbone load? By default it
   should have popped up a message that says: 'hello from backbone'.
-* Open up the javascript console on the chrome debugger. Type `Backbone` 
+* Open up the javascript console on the chrome debugger. Type `Backbone`
   and press enter. Is it undefined? If so you might have skipped a step.
-* Create a new instance of the collection we created. The constructor doesn't 
-  need any arguments. Call `create` on this instance, passing in a javascript 
-  object with a `title` and a `body`. If everything is working you should 
-  have a new `Post` created in your database! Thanks backbone! If it didn't 
+* Create a new instance of the collection we created. The constructor doesn't
+  need any arguments. Call `create` on this instance, passing in a javascript
+  object with a `title` and a `body`. If everything is working you should
+  have a new `Post` created in your database! Thanks backbone! If it didn't
   work, perhaps you don't have a `create` action in your `PostsController`?
 
 ## Phase II: Build a `PostsIndex` view
@@ -99,10 +99,8 @@ started:
 * Use `listenTo` to listen for the `"remove"` event that will be fired
   from the underlying collection. Re-render the `PostsIndex` in this case.
 * Also go ahead and `listenTo`:
-    * `"add"`
-    * `"change:title"`
-    * `"remove"`
-    * `"reset"`
+    * `sync`
+    * `remove`
 
 [collectionview]: https://github.com/appacademy/backbone-curriculum/blob/master/w7d3/collection-view-pattern.md
 [bb-el]: http://backbonejs.org/#View-el
