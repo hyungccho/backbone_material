@@ -54,51 +54,50 @@ started:
 
 ## Phase II: Build a `PostsIndex` class
 
-* Build a `PostsIndexView` view class.
-* Create a template in the `assets/templates` folder. Assign it to the 
-  `template` property of the view. Now we can call `this.template()` and 
-  it will return the rendered template. Templates are nothing to fear. 
-  Calling `this.template` merely builds the html, just like rendering an 
-  `html.erb` in Rails! We can also pass in a javascript object as an argument 
-  to the call to `this.template`. The keys will be available as local 
+* Build a `PostsIndex` view class.
+* Create a template in the `assets/templates` folder. Assign it to the
+  `template` property of the view. Now we can call `this.template()` and
+  it will return the rendered template. Templates are nothing to fear.
+  Calling `this.template` merely builds the html, just like rendering an
+  `html.erb` in Rails! We can also pass in a javascript object as an argument
+  to the call to `this.template`. The keys will be available as local
   variables during the render. Just like rendering a partial in rails!
-   * Remember that you don't want to put semicolons inside `<%= %>` tags, 
-  but you do want to include them in `<% %>` tags. There are a million 
-  different things which can cause the "undefined: JST" error: please ask 
+   * Remember that you don't want to put semicolons inside `<%= %>` tags,
+  but you do want to include them in `<% %>` tags. There are a million
+  different things which can cause the "undefined: JST" error: please ask
   your TA if you're stuck on it.
-* The render function should populate the `$el` property of the view with 
+* The render function should populate the `$el` property of the view with
   an unordered list `<ul>` of our post titles.
-* At first we can just iterate over the list of posts in the template. In 
-  just a minute, we'll convert the `render` method to use the 
+* At first we can just iterate over the list of posts in the template. In
+  just a minute, we'll convert the `render` method to use the
   [CollectionView pattern][collectionview].
-* Manually instantiate the `PostsIndexView` and render it onto the
+* Manually instantiate the `PostsIndex` view and render it onto the
   page; you don't need a `Router` yet.
-    * Go ahead and make an AJAX call on page load to get the `Post`s.  
-      This AJAX call will happen outside the view (usually would happen 
-      in your router). **NOTE:** You don't need to do this manually with 
-      `$.ajax()`. Instead, use your `Posts` collection's `fetch()` method 
+    * Go ahead and make an AJAX call on page load to get the `Post`s.
+      This AJAX call will happen outside the view (usually would happen
+      in your router). **NOTE:** You don't need to do this manually with
+      `$.ajax()`. Instead, use your `Posts` collection's `fetch()` method
       to do the dirty work for you.
 * Now that we see our collection is being fetched properly lets take this a
-  step further and build some `PostsIndexItemView`s to hold each
+  step further and build some `PostsIndexItem` views to hold each
   individual post in this list.
-* A `PostsIndexItemView` is for rendering a single post in the Posts Index. 
-* Create a template for this view that renders the post title 
-* Use the [`tagName`][bb-el] property to make this view's `$el` an `li` tag 
+* A `PostsIndexItem` is for rendering a single post in the Posts Index.
+* Create a template for this view that renders the post title.
+* Use the [`tagName`][bb-el] property to make this view's `$el` an `li` tag
   rather than the default `div`.
-* Back In the `render` method of our `PostsIndexView` iterate over the 
-  collection of posts, creating `PostsIndexItemView`s for each.
-* Append the rendered `$el` of the `PostsIndexItemView`s into the `ul`
-  tag of the `PostsIndexView`.
-* Add a delete button in the item view template next to the title.
-    * **NB:** Because this view is backed by a single model, we don't
-      need to encode any information into the html of the button to refer 
-      directly to the `Post` model that this view is displaying. (i.e.
-      no data-id necessary here.
+* Back in the `render` method of our `PostsIndex` view, iterate over the
+  collection of posts, creating `PostsIndexItem`s for each.
+* Append the rendered `$el` of the `PostsIndexItem`s into the `ul`
+  tag of the `PostsIndex` view.
+* Add a delete button in the `PostsIndexItem` view template, next to the title.
+    * **NB:** Since the view is only responsible for keeping track of a single
+      model, we don't need to add a `data-id` to the delete button. We can
+      simply grab `this.model.id` inside of the delete button's click handler.
     * Set a CSS class for the delete button.
-    * In the `events` attribute of the `PostsIndexItemView`, install a click 
+    * In the `events` attribute of the `PostsIndexItem` view, install a click
       handler on the delete button.
-* Use `listenTo` to listen for the `"remove"` event that will be fired 
-  from the underlying collection. Rerender the `PostsIndexView` in this case.
+* Use `listenTo` to listen for the `"remove"` event that will be fired
+  from the underlying collection. Re-render the `PostsIndex` in this case.
 * Also go ahead and `listenTo`:
     * `"add"`
     * `"change:title"`
