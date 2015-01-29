@@ -41,6 +41,8 @@ started:
     * set the `model` property so the collection knows what kind of
       objects it contains.
     * set the `url` property so it knows where to fetch/post `Post`s.
+    * write a `getOrFetch` function to retrive a post by id, fetching
+      the post if needed
 * Visit the rails view we created earlier. If we do not visit one of our
   own pages, Backbone will not be loaded. Did Backbone load? By default it
   should have popped up a message that says: 'hello from backbone'.
@@ -121,8 +123,7 @@ started:
   Backbone will start listening for changes in the URL.
 * In the router's `show` route, you'll need to provide the appropriate
   `Post` model instance as the `model` for your `PostShow` view instance.
-  Write and use a `getOrFetch` method on your `Posts` collection to make it
-  easy to retrieve a post by a given ID.
+  Use the `getOrFetch` method from Phase I to retrieve the model by ID.
 * Throw a "back" link on your `PostShow`.
 
 ## Phase IV: Build a `PostForm`
