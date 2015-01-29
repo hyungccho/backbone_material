@@ -22,7 +22,7 @@ create and reload an RSS feed. Make sure you understand how these methods work.
 latest entries for the feed. It also causes the `updated_at` value for the feed
 to be refreshed. Make a new method, `latest_entries`, that will `reload` the
 feed if `updated_at` is older than `30.seconds.ago`. Return the association,
-`entries`, at the end of this method. We should now be able to use 
+`entries`, at the end of this method. We should now be able to use
 `latest_entries` as an association that will give us all `entries`, including those that
 are less than 30 seconds old. You can use [this quickly updating feed][quickfeed]
 to make sure your method works correctly; it updates every 10 seconds.
@@ -30,10 +30,10 @@ to make sure your method works correctly; it updates every 10 seconds.
 visiting the show route for a feed only includes the information about the feed
 object. We want all the entries for that feed to also be packaged in the JSON. We can do this
 easily by adding an additional arguments to the params hash we give to `render`.
-Now, our only argument is `json: Feed.find(params[:id])`. If we add 
+Now, our only argument is `json: Feed.find(params[:id])`. If we add
 `include: :latest_entries` it will also include the `latest_entries` for that
 instance of the `Feed` model. Ensure that this works by viewing the json output
-from the show url for a feed before continuing. 
+from the show url for a feed before continuing.
 
 [quickfeed]: http://lorem-rss.herokuapp.com/feed?unit=second&interval=10
 
@@ -68,16 +68,16 @@ when the collection's `fetch` function succeeds.
 0. Create an `Entries` collection and `Entry` model.
 0. The `url` method should return `this.feed.url() + '/entries'`. `this.feed`
   is going to be an instance variable we set upon creation. (We will go over this soon.)
-0. Entries exist only as subordinates to feeds. For this reason it is 
+0. Entries exist only as subordinates to feeds. For this reason it is
   appropriate to *nest* entries inside a feed object. Just like in rails where
   our `Feed` `has_many` `#entries`, our `Feed` model will have an `#entries()`
   function that will return a collection of `Entries`.
 0. Create this `#entries` function. It should return an instance of the
- `Entries` collection, `this._entries`, if `this._entries` has already been 
-  created. If it has NOT been created, you will need to create a `new` instance 
-  of the collection passing in `{ feed: this }` as the *second* argument so we 
+ `Entries` collection, `this._entries`, if `this._entries` has already been
+  created. If it has NOT been created, you will need to create a `new` instance
+  of the collection passing in `{ feed: this }` as the *second* argument so we
   can correctly get our `Entries#url`. Set the newly created `Entries` collection
-  to the `this._entries` instance 
+  to the `this._entries` instance
   variable, and return it. Now, whenever we try to access our nested `Entries`
   collection, we will be referring to the same instance of the collection. This
   is essential for `listenTo` events in our views.
@@ -86,26 +86,25 @@ when the collection's `fetch` function succeeds.
   *model*, the server should respond with info about the feed being fetched as
   well as the data for *all the entries*. We can use this nested entry data
   to populate the `entries` collection for a feed. To do this we must create
-  a `Feed#parse(response)` function to parse the data from the server. 
+  a `Feed#parse(response)` function to parse the data from the server.
 
   The default behavior for `parse` is to take whatever the javascript object
   response contains, make a duplicate of it, and set that to the `attributes` of a
-  model. When the response contains data for a nested collection, we must take 
+  model. When the response contains data for a nested collection, we must take
   the nested data out of the response and use it to populate the collection before
-  returning the object. 
+  returning the object.
 
-  So: if the response passed into `parse` contains `latest_entries`, call
-  `set` on our nested `entries` collection and give it the `latest_entries` as
-  an argument. In the params object for the `set` function, be sure and also
-  include `parse: true` so that the collection will be properly updated. After
-  populating the collection of `entries` with the `latest_entries` from the server,
-  be sure and `delete response.latest_entries`, to remove the nested data from 
-  the response so it will not become part of the feed's `attributes`.
+  So: if the response passed into `parse` contains `latest_entries`,
+  call `set` on our nested `entries` collection and give it the
+  `latest_entries` as an argument. After populating the collection of
+  `entries` with the `latest_entries` from the server, be sure and
+  `delete response.latest_entries`, to remove the nested data from the
+  response so it will not become part of the feed's `attributes`.
 0. At this stage we should have both `Feeds` and `Entries` working. In the
   Javascript console in your browser, create a new instance of `Feeds` and fetch.
-  Verify that all the feeds are there. Now for each `Feed` in the collection, 
-  call fetch the feed. This should successfully fetch all the entry data 
-  from the rails server. 
+  Verify that all the feeds are there. Now for each `Feed` in the collection,
+  call fetch the feed. This should successfully fetch all the entry data
+  from the rails server.
 
 **CALL YOUR TA OVER TO DEMONSTRATE YOUR SUCCESS WHEN THIS WORKS**
 
@@ -113,7 +112,7 @@ when the collection's `fetch` function succeeds.
 #### As long as you went to the index first...
 
 0. In the router, we need to add a route that will show all the entries of a feed.
-  `'feeds/:id'` should do the trick. 
+  `'feeds/:id'` should do the trick.
 0. Make a new function: `#feedShow`, this will be called when the router detects
   the new route. Test this by having an `alert` pop up when the route is accessed.
   Make the content of this alert be the `id` of the feed you clicked on.
@@ -125,12 +124,12 @@ when the collection's `fetch` function succeeds.
   so that you don't have to edit the browser's url by hand over and over to get there.
 0. Ok, lets make a new view to display our feed. Create
   this view and template and have the router's `feedShow` action render this view
-  and put it into the DOM. `get` the `Feed` from the collection, and pass it in 
+  and put it into the DOM. `get` the `Feed` from the collection, and pass it in
   as the `model` to the view. In the template, let's just `each` over each entry in
   the `entries` collection nested inside the `Feed` model. Create a new `<li>`
   and `escape` the title each entry model. When this succeeds, you should see
   all of the entries for your feed.
-0. Make sure your router calls `fetch` on the `feed` or the entries will not be there 
+0. Make sure your router calls `fetch` on the `feed` or the entries will not be there
   when it comes time to display them. This is because the entries are not included
   in the `index` action in the `FeedsController`. We will also need to `listenTo`
   the feed's `sync` event and `render` our view again.
@@ -139,19 +138,19 @@ when the collection's `fetch` function succeeds.
 
 #### Even if you didn't start at the index...
 
-  You may notice that when you start at the root url and visit the feed view, 
+  You may notice that when you start at the root url and visit the feed view,
   the entries are visible, but if you reload the page from the feed show view,
   there are no entries. Look in your JavaScript console, I expect that you see
-  `Cannot read property 'entries' of undefined`. This means the `model` that 
+  `Cannot read property 'entries' of undefined`. This means the `model` that
   should have been passed in is `undefined` when the view was created/rendered.
 
-  We created the `NewReader.Collection.feeds` collection when we first 
+  We created the `NewReader.Collection.feeds` collection when we first
   downloaded the JavaScript and started running our application, regardless
   of which router action we visited, if any. However, we didn't finish `fetch`ing
-  the feeds before trying to display a particular feed  and `entries`. We don't 
+  the feeds before trying to display a particular feed  and `entries`. We don't
   have any feeds, how could we possibly have any entries?
 
-  In this section, we will solve this problem using the `getOrFetch` pattern. 
+  In this section, we will solve this problem using the `getOrFetch` pattern.
   `getOrFetch` is a function added on to the `Feeds` collection.
   If we are trying to pull a model out of a collection and suspect that there is
   a chance the model might not have been pulled from the rails server yet, we
