@@ -88,11 +88,10 @@ when the collection's `fetch` function succeeds.
   to populate the `entries` collection for a feed. To do this we must create
   a `Feed#parse(response)` function to parse the data from the server.
 
-  The default behavior for `parse` is to take whatever the javascript object
-  response contains, make a duplicate of it, and set that to the `attributes` of a
-  model. When the response contains data for a nested collection, we must take
-  the nested data out of the response and use it to populate the collection before
-  returning the object.
+  The default behavior for `parse` is to simply pass on the response JSON to be 
+  set as the `attributes` of the model. When the response contains data for a 
+  nested collection, we must take the nested data out of the response and use 
+  it to populate the collection before passing on the remainder of the response.
 
   So: if the response passed into `parse` contains `latest_entries`,
   call `set` on our nested `entries` collection and give it the
