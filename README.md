@@ -116,9 +116,10 @@ This is the completed application built in the above video series.
 ## w7d6-w7d7
 
 * See [Final Project Curriculum][final-project-curriculum] for readings.
-* Submit final project proposal
+* Submit your [final project proposal][final-project-proposal] by 9am on Monday.
 
 [final-project-curriculum]: https://github.com/appacademy/final-project-curriculum
+[final-project-proposal]: https://github.com/appacademy/final-project-curriculum/blob/master/final-projects/final-project-proposal.md
 
 ## w8d1
 
