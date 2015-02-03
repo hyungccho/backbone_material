@@ -82,6 +82,7 @@ This is the completed application built in the above video series.
 * [Backbone.Event][backbone-event]
 * [Getting Started With Your Very Own Backbone! (gem 'backbone-on-rails')][backbone-intro]
 * **Project**: [Journal App][journal-app]
+
 [journal-app]: ./projects/w7d3-journal-app.md
 [collection-view-pattern]: ./w7d3/collection-view-pattern.md
 [backbone-event]: ./w7d3/backbone-event.md
@@ -89,8 +90,11 @@ This is the completed application built in the above video series.
 
 ## w7d4
 
+* [Backbone parse][backbone-parse]
 * **Project**: [News reader][news-reader]
+
 [news-reader]: ./projects/w7d4-news-reader.md
+[backbone-parse]: ./w7d4/backbone-parse.md
 
 ## w7d5
 
