@@ -136,24 +136,4 @@ This is the completed application built in the above video series.
 ## w8d2
 
 * **Assessment06** ([practice][assessment-practice])
-* **Node.js Day (SF)**
-* [Intro to Node.js][node-intro]
-* [Intro Tutorial][node-tutorial] (Follow along the night before.)
-* [WebSockets][node-websockets]
-* [:movie_camera:  node-02-http][node-02-vid]
-* [:movie_camera:  node-03-threads][node-03-vid]
-* [:movie_camera:  node-04-ruby-io-select][node-04-vid]
-* [:movie_camera:  node-05-ruby-event-reactor][node-05-vid]
-* [:movie_camera:  node-06-node-event-reactor][node-06-vid]
-* **Solo Project**: [ChatApp Project][chatapp-project]
-
-[node-demo]: https://github.com/appacademy/node-demo
-[node-02-vid]: https://vimeo.com/groups/appacademy/videos/88022113
-[node-03-vid]: https://vimeo.com/groups/appacademy/videos/88022115
-[node-04-vid]: https://vimeo.com/groups/appacademy/videos/88022116
-[node-05-vid]: https://vimeo.com/groups/appacademy/videos/88022119
-[node-06-vid]: https://vimeo.com/groups/appacademy/videos/88025189
-[node-intro]: ./w8d2/what-is-node-js.md
-[node-tutorial]: ./w8d2/node_demo/node_intro.md
-[node-websockets]: ./w8d2/web-sockets.md
-[chatapp-project]: ./w8d2/chatapp_project.md
+* **Begin Final Projects**
