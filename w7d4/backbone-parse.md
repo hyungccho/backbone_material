@@ -1,7 +1,8 @@
 ## Parse
 
 When Backbone receives data for a model, it expects a JSON object where
-each key corresponds to an attribute on the model. This works well if
+each key corresponds to an attribute on the model. For a collection, it 
+expects an array of such objects. This works well if
 we are simply serializing and deserializing objects: we send either a
 single object (for a model) or an array of them (for a collection).
 
