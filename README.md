@@ -78,7 +78,7 @@ This is the completed application built in the above video series.
 
 ## w7d3
 
-* **Homework**: [Submit tentative project proposal][tentative-proposal]
+* **Homework, due 9am w7d4**: [Submit tentative project proposal][tentative-proposal]
 * [CollectionView pattern][collection-view-pattern]
 * [Backbone.Event][backbone-event]
 * [Getting Started With Your Very Own Backbone! (gem 'backbone-on-rails')][backbone-intro]

@@ -22,6 +22,6 @@ something like this:
 * Dragging lists and cards causes any changes in order to be saved to the
   database.
 
-Send this to instructors-sf@appacademy.io or instructors-ny@appacademy.io,
-depending on your location. We will respond by the weekend to approve your
-outline or ask you to amend it.
+Send this to instructors-sf@appacademy.io or instructors-ny@appacademy.io by 9am
+of w7d4. We will respond by the weekend to approve your outline or ask you to
+amend it.
