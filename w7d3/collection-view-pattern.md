@@ -16,7 +16,7 @@ add greater functionality and flexibility to each of the items, prefer rendering
 a view for each of the items in the list from inside the view.
 
 ```js
-// prefered
+// preferred
 // app/assets/javascripts/views/example_index.js 
 tagName: 'ul',
 render: function () {

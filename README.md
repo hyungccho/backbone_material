@@ -78,11 +78,13 @@ This is the completed application built in the above video series.
 
 ## w7d3
 
+* **Homework**: [Submit tentative project proposal][tentative-proposal]
 * [CollectionView pattern][collection-view-pattern]
 * [Backbone.Event][backbone-event]
 * [Getting Started With Your Very Own Backbone! (gem 'backbone-on-rails')][backbone-intro]
 * **Project**: [Journal App][journal-app]
 
+[tentative-proposal]: ./w7d3/tentative-project-proposal.md
 [journal-app]: ./projects/w7d3-journal-app.md
 [collection-view-pattern]: ./w7d3/collection-view-pattern.md
 [backbone-event]: ./w7d3/backbone-event.md
