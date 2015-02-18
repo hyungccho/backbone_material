@@ -41,8 +41,15 @@ started:
     * set the `model` property so the collection knows what kind of
       objects it contains.
     * set the `url` property so it knows where to fetch/post `Post`s.
-    * write a `getOrFetch` function to retrive a post by id, fetching
-      the post if needed
+    * write a `getOrFetch(id)` function. Note that, even though the
+      function is called `getOrFetch`, we actually want to fetch no
+      matter what, to make sure that we retrieve from the server the
+      most up-to-date attributes of the post in question. The question
+      is whether we can call `fetch` on a model that we simply retrieve
+      from the posts collection, or whether we need to instantiate a new
+      model with an `id` of `id`, and then fetch that model. If it's the
+      latter, we should also add the post to our collection once it has
+      been successfully fetched.
 * Visit the rails view we created earlier. If we do not visit one of our
   own pages, Backbone will not be loaded. Did Backbone load? By default it
   should have popped up a message that says: 'hello from backbone'.
