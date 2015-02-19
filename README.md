@@ -8,8 +8,14 @@
 ### Backbone App Demo - Videos
 
 Watch a perfect Backbone application built from beginning to end.
-Be sure to review every commit diff by clicking the ':notebook: diff' link to the right of the video to observe
-the actual changes made in the video.
+
+Be sure to review every commit diff by clicking the ':notebook: diff'
+link to the right of the video to observe the actual changes made in the
+video.
+
+Note: the app in these videos is built with Rails 3. One notable
+difference between Rails 3 and Rails 4 is how params are handled.
+[This short reading][rails-3-vs-4] can tell you more.
 
 * [:movie_camera:  01: API (15 min)](https://vimeo.com/groups/appacademy/videos/84654425) [:notebook: diff][bb-00-01-diff]
 * [:movie_camera:  02: Backbone Intro, Models (27 min)](https://vimeo.com/groups/appacademy/videos/84654427) [:notebook: diff][bb-01-02-diff]
@@ -19,6 +25,7 @@ the actual changes made in the video.
 * [:movie_camera:  06: Forms (18 min)](https://vimeo.com/groups/appacademy/videos/84656483) [:notebook: diff][bb-05-06-diff]
 * [:movie_camera:  07: Routing (27 min)](https://vimeo.com/groups/appacademy/videos/84656486) [:notebook: diff][bb-06-07-diff]
 
+[rails-3-vs-4]: ./w6d6-w6d7/rails-3-vs-4.md
 [bb-00-01-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-00...backbone-01
 [bb-01-02-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-01...backbone-02
 [bb-02-03-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-02...backbone-03
