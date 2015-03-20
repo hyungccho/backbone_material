@@ -100,10 +100,12 @@ This is the completed application built in the above video series.
 ## w7d4
 
 * [Backbone parse][backbone-parse]
+* [Composite View][composite-view]
 * **Project**: [News reader][news-reader]
 
 [news-reader]: ./projects/w7d4-news-reader.md
 [backbone-parse]: ./w7d4/backbone-parse.md
+[composite-view]: ./w7d4/composite-view.md
 
 ## w7d5
 
