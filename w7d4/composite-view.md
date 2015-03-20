@@ -3,7 +3,7 @@
 Previously, we've seen a lightweight way of managing subviews for a
 [collection](../w7d3/collection-view-pattern.md).  For a simple index,
 this approach is adequate; in a more complex view, however, we will need
-something more sophisticated.
+something more [sophisticated](../w7d5/composite_view.js).
 
 ## Setting Up the Class
 
