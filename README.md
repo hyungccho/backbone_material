@@ -99,36 +99,36 @@ This is the completed application built in the above video series.
 
 ## w7d4
 
-* [Backbone parse][backbone-parse]
-* [Composite View][composite-view]
-* **Project**: [News reader][news-reader]
-
-[news-reader]: ./projects/w7d4-news-reader.md
-[backbone-parse]: ./w7d4/backbone-parse.md
-[composite-view]: ./w7d4/composite-view.md
-
-## w7d5
-
-### Backbone Mini Project (SF)
 * [:movie_camera:  17: Composite View 1 (21min)](https://vimeo.com/groups/appacademy/videos/85221711) [:notebook: diff][bb-16-17-diff]
 * [:movie_camera:  18: Composite View 2 (11min)](https://vimeo.com/groups/appacademy/videos/85221712) [:notebook: diff][bb-17-18-diff]
 * [:movie_camera:  19: Composite View 3 (7 min)](https://vimeo.com/groups/appacademy/videos/85221714) [:notebook: diff][bb-18-19-diff]
 * [:movie_camera:  20: Composite View 4 (9min)](https://vimeo.com/groups/appacademy/videos/85221885) [:notebook: diff][bb-19-20-diff]
+* [Backbone parse][backbone-parse]
+* [Composite View][composite-view]
 * [Completed Composite View][composite-view-source]
-* [RailsCast on Jbuilder][jbuilder-railscast]
-* Read the [jbuilder doc.][jbuilder-doc]. It is short and purely examples. Do read it.
-* **Solo Project**: [Trello Clone][trello-project]
+* **Project**: [News reader][news-reader]
 
 [bb-16-17-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-16...backbone-17
 [bb-17-18-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-17...backbone-18
 [bb-18-19-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-18...backbone-19
 [bb-19-20-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-19...backbone-20
+[news-reader]: ./projects/w7d4-news-reader.md
+[backbone-parse]: ./w7d4/backbone-parse.md
+[composite-view]: ./w7d4/composite-view.md
+[composite-view-source]: https://github.com/appacademy/composite_view
+
+## w7d5
+
+### Backbone Mini Project (SF)
+* [RailsCast on Jbuilder][jbuilder-railscast]
+* Read the [jbuilder doc.][jbuilder-doc]. It is short and purely examples. Do read it.
+* **Solo Project**: [Trello Clone][trello-project]
+
 [trello-project]: https://github.com/appacademy/TrelloClone/
 [jbuilder-railscast]: http://railscasts.com/episodes/320-jbuilder
 [gist-clone]: ./projects/w7d3-gist-clone.md
 [gmail-clone]: ./projects/w7d4-gmail-clone.md
 [jbuilder-doc]: https://github.com/rails/jbuilder
-[composite-view-source]: ./w7d5/composite_view.js
 
 ## w7d6-w7d7
 
