@@ -3,84 +3,153 @@
 Previously, we've seen a lightweight way of managing subviews for a
 [collection](../w7d3/collection-view-pattern.md).  For a simple index,
 this approach is adequate; in a more complex view, however, we will need
-something more [sophisticated](../w7d5/composite_view.js).
+something more sophisticated. Behold: the App Academy
+[CompositeView][composite-view]! Take a look at the code; what follows
+is simply an explanation of it.
 
-## Setting Up the Class
+[composite-view]: ../w7d5/composite_view.js
 
-We're going to write a CompositeView class that inherits from Backbone.View
-to house our general logic; then, when we want to use this class, we can
-just `extend` this class in the same way we normally `extend` the base View
-class. Fortunately, Backbone `extend` is a marvelous method: by writing
-```js
-// composite_view.js
-Backbone.CompositeView = Backbone.View.extend();
+## The Idea
+
+The key underlying component of our CompositeView class will be an
+instance variable, `this._subviews`, which is a plain old JavaScript
+object. The keys will be CSS selectors (strings) corresponding to where
+we want to render the subviews onto the page, and the values will be
+arrays of instances of subviews. Something like this:
+
 ```
+{
+  '.friends': [aUserIndexItemView, anotherUserIndexItemView, ...],
+  '.fav-photos': [aPhotoItemView, anotherPhotoItemView, ...],
+  '.new-photo-form': [aPhotoFormView]
+}
+```
+
+## CompositeView Inheritance
+
+We're going to write a `Backbone.CompositeView` class that inherits from
+`Backbone.View` to house our general logic. Then, when we want to use
+our CompositeView class, we can just `extend` this class in the same way
+we normally `extend` the base View class. Backbone `extend` is a
+marvelous method: by writing
+
+```js
+// app/assets/javascripts/utils/composite_view.js
+Backbone.CompositeView = Backbone.View.extend({
+  // ... CompositeView methods here ...
+});
+```
+
 we can call
+
 ```js
-// awesome_view.js
-MyApp.Views.AwesomeView = Backbone.CompositeView.extend();
+// app/assets/javascripts/views/awesome_things/awesome_show_view.js
+MyApp.Views.AwesomeShowView = Backbone.CompositeView.extend({
+  // ... AwesomeShowView methods here ...
+});
 ```
-to set up a composite view just like we have been doing for simple views
+
+to set up a composite view just like we have been doing for simple
+views.
 
 ## Adding Subviews
 
-To add a subview, we'll need two things: the views themselves and
-something to tell us where on the page they belong. Since we're using
-jQuery for DOM manipulation, we should probably use CSS selectors to
-keep track of where we want the views to go.
+To add a subview, we'll need two things: the view instance itself and
+something to tell us where on the page that subview belongs. Since we're
+using jQuery for DOM manipulation, we can use simple CSS selector
+strings to keep track of where we want the views to go.
 
-From our experience with Collection View, we know that we want to be able
-to store any number of child views for a given selector. This sounds like a
-job for an array.
+### Lazy-initializing `this._subviews`
 
-We could initialize the `subviews` object in an initialize function, but
-since we won't be directly using this class, we would have to make sure that
-any child class's initialize method called up to the parent. Instead, we'll
-write a reader method. This method will create a subviews object if one
-doesn't already exist and then return the object.
+We could create the `_subviews` object in an initialize function, but
+then we'd have to call that initialize function whenever we use the
+class. It will be more convenient to simply have a reader method that
+lazy-initializes the `_subviews` object. This method will create a
+`_subviews` object if one doesn't already exist and store it as an
+instance variable.
 
 ```js
 // composite_view.js
 subviews: function () {
   this._subviews = this._subviews || {};
+
+  // ... more to come
 }
 ```
-But wait a minute; what if we want to get at a specific selector's subviews?
-Let's rewrite that method to take an optional argument and return either all
-the subviews if no argument is provided or only the subviews for the given
-selector if an argument is present.
+
+### Getting subviews
+
+Sometimes we will want to get all of the selectors and subviews. Other
+times, we only want to get the subviews for a specific selector/part of
+the page. Let's have our getter method take an optional argument and
+return only the subviews for the given selector if an argument is
+present, otherwise return the whole `_subviews` object.
+
 ```js
 subviews: function (selector) {
   this._subviews = this._subviews || {};
 
-  if (!selector) {
-    return this._subviews;
-  } else {
+  if (selector) {
     this._subviews[selector] = this._subviews[selector] || [];
     return this._subviews[selector];
+  } else {
+    return this._subviews;
   }
 }
 ```
-Note that we have set up the selector-specific branch to initialize a
-subviews array if we don't already have one; once again, this lets us
-be fearless about asking for subviews in our other code.
 
-Now that we have a way to store subviews, we need to be able to add them
-and put them on the page. Adding a subview is pretty simple:
+Note that in the selector-specific branch we are lazy-initializing an
+array to store the subviews at that selector, if we don't already have
+one. This lets us be fearless about asking for subviews in our other
+code.
+
+### Adding a subview
+
+Great! Now we have a data structure to store our subviews and a method
+to access them. We also need to be able to add subviews and render them
+onto the page. This will involve three steps:
+
+0. Store the subview instance in the composite view's `_subviews` object
+
+0. call the subview's `render` method, so that its `$el` actually
+contains some content
+
+0. Attach the subview's `$el` to the page, i.e. insert its `$el`
+into the DOM
+
+This is not difficult. The steps above correspond, in order, to the
+three lines of the following method:
+
 ```js
 addSubview: function (selector, view) {
   this.subviews(selector).push(view);
+  view.render();
+  this.attachSubview(selector, view); // we'll look at #attachSubview next
 }
 ```
-Putting an individual subview on the page is simple: find its selector
-and append the `$el`. We'll also use `delegateEvents` to ensure that
-event listeners are bound, and we'll check to see whether the child
-is a composite view and attach its subviews if necessary.
+
+Or, because `#render` should return the view upon which it is called, we
+can combine the last two lines:
+
+```js
+addSubview: function (selector, view) {
+  this.subviews(selector).push(view);
+  this.attachSubview(selector, view.render());
+}
+```
+
+Putting an individual subview on the page is simple: append the
+subview's `$el` to the DOM element indicated by the corresponding CSS
+selector string. We'll also use `delegateEvents` to ensure that event
+listeners are bound, in case the subview's `$el` has previously been
+removed from the DOM (which destroys the associated DOM event
+listeners). Finally, we'll check to see whether the child being attached
+is also a composite view (by checking if `attachSubviews` is defined on
+it) and recursively attach the child's subviews, if necessary.
+
 ```js
 attachSubview: function (selector, subview) {
   this.$(selector).append(subview.$el);
-  // Bind events in case `subview` has previously been removed from
-  // DOM.
   subview.delegateEvents();
 
   if (subview.attachSubviews) {
@@ -89,47 +158,65 @@ attachSubview: function (selector, subview) {
 }
 ```
 
-To attach all the subviews, we'll need to iterate over the selectors in our
-subviews object, then over the array at each selector, using jQuery to
-put the views on the page. Vanilla Javascript can do this, but we'll use
-the Underscore library for convenience:
+We're using Backbone's View#$ method here. `view.$(selector)` is just
+shorthand for `view.$el.find(selector)`.
+
+### Attaching all subviews to the page
+
+To attach all the subviews (i.e. insert each of their `$el`s into the
+appropriate place in the DOM), we'll need to iterate over the CSS
+selectors in our subviews object, then over the array of subviews at
+each selector, using jQuery to put the views onto the page. Vanilla
+Javascript can do this, but we'll use the Underscore library for
+convenience. (Note that Underscore's [`each`][underscore-each] method,
+when called on an object, passes `value, key` pairs to the callback,
+rather than `key, value` pairs as you might expect.)
+
+[underscore-each]: http://underscorejs.org/#each
+
 ```js
 attachSubviews: function () {
   var view = this;
-  _(this.subviews()).each(function (subviews, selector) {
+  _(this.subviews()).each(function (selectorSubviews, selector) {
     view.$(selector).empty();
-    _(subviews).each(function (subview) {
+    _(selectorSubviews).each(function (subview) {
       view.attachSubview(selector, subview);
     });
   });
 }
 ```
-One thing we haven't done is render the subviews; for the most part, we can
-delegate this to the individual views, letting their event handlers deal with
-any changes, but it makes sense to render and try to attach the subview when
-we first add it:
-```js
-addSubview: function (selector, view) {
-  this.subviews(selector).push(view);
-  this.attachSubview(selector, view.render());
-}
-```
+
+All that we are doing here is inserting the subviews' `$el`s into the
+DOM. Unlike when we initially add a subview to the composite view, we
+are not calling `render` on the subviews. After the initial `render`ing
+of the subview when it is added to the composite view, we will trust
+that it's `$el` contains appropriate content from there on out. We will
+delegate the responsibility for updating the content of each `$el`, as
+needed, to the individual views (via their `listenTo` and DOM event
+handlers).
 
 ## Removing Subviews
 
 Now we can add subviews to the view and the page, but we also need to be
 able to remove them. There are two cases to consider:
-1. Removing a specific subview: in this case, we need to find the subview
-in the subviews object and remove it from both the page and the object (so
-that it won't reappear on the next call to `attachSubviews`).
-2. Removing the whole view: right now, when we call `remove` on our parent
-view, the children can remain in memory as zombie views. We can fix this by
+
+0. Removing a specific subview, such as would be useful when the user
+destroys a particular model that is being displayed on the page. In this
+case, we need to find the subview in the `_subviews` object and remove
+it from both the page and the object (so that it won't reappear on the
+next call to `attachSubviews`).
+
+0. Removing the whole composite view, which we will want to do when
+navigating to an entirely different view via the Backbone router, for
+example. Right now, when we call `remove` on our parent view, the
+children can remain in memory as zombie views. We can fix this by
 overriding the `remove` method. Note that, by overriding a piece of the
-standard API, we can be indifferent to whether a particular view is simple
-or composite: the same method will take both views off the page, recursively
-removing subviews in the case of a composite view.
+standard API, we can be indifferent to whether a particular view is
+simple or composite: the same method will take both views off the page,
+recursively removing subviews in the case of a composite view.
 
 First, removing a particular subview:
+
 ```js
 removeSubview: function (selector, subview) {
   subview.remove();
@@ -138,7 +225,9 @@ removeSubview: function (selector, subview) {
   subviews.splice(subviews.indexOf(subview), 1);
 }
 ```
+
 Then, removing the parent with all its children:
+
 ```js
 remove: function () {
   Backbone.View.prototype.remove.call(this);
@@ -150,16 +239,26 @@ remove: function () {
 }
 ```
 
+We use `Backbone.View.prototype.remove.call(this)` to invoke the
+original Backbone View#remove on the composite view. (If we had simply
+said `this.remove()`, then our new version of the `remove` function
+would call itself in an infinite recursive loop.) We then call `remove`
+on each subview as well.
+
 Note that, when we remove the parent view, we don't need to remove views
-from the subviews object, as the parent will be discarded when we're done.
+from the `_subviews` object, as the parent will be discarded when we're
+done.
 
 ## Using CompositeView
+
 When we `extend` our `CompositeView` class, we will have a nice API for
-working with numerous subviews associated with multiple areas on the page.
-The main thing we will need to do is remember to attach our subviews whenever
-we render; my boilerplate render function looks like this:
+working with numerous subviews associated with multiple areas on the
+page. The main thing we will need to do is remember to attach our
+subviews whenever we render; my boilerplate render function looks like
+this:
+
 ```js
-// some_view.js
+// a_cool_composite_view.js
 render: function () {
   var content = this.template();
   this.$el.html(content);
@@ -167,3 +266,9 @@ render: function () {
   return this;
 }
 ```
+
+This `render` method relies upon our subviews having already been
+"registered" with the composite view via the `addSubview` method.
+Commonly, this will be done in the composite view's `initialize` method
+and/or a method that is triggered when a new model is added to a
+collection.
