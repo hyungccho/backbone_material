@@ -17,13 +17,13 @@ Note: the app in these videos is built with Rails 3. One notable
 difference between Rails 3 and Rails 4 is how params are handled.
 [This short reading][rails-3-vs-4] can tell you more.
 
-* [:movie_camera:  01: API (15 min)](https://vimeo.com/groups/appacademy/videos/84654425) [:notebook: diff][bb-00-01-diff]
-* [:movie_camera:  02: Backbone Intro, Models (27 min)](https://vimeo.com/groups/appacademy/videos/84654427) [:notebook: diff][bb-01-02-diff]
-* [:movie_camera:  03: Collections (23 min)](https://vimeo.com/groups/appacademy/videos/84654428) [:notebook: diff][bb-02-03-diff]
-* [:movie_camera:  04: Views, EJS, DOM events (35 min)](https://vimeo.com/groups/appacademy/videos/84654429) [:notebook: diff][bb-03-04-diff]
-* [:movie_camera:  05: Model/Collection events (20 min)](https://vimeo.com/groups/appacademy/videos/84654430) [:notebook: diff][bb-04-05-diff]
-* [:movie_camera:  06: Forms (18 min)](https://vimeo.com/groups/appacademy/videos/84656483) [:notebook: diff][bb-05-06-diff]
-* [:movie_camera:  07: Routing (27 min)](https://vimeo.com/groups/appacademy/videos/84656486) [:notebook: diff][bb-06-07-diff]
+* [:movie_camera: (cc) 01: API (15 min)](https://vimeo.com/groups/appacademy/videos/84654425) [:notebook: diff][bb-00-01-diff]
+* [:movie_camera: (cc) 02: Backbone Intro, Models (27 min)](https://vimeo.com/groups/appacademy/videos/84654427) [:notebook: diff][bb-01-02-diff]
+* [:movie_camera: (cc) 03: Collections (23 min)](https://vimeo.com/groups/appacademy/videos/84654428) [:notebook: diff][bb-02-03-diff]
+* [:movie_camera: (cc) 04: Views, EJS, DOM events (35 min)](https://vimeo.com/groups/appacademy/videos/84654429) [:notebook: diff][bb-03-04-diff]
+* [:movie_camera: (cc) 05: Model/Collection events (20 min)](https://vimeo.com/groups/appacademy/videos/84654430) [:notebook: diff][bb-04-05-diff]
+* [:movie_camera: (cc) 06: Forms (18 min)](https://vimeo.com/groups/appacademy/videos/84656483) [:notebook: diff][bb-05-06-diff]
+* [:movie_camera: (cc) 07: Routing (27 min)](https://vimeo.com/groups/appacademy/videos/84656486) [:notebook: diff][bb-06-07-diff]
 
 [rails-3-vs-4]: ./w6d6-w6d7/rails-3-vs-4.md
 [bb-00-01-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-00...backbone-01
@@ -44,11 +44,11 @@ This is the completed application built in the above video series.
 * [Backbone.Model II][backbone-model-ii]
 * [Backbone.Collection][backbone-collection]
 * [Backbone.Collection II][backbone-collection-ii]
-* [:movie_camera:  08: getOrFetch (13min)](https://vimeo.com/groups/appacademy/videos/84656488) [:notebook: diff][bb-07-08-diff]
-* [:movie_camera:  09: associations (12min)](https://vimeo.com/groups/appacademy/videos/84656490) [:notebook: diff][bb-08-09-diff]
-* [:movie_camera:  10: JBuilder (20min)](https://vimeo.com/groups/appacademy/videos/84656491) [:notebook: diff][bb-09-10-diff]
-* [:movie_camera:  11: Nested JSON responses (15min)](https://vimeo.com/groups/appacademy/videos/85052094) [:notebook: diff][bb-10-11-diff]
-* [:movie_camera:  15: Model#destroy, More nested views (10min)](https://vimeo.com/groups/appacademy/videos/85052096) [:notebook: diff][bb-13-15-diff]
+* [:movie_camera: (cc) 08: getOrFetch (13min)](https://vimeo.com/groups/appacademy/videos/84656488) [:notebook: diff][bb-07-08-diff]
+* [:movie_camera: (cc) 09: associations (12min)](https://vimeo.com/groups/appacademy/videos/84656490) [:notebook: diff][bb-08-09-diff]
+* [:movie_camera: (cc) 10: JBuilder (20min)](https://vimeo.com/groups/appacademy/videos/84656491) [:notebook: diff][bb-09-10-diff]
+* [:movie_camera: (cc) 11: Nested JSON responses (15min)](https://vimeo.com/groups/appacademy/videos/85052094) [:notebook: diff][bb-10-11-diff]
+* [:movie_camera: (cc) 15: Model#destroy, More nested views (10min)](https://vimeo.com/groups/appacademy/videos/85052096) [:notebook: diff][bb-13-15-diff]
 * **Project**: [Pokedex!][pokedex-i]
 
 [backbone-model]: ./w7d1/backbone-model.md
@@ -69,9 +69,9 @@ This is the completed application built in the above video series.
 * [Backbone.View II][backbone-view-ii]
 * [Backbone.Router][backbone-router]
 * [Backbone.Router II][backbone-router-ii]
-* [:movie_camera:  12: Nested View, Markdown (30min)](https://vimeo.com/groups/appacademy/videos/85052093) [:notebook: diff][bb-11-12-diff]
-* [:movie_camera:  13: ZombieView, Swapping Router (20min)](https://vimeo.com/groups/appacademy/videos/85052095) [:notebook: diff][bb-12-13-diff]
-* [:movie_camera:  16: Opening Views (15min)](https://vimeo.com/groups/appacademy/videos/85221709) [:notebook: diff][bb-15-16-diff]
+* [:movie_camera: (cc)  12: Nested View, Markdown (30min)](https://vimeo.com/groups/appacademy/videos/85052093) [:notebook: diff][bb-11-12-diff]
+* [:movie_camera: (cc)  13: ZombieView, Swapping Router (20min)](https://vimeo.com/groups/appacademy/videos/85052095) [:notebook: diff][bb-12-13-diff]
+* [:movie_camera: (cc)  16: Opening Views (15min)](https://vimeo.com/groups/appacademy/videos/85221709) [:notebook: diff][bb-15-16-diff]
 * **Project**: [Pokedex Part 2][pokedex-ii]
 
 [backbone-view]: ./w7d2/backbone-view.md
@@ -99,10 +99,10 @@ This is the completed application built in the above video series.
 
 ## w7d4
 
-* [:movie_camera:  17: Composite View 1 (21min)](https://vimeo.com/groups/appacademy/videos/85221711) [:notebook: diff][bb-16-17-diff]
-* [:movie_camera:  18: Composite View 2 (11min)](https://vimeo.com/groups/appacademy/videos/85221712) [:notebook: diff][bb-17-18-diff]
-* [:movie_camera:  19: Composite View 3 (7 min)](https://vimeo.com/groups/appacademy/videos/85221714) [:notebook: diff][bb-18-19-diff]
-* [:movie_camera:  20: Composite View 4 (9min)](https://vimeo.com/groups/appacademy/videos/85221885) [:notebook: diff][bb-19-20-diff]
+* [:movie_camera:  (cc) 17: Composite View 1 (21min)](https://vimeo.com/groups/appacademy/videos/85221711) [:notebook: diff][bb-16-17-diff]
+* [:movie_camera:  (cc) 18: Composite View 2 (11min)](https://vimeo.com/groups/appacademy/videos/85221712) [:notebook: diff][bb-17-18-diff]
+* [:movie_camera:  (cc) 19: Composite View 3 (7 min)](https://vimeo.com/groups/appacademy/videos/85221714) [:notebook: diff][bb-18-19-diff]
+* [:movie_camera:  (cc) 20: Composite View 4 (9min)](https://vimeo.com/groups/appacademy/videos/85221885) [:notebook: diff][bb-19-20-diff]
 * [Backbone parse][backbone-parse]
 * [Composite View][composite-view]
 * [Completed Composite View][composite-view-source]
