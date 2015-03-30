@@ -11,7 +11,6 @@
 - Flickr
 - Billsplitter
 - Poll Everywhere
-- Tumblr
 - Yelp
 - Evernote
 - Etsy
