@@ -66,8 +66,9 @@ when the collection's `fetch` function succeeds.
 ### Entries
 
 0. Create an `Entries` collection and `Entry` model.
-0. The `url` method should return `this.feed.url() + '/entries'`. `this.feed`
-  is going to be an instance variable we set upon creation. (We will go over this soon.)
+0. The `url` property should be defined as a function that returns
+  `this.feed.url() + '/entries'`. `this.feed` is going to be an instance
+  variable we set upon creation. (We will go over this soon.)
 0. Entries exist only as subordinates to feeds. For this reason it is
   appropriate to *nest* entries inside a feed object. Just like in rails where
   our `Feed` `has_many` `#entries`, our `Feed` model will have an `#entries()`
