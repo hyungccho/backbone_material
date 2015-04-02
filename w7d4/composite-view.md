@@ -7,7 +7,7 @@ something more sophisticated. Behold: the App Academy
 [CompositeView][composite-view]! Take a look at the code; what follows
 is simply an explanation of it.
 
-[composite-view]: ../w7d5/composite_view.js
+[composite-view]: https://github.com/appacademy/composite_view/blob/master/composite_view.js
 
 ## The Idea
 
