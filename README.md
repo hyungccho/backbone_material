@@ -124,7 +124,7 @@ This is the completed application built in the above video series.
 * Read the [jbuilder doc.][jbuilder-doc]. It is short and purely examples. Do read it.
 * **Solo Project**: [Trello Clone][trello-project]
 
-[trello-project]: https://github.com/appacademy/TrelloClone/
+[trello-project]: ./projects/w7d5-trello-clone.md
 [jbuilder-railscast]: http://railscasts.com/episodes/320-jbuilder
 [gist-clone]: ./projects/w7d3-gist-clone.md
 [gmail-clone]: ./projects/w7d4-gmail-clone.md
