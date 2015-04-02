@@ -24,8 +24,8 @@ to be refreshed. Make a new method, `latest_entries`, that will `reload` the
 feed if `updated_at` is older than `30.seconds.ago`. Return the association,
 `entries`, at the end of this method. We should now be able to use
 `latest_entries` as an association that will give us all `entries`, including those that
-are less than 30 seconds old. You can use [this quickly updating feed][quickfeed]
-to make sure your method works correctly; it updates every 10 seconds.
+are less than 30 seconds old. You will find an entry for [this quickly updating feed][quickfeed]
+in the provided `seeds.rb`. Let's use it to make sure your method works correctly.
 0. Let's update the show method for our `FeedsController`. Right now,
 visiting the show route for a feed only includes the information about the feed
 object. We want all the entries for that feed to also be packaged in the JSON. We can do this

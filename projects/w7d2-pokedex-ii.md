@@ -35,8 +35,8 @@ Inside this script tag is a template that, when evaluated with a
 `pokemon` local variable, will produce a `div` containing the Pokemon's
 image. To create a template object that can be rendered from the content
 of this script tag, we need to pass the content to the `_.template` function.
-The return value is a function that, when called and passed `{pokemon: pokemon}`
-as an argument should return the actual rendered html.
+The return value is a function that, when called and passed `{ pokemon: pokemon }`
+as an argument, should return the actual rendered html.
 
 Write the template code to display a single Pokemon, recreating
 `renderPokemonDetail` to display the Pokemon (but not
@@ -56,6 +56,7 @@ pokemon.fetch({
   }
 });
 ```
+
 For today's project, we have already grabbed all the template script tags from
 `app/views/shared/_templates` using jQuery and turned them into template functions
 in `app/assets/javascripts/pokedex-4.js` storing them in a `JST` namespace. For
@@ -64,14 +65,14 @@ function `JST["pokemonDetail"]`. Check it out in `pokedex-4`.
 
 Last, modify your `renderPokemonDetail` to use
 `JST["pokemonDetail"]`. As mentioned above, `JST["pokemonDetail"]` stores
-a function that, when called and passed `{pokemon: pokemon}` as the argument,
-will return the rendered template; actual HTML code. Instead of creating
+a function that, when called and passed `{ pokemon: pokemon }` as the argument,
+will return the rendered template: actual HTML code. Instead of creating
 the div using jQuery and adding elements one after another like yesterday,
 we are going to render our template and let it fill out the HTML for us!
 
 For example:
 ```html
-    var content = JST['pokemonDetail']({pokemon: pokemon});
+    var content = JST['pokemonDetail']({ pokemon: pokemon });
 ```
 
 In the snippet above, we are _rendering_ the template and passing
@@ -122,10 +123,17 @@ $(function() {
 */
 ```
 
+In the `PokemonIndex#initialize` method, `listenTo` `sync` and `add` events on
+the collection. These events should cause the view to `render`, so that the
+information displayed in the DOM stays current whenever models are added to the
+collection or it is fetched from the server.
+
+<!--
 In the `PokemonIndex#initialize`, build an empty `Pokemon` collection
 and save it to `this.collection`. Write a
 `PokemonIndex#refreshPokemon` method that fetches the collection. Give
 a success callback that calls the `PokemonIndex#render` method.
+-->
 
 In the `PokemonIndex#render` method, first empty out the
 `this.$el`. Then iterate through the collection, calling
