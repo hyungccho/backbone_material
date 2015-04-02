@@ -14,7 +14,12 @@ the best representation of your abilities.
 
 ## Choosing a Project
 Before writing your proposal, you should figure out [which project you're going
-to clone][clone-link]. You should think about the following:
+to clone][clone-link]. You **may not** clone an app that we have already
+partially cloned in class. That would defeat part of the purpose of your
+final project, which is to give you the experience of architecting and
+building an app from the ground up. Projects that we have already cloned
+include **Trello**, **Twitter**, **Reddit**, and an RSS feed reader app. You
+should think about the following:
 
 * What features of this site am I going to clone? Are these features
   self-explanatory and easily demonstrated?
