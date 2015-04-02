@@ -5,7 +5,6 @@
 - Kickstarter
 - Instagram
 - Stackoverflow
-- Feedly
 - Rap Genius
 - Soundcloud
 - Flickr
