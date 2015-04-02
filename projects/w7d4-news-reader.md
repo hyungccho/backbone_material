@@ -143,7 +143,7 @@ when the collection's `fetch` function succeeds.
   `Cannot read property 'entries' of undefined`. This means the `model` that
   should have been passed in is `undefined` when the view was created/rendered.
 
-  We created the `NewReader.Collection.feeds` collection when we first
+  We created the `NewsReader.Collections.feeds` collection when we first
   downloaded the JavaScript and started running our application, regardless
   of which router action we visited, if any. However, we didn't finish `fetch`ing
   the feeds before trying to display a particular feed  and `entries`. We don't
