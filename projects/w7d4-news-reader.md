@@ -10,7 +10,6 @@
 0. Create, migrate, and seed the database.
 0. Using the browser, make sure that everything is working by visiting the index
 and show urls for the `feeds` resource.
-
 0. Using the rails console use the two custom methods in the `Feed` model to
 create and reload an RSS feed. Make sure you understand how these methods work.
 
@@ -19,21 +18,22 @@ create and reload an RSS feed. Make sure you understand how these methods work.
 ### Feeds with Entries and Reload
 
 0. So, we have a nice `reload` method in our `Feed` model. This pulls down the
-latest entries for the feed. It also causes the `updated_at` value for the feed
+newest entries for the feed. It also causes the `updated_at` value for the feed
 to be refreshed. Make a new method, `latest_entries`, that will `reload` the
 feed if `updated_at` is older than `30.seconds.ago`. Return the association,
 `entries`, at the end of this method. We should now be able to use
-`latest_entries` as an association that will give us all `entries`, including those that
-are less than 30 seconds old. You will find an entry for [this quickly updating feed][quickfeed]
-in the provided `seeds.rb`. Let's use it to make sure your method works correctly.
-0. Let's update the show method for our `FeedsController`. Right now,
-visiting the show route for a feed only includes the information about the feed
-object. We want all the entries for that feed to also be packaged in the JSON. We can do this
-easily by adding an additional arguments to the params hash we give to `render`.
-Now, our only argument is `json: Feed.find(params[:id])`. If we add
-`include: :latest_entries` it will also include the `latest_entries` for that
-instance of the `Feed` model. Ensure that this works by viewing the json output
-from the show url for a feed before continuing.
+`latest_entries` as an association that will update the feed if the data in the
+database is stale and return all `entries`. You will find an entry for
+[this quickly updating feed][quickfeed] in the provided `seeds.rb`; use it to
+make sure your method works correctly.
+0. Let's update the show method for our `FeedsController`. Right now, visiting
+the show route for a feed only includes the information about the feed
+object. We want all the entries for that feed to also be packaged in the JSON.
+We can do this easily by adding an additional arguments to the params hash we
+give to `render`. Now, our only argument is `json: Feed.find(params[:id])`.
+If we add `include: :latest_entries` it will also include the `latest_entries`
+for that instance of the `Feed` model. Ensure that this works by viewing the
+json output from the show url for a feed before continuing.
 
 [quickfeed]: http://lorem-rss.herokuapp.com/feed?unit=second&interval=10
 
@@ -89,15 +89,15 @@ when the collection's `fetch` function succeeds.
   to populate the `entries` collection for a feed. To do this we must create
   a `Feed#parse(response)` function to parse the data from the server.
 
-  The default behavior for `parse` is to simply pass on the response JSON to be 
-  set as the `attributes` of the model. When the response contains data for a 
-  nested collection, we must take the nested data out of the response and use 
+  The default behavior for `parse` is to simply pass on the response JSON to be
+  set as the `attributes` of the model. When the response contains data for a
+  nested collection, we must take the nested data out of the response and use
   it to populate the collection before passing on the remainder of the response.
 
   So: if the response passed into `parse` contains `latest_entries`,
   call `set` on our nested `entries` collection and give it the
   `latest_entries` as an argument. After populating the collection of
-  `entries` with the `latest_entries` from the server, be sure and
+  `entries` with the `latest_entries` from the server, be sure to
   `delete response.latest_entries`, to remove the nested data from the
   response so it will not become part of the feed's `attributes`.
 0. At this stage we should have both `Feeds` and `Entries` working. In the
