@@ -141,6 +141,7 @@ This is the completed application built in the above video series.
 ## w8d1
 
 * **Backbone Mini Project II (SF)**
+* **Assessment06** ([practice][assessment-practice])
 * [jQuery UI][jquery-ui]
 
 [assessment-practice]: https://github.com/appacademy/assessment-prep
@@ -148,5 +149,4 @@ This is the completed application built in the above video series.
 
 ## w8d2
 
-* **Assessment06** ([practice][assessment-practice])
 * **Begin Final Projects**
