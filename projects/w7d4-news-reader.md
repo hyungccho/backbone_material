@@ -20,12 +20,15 @@ create and reload an RSS feed. Make sure you understand how these methods work.
 0. So, we have a nice `reload` method in our `Feed` model. This pulls down the
 newest entries for the feed. It also causes the `updated_at` value for the feed
 to be refreshed. Make a new method, `latest_entries`, that will `reload` the
-feed if `updated_at` is older than `30.seconds.ago`. Return the association,
-`entries`, at the end of this method. We should now be able to use
-`latest_entries` as an association that will update the feed if the data in the
-database is stale and return all `entries`. You will find an entry for
-[this quickly updating feed][quickfeed] in the provided `seeds.rb`; use it to
-make sure your method works correctly.
+feed if `updated_at` is older than `30.seconds.ago` (NB: There's nothing magical
+about 30 seconds, but we do want to throttle our updates so that, when we have
+many users requesting the same feed in rapid succession, we aren't constantly
+making requests to the feed for updates). Return the association, `entries`,
+at the end of this method. We should now be able to use `latest_entries` as an
+association that will update the feed if the data in the database is stale and
+return all `entries`. You will find an entry for
+[this quickly updating feed][quickfeed] in the
+provided `seeds.rb`; use it to make sure your method works correctly.
 0. Let's update the show method for our `FeedsController`. Right now, visiting
 the show route for a feed only includes the information about the feed
 object. We want all the entries for that feed to also be packaged in the JSON.
