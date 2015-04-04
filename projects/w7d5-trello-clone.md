@@ -29,8 +29,7 @@ that card modal view. Congratulations, you just made Trello. :beers:
 
 ### Phase I: Boards Index
 
-* Start up Backbone. Remember to check that you're getting that annoying "Hello
-from Backbone" alert.
+* Start up Backbone.
   * Make your Backbone model and collection for boards.
   * Make a trello.js file in your javascripts folder. In it, initialize Backbone.
   * Test out your Backbone model: if you use its `save` method, it should save
