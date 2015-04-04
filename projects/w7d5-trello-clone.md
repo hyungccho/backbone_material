@@ -37,7 +37,7 @@ from Backbone" alert.
 the model to the database.
 * Build a `BoardsIndex` view class. Its `render` function should put an
 unordered list of our boards on the page.
-* Add a Backbone router: map "/" to the `BoardsIndex` class. At this point, you
+* Add a Backbone router: map "" to the `BoardsIndex` class. At this point, you
 should be able to see all your boards on your index page.
 * Add a new board view class, so that you can create boards.
 
