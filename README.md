@@ -89,6 +89,7 @@ This is the completed application built in the above video series.
 * [CollectionView pattern][collection-view-pattern]
 * [Backbone.Event][backbone-event]
 * [Getting Started With Your Very Own Backbone! (gem 'backbone-on-rails')][backbone-intro]
+* [Get or Fetch][get-or-fetch]
 * **Project**: [Journal App][journal-app]
 
 [tentative-proposal]: ./w7d3/tentative-project-proposal.md
@@ -96,6 +97,7 @@ This is the completed application built in the above video series.
 [collection-view-pattern]: ./w7d3/collection-view-pattern.md
 [backbone-event]: ./w7d3/backbone-event.md
 [backbone-intro]: ./w7d3/backbone-intro.md
+[get-or-fetch]: ./w7d3/get-or-fetch.md
 
 ## w7d4
 
