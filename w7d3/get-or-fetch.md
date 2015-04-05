@@ -1,72 +1,105 @@
 # Get or Fetch
 
-Backbone collections have a `get` method that will retrieve a model by `id`.
-this is convenient if we have the model client-side, but sometimes we want a
-model that only exists on the server. In this case, we need to create a model
-with the desired `id` and fetch it. We could do this wherever we need the model,
-but this would involve a lot of code duplication; instead, we should define
-an interface on the collection that will manage this process.
+Backbone collections have a `get` method that will retrieve a model by
+`id`. This is convenient if we have the model in our client-side
+collection, but sometimes we want a model that only exists on the
+server. In this case, we need to create a model with the desired `id`
+and fetch it. We could do this wherever we need the model, but this
+would involve a lot of code duplication; instead, we should define an
+interface on the collection that will manage this process.
 
 The pattern we will use is `getOrFetch`:
 
 ```js
-getOrFetch: function (id) {
-  var collection = this;
+// app/assets/javascripts/collections/widgets.js
 
-  var model = this.get(id);
-  if (!model) {
-    model = new App.Models.Model({ id: id });
-    model.fetch({
-      success: function () {
-        collection.add(model);
-      }
-    });
-  } else {
-    model.fetch();
+AppName.Collections.Widgets = Backbone.Collection.extend({
+  // ...
+
+  getOrFetch: function (id) {
+    var collection = this;
+
+    var widget = collection.get(id);
+    if (widget) {
+      widget.fetch();
+    } else {
+      widget = new App.Models.Widget({ id: id });
+      widget.fetch({
+        success: function () {
+          collection.add(widget);
+        }
+      });
+    }
+
+    return widget;
   }
+});
+```
 
-  return model;
+## Code Explanation
+
+Let's go through the code slowly:
+
+```js
+var collection = this;
+var widget = collection.get(id);
+```
+
+The first two lines set up the rest of the function: we store the value
+of `this` for later reference in a callback, and we try to retrieve the
+model from the collection.
+
+```js
+if (widget) {
+  widget.fetch();
 }
 ```
 
-Let's go through the code slowly:
-```js
-var collection = this;
-var model = this.get(id);
-```
-The first two lines set up the rest of the function: we store the value of
-`this` for later reference in a callback, and we try to retrieve the model
-from the collection.
+If a model with the correct `id` already exists in our Backbone
+collection, then we're pretty much done. We do want to fetch the model,
+however. There might be updates on the server, and we frequently send
+more data from a `show` route than from an `index`.
 
 ```js
-if (!model) {
-  model = new App.Models.Model({ id: id });
-  model.fetch({
+} else {
+  widget = new AppName.Models.Widget({ id: id });
+  widget.fetch({
     success: function () {
-      collection.add(model);
+      collection.add(widget);
     }
   });
 }
 ```
 
-If we don't receive a model from `get`, we need to create the model, fetch it,
-and add it to the collection if we receive data from the server.
+If `collection.get(id)` returned `undefined` (because our Backbone
+collection didn't contain a model with the `id` in question), then we
+need to instantiate a model with that `id`, fetch it, and add it to the
+collection if we receive data from the server.
 
 ```js
-} else {
-  model.fetch();
-}
+return widget;
 ```
 
-Even if we have the model in the collection, it is usually a good idea to fetch
-it; there might be updates on the server, and we frequently send more data from
-a `show` route than from an `index`. In this case, we don't need to add the
-model to the collection on success, since we already have it there.
+Note that `Backbone.Model#fetch` is asynchronous, so when we `return
+widget` from `getOrFetch`, the model returned might have only an `id`
+attribute, or an incomplete set of attributes, or outdated attributes.
+Whichever attributes are available will then be used by some view to
+render content onto the page, or your view might simply render the text
+"Loading..." or a cool [CSS spinner][css-spinner]. Whatever we render
+while we wait for the server's response, we definitely want to re-render
+our view once that response does come back.
 
-```js
-return model;
-```
-Since we always return a model, we can always rely on model methods being
-available where we call `getOrFetch`. We won't always have all the attributes
-until our `fetch` completes, but we can use `listenTo` and other techniques to
-ensure that the data is updated when we receive it.
+This is where `listenTo` comes in. Whichever view is using the model
+returned by `getOrFetch` should `listenTo` a `'sync'` event on the
+model. When the asynchronous `fetch` completes, it will trigger a `sync`
+event, which the view should respond to by re-rendering.
+
+[css-spinner]: http://google.com/search?q=css+spinner
+
+## Always fetch
+
+Note that the `getOrFetch` name is a little misleading, since we will be
+`fetch`ing the model in both branches of our `if...else` statement.
+Despite the questionable name, we're going to stick with it for reasons
+of backwards-compatibility with the videos, but you might prefer to
+think of the method as `getAndFetch` or `getOrInstantiate`.
