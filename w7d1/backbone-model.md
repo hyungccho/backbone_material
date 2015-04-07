@@ -148,7 +148,7 @@ var example = new BackboneExample.Models.Example({ id: 1 });
 // The model must have an id - otherwise Rails doesn't know what to destroy
 example.destroy({
   success: function(model, response, options){
-  //the success callback recieves the model itself as it's first argument
+  //the success callback recieves the model itself as its first argument
   },
   error: function(model, response, options){
   //in the error callback, the response argument will have info about the error
