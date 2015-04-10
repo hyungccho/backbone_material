@@ -1,7 +1,7 @@
 # Tentative Project Proposal
 
 Before we ask you to pour your heart and soul into crafting a polished, thorough
-blueprint for your final project, we want to be doubly sure that your core idea
+blueprint for your capstone project, we want to be doubly sure that your core idea
 is strong enough not only to stand on its own, but to really wow employers. To
 facilitate this, we're requiring you to submit to us the basic premise (i.e.,
 what app you plan to clone), as well as a bulleted list of the features you will
@@ -16,7 +16,7 @@ the best representation of your abilities.
 Before writing your proposal, you should figure out [which project you're going
 to clone][clone-link]. You **may not** clone an app that we have already
 partially cloned in class. That would defeat part of the purpose of your
-final project, which is to give you the experience of architecting and
+capstone project, which is to give you the experience of architecting and
 building an app from the ground up. Projects that we have already cloned
 include **Trello**, **Twitter**, **Reddit**, and an RSS feed reader app. You
 should think about the following:

@@ -3,7 +3,7 @@
 Over the next few days, you will build a clone of [Trello](https://trello.com/).
 
 The intention of this project is to practice building something a bit bigger on
-your own in preparation for the final project. This means that these
+your own in preparation for the capstone project. This means that these
 instructions are intentionally vague.
 
 Below you will find a both terse and detailed instructions. We challenge you to

@@ -134,11 +134,11 @@ This is the completed application built in the above video series.
 
 ## w7d6-w7d7
 
-* See [Final Project Curriculum][final-project-curriculum] for readings.
-* Submit your [final project proposal][final-project-proposal] by 9am on Monday.
+* See [Capstone Project Curriculum][capstone-project-curriculum] for readings.
+* Submit your [capstone project proposal][capstone-project-proposal] by 9am on Monday.
 
-[final-project-curriculum]: https://github.com/appacademy/final-project-curriculum
-[final-project-proposal]: https://github.com/appacademy/final-project-curriculum/blob/master/final-projects/final-project-proposal.md
+[capstone-project-curriculum]: https://github.com/appacademy/final-project-curriculum
+[capstone-project-proposal]: https://github.com/appacademy/final-project-curriculum/blob/master/capstone-projects/capstone-project-proposal.md
 
 ## w8d1
 
@@ -151,4 +151,4 @@ This is the completed application built in the above video series.
 
 ## w8d2
 
-* **Begin Final Projects**
+* **Begin Capstone Projects**
