@@ -137,8 +137,8 @@ This is the completed application built in the above video series.
 * See [Capstone Project Curriculum][capstone-project-curriculum] for readings.
 * Submit your [capstone project proposal][capstone-project-proposal] by 9am on Monday.
 
-[capstone-project-curriculum]: https://github.com/appacademy/final-project-curriculum
-[capstone-project-proposal]: https://github.com/appacademy/final-project-curriculum/blob/master/capstone-projects/capstone-project-proposal.md
+[capstone-project-curriculum]: https://github.com/appacademy/capstone-project-curriculum
+[capstone-project-proposal]: https://github.com/appacademy/capstone-project-curriculum/blob/master/capstone-projects/capstone-project-proposal.md
 
 ## w8d1
 
@@ -147,7 +147,7 @@ This is the completed application built in the above video series.
 * [jQuery UI][jquery-ui]
 
 [assessment-practice]: https://github.com/appacademy/assessment-prep
-[jquery-ui]: https://github.com/appacademy/final-project-curriculum/blob/master/readings/jquery_ui.md
+[jquery-ui]: https://github.com/appacademy/capstone-project-curriculum/blob/master/readings/jquery_ui.md
 
 ## w8d2
 
