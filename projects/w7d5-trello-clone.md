@@ -29,10 +29,11 @@ that card modal view. Congratulations, you just made Trello. :beers:
 
 ### Phase I: Boards Index
 
-* Start up Backbone.
+* Start up Backbone. `rails g backbone:install --javascript` has already been
+  run for you; you won't need to run it again.
   * Make your Backbone model and collection for boards.
   * Check out the `trello_clone.js` file inside `app/assets/javascripts`. In it,
-    initialize Backbone.
+    initialize your Backbone app.
   * Test out your Backbone model: if you use its `save` method, it should save
     the model to the database.
 * Build a `BoardsIndex` view class. Its `render` function should put an
