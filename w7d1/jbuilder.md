@@ -40,13 +40,23 @@ pairs in a JSON object:
 json.key "value"
 ```
 
-This will produce the json:
+This will produce the JSON:
 
 ```json
 {
   "key": "value"
 }
 ```
+
+We can also set keys with a block:
+
+```ruby
+json.key do 
+  "value"
+end
+```
+
+will produce the same JSON.
 
 JSON naturally supports objects (in the javascript sense), arrays, strings, numbers,
 true, false, and null (Ruby `nil`); we can set any of those types of objects as values,
@@ -104,6 +114,27 @@ json.array!(@models) do |model|
   json.name model.name
 end
 ```
+
+If we call `json.array!` at the root level, we will set our overall JSON payload to
+an array. This is fine if we want to send a simple array, but what if we want to send
+an array alongside other data? We might try:
+
+```ruby
+# INCORRECT
+json.key json.array!(values)
+```
+
+but this will throw an error. This is where the block syntax for setting keys
+shows its value:
+
+```ruby
+json.key do
+  json.array!(values)
+end
+```
+
+will give us an array of the objects in values. This lets us nest our arrays
+at arbitrary depths.
 
 ## Partials
 
