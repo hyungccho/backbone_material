@@ -44,6 +44,8 @@ This is the completed application built in the above video series.
 * [Backbone.Model II][backbone-model-ii]
 * [Backbone.Collection][backbone-collection]
 * [Backbone.Collection II][backbone-collection-ii]
+* [JBuilder][jbuilder-intro]
+* [jbuilder doc.][jbuilder-doc]. Short and purely examples. Read it.
 * [:movie_camera: (cc) 08: getOrFetch (13min)](https://vimeo.com/groups/appacademy/videos/84656488) [:notebook: diff][bb-07-08-diff]
 * [:movie_camera: (cc) 09: associations (12min)](https://vimeo.com/groups/appacademy/videos/84656490) [:notebook: diff][bb-08-09-diff]
 * [:movie_camera: (cc) 10: JBuilder (20min)](https://vimeo.com/groups/appacademy/videos/84656491) [:notebook: diff][bb-09-10-diff]
@@ -60,6 +62,8 @@ This is the completed application built in the above video series.
 [bb-09-10-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-09...backbone-10
 [bb-10-11-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-10...backbone-11
 [bb-13-15-diff]: https://github.com/appacademy/BackboneDemo2/compare/backbone-13...backbone-15
+[jbuilder-doc]: https://github.com/rails/jbuilder
+[jbuilder-intro]: ./w7d1/jbuilder.md
 [pokedex-i]: ./projects/w7d1-pokedex-i.md
 
 
@@ -123,14 +127,12 @@ This is the completed application built in the above video series.
 
 ### Backbone Mini Project (SF)
 * [RailsCast on Jbuilder][jbuilder-railscast]
-* Read the [jbuilder doc.][jbuilder-doc]. It is short and purely examples. Do read it.
 * **Solo Project**: [Trello Clone][trello-project]
 
 [trello-project]: ./projects/w7d5-trello-clone.md
 [jbuilder-railscast]: http://railscasts.com/episodes/320-jbuilder
 [gist-clone]: ./projects/w7d3-gist-clone.md
 [gmail-clone]: ./projects/w7d4-gmail-clone.md
-[jbuilder-doc]: https://github.com/rails/jbuilder
 
 ## w7d6-w7d7
 
