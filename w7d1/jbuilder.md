@@ -11,12 +11,12 @@ what about a user?
 
 ```JSON
 {
-  id: 1,
-  name: "andrew",
-  password_digest: "$2a$10$Q/Z28HDXKgjB2ZmHDCc33O7xyrVHEd8uWpddNyJmVZFP4WtedGAl6",
-  session_token: "qB-7GbWRO39Ykl1hUfcRQA", 
-  created_at: "2015-03-13T18:21:52.596Z", 
-  updated_at: "2015-03-13T18:21:52.647Z"
+  "id": 1,
+  "name": "andrew",
+  "password_digest": "$2a$10$Q/Z28HDXKgjB2ZmHDCc33O7xyrVHEd8uWpddNyJmVZFP4WtedGAl6",
+  "session_token": "qB-7GbWRO39Ykl1hUfcRQA", 
+  "created_at": "2015-03-13T18:21:52.596Z", 
+  "updated_at": "2015-03-13T18:21:52.647Z"
 }
 ```
 
@@ -44,7 +44,7 @@ This will produce the json:
 
 ```json
 {
-  key: "value"
+  "key": "value"
 }
 ```
 
@@ -70,8 +70,8 @@ which will produce the json:
 
 ```json
 {
-  name: "andrew",
-  id: 1
+  "name": "andrew",
+  "id": 1
 }
 ```
 
