@@ -44,11 +44,11 @@ This is the completed application built in the above video series.
 * [Backbone.Model II][backbone-model-ii]
 * [Backbone.Collection][backbone-collection]
 * [Backbone.Collection II][backbone-collection-ii]
-* [JBuilder][jbuilder-intro]
+* [Jbuilder][jbuilder-intro]
 * [jbuilder doc.][jbuilder-doc]. Short and purely examples. Read it.
 * [:movie_camera: (cc) 08: getOrFetch (13min)](https://vimeo.com/groups/appacademy/videos/84656488) [:notebook: diff][bb-07-08-diff]
 * [:movie_camera: (cc) 09: associations (12min)](https://vimeo.com/groups/appacademy/videos/84656490) [:notebook: diff][bb-08-09-diff]
-* [:movie_camera: (cc) 10: JBuilder (20min)](https://vimeo.com/groups/appacademy/videos/84656491) [:notebook: diff][bb-09-10-diff]
+* [:movie_camera: (cc) 10: Jbuilder (20min)](https://vimeo.com/groups/appacademy/videos/84656491) [:notebook: diff][bb-09-10-diff]
 * [:movie_camera: (cc) 11: Nested JSON responses (15min)](https://vimeo.com/groups/appacademy/videos/85052094) [:notebook: diff][bb-10-11-diff]
 * [:movie_camera: (cc) 15: Model#destroy, More nested views (10min)](https://vimeo.com/groups/appacademy/videos/85052096) [:notebook: diff][bb-13-15-diff]
 * **Project**: [Pokedex!][pokedex-i]

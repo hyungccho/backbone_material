@@ -66,7 +66,7 @@ will look for `template.json.jbuilder`. We'll see that soon!
 our JS application. We have provided this controller and view
 for you.
 
-## Phase 0A: JBuilder
+## Phase 0A: Jbuilder
 
 In `app/views/pokemon/` fill in the three empty jbuilder files - one
 each for `show` and `index`, and a partial called `_pokemon`. Your
@@ -84,8 +84,8 @@ individual Pokemon. Render all the attributes of the `Pokemon`:
 ```
 
 Refer to [this excellent simple documentation][jbuilder-doc]. You'll
-use `json.array!` `json.partial!` and `json.extract!` in your JBuilder
-templates. These are all the major JBuilder options!
+use `json.array!` `json.partial!` and `json.extract!` in your Jbuilder
+templates. These are all the major Jbuilder options!
 
 **Test your views by visiting `/pokemon/123` and `/pokemon`. Call your
 TA to review.**
@@ -293,7 +293,7 @@ because it gives the caller flexibility to optionally do more work
 ## Phase 2A: Rendering Toys
 
 Pokemon love to play, so we've seeded the database with some toys. Our
-first step is to update our JBuilder templates to render not just the
+first step is to update our Jbuilder templates to render not just the
 Pokemon, but also their Toys.
 
 To do this, first write a `toys/_toy.json.jbuilder` partial template,
@@ -303,8 +303,8 @@ display the attributes of a toy: `id`, `happiness`, `image_url`,
 
 Modify your `pokemon/_pokemon` partial using `json.toys` to display a
 list of toys. We want to add a `toys` key to our pokemon json object which
-points to an array of json objects representing the toys. Do this using a 
-block and rendering the partial (using `json.partial!`) for each of the toys 
+points to an array of json objects representing the toys. Do this using a
+block and rendering the partial (using `json.partial!`) for each of the toys
 of the Pokemon.
 
 There is a caveat: we want to display the toys when we go to
@@ -318,7 +318,7 @@ For that reason, change your `pokemon/_pokemon` template so that
 `pokemon/show` can **optionally** specify the toys to be rendered. You
 can have it do this by passing a partial variable `display_toys:
 true`. If `display_toys`, render the toys in `pokemon/_pokemon`, else
-don't. You can write an if statement right in your JBuilder!
+don't. You can write an if statement right in your Jbuilder!
 
 **Check that this is working by loading `/pokemon` and
 `/pokemon/123`.** Call your TA over to check.
@@ -345,8 +345,8 @@ The Backbone `parse` method gives us the opportunity to massage an
 incoming Javascript object into the attributes our Backbone model will have.
 `parse` is called after the JSON string received from Rails is translated
 into a Javascript object, but before the Javascript object's properties
-become the Backbone model's attributes. For this reason, `parse` happens 
-to be a great place to intercept any nested data and use that data to 
+become the Backbone model's attributes. For this reason, `parse` happens
+to be a great place to intercept any nested data and use that data to
 populate associated collections.
 
 Write a `parse(payload)` method on `Pokemon`. `payload` here is the

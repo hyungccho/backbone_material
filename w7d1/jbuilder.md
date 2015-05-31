@@ -1,4 +1,4 @@
-# JBuilder
+# Jbuilder
 
 Backbone is built to communicate with a JSON API. Rails can accept JSON
 requests without changing the approach we know; our responses, however,
@@ -14,26 +14,26 @@ what about a user?
   "id": 1,
   "name": "andrew",
   "password_digest": "$2a$10$Q/Z28HDXKgjB2ZmHDCc33O7xyrVHEd8uWpddNyJmVZFP4WtedGAl6",
-  "session_token": "qB-7GbWRO39Ykl1hUfcRQA", 
-  "created_at": "2015-03-13T18:21:52.596Z", 
+  "session_token": "qB-7GbWRO39Ykl1hUfcRQA",
+  "created_at": "2015-03-13T18:21:52.596Z",
   "updated_at": "2015-03-13T18:21:52.647Z"
 }
 ```
 
-We definitely don't want to send the `password_digest` and `session_token` 
+We definitely don't want to send the `password_digest` and `session_token`
 to anyone who needs to know the `username`. And, while the `created_at`
 and `updated_at` probably aren't dangerous to send, we also won't need them
 in most cases; we might as well not send them, too. What we need is a tool to
-format our JSON and send only what we need; basically, we need ERB for JSON
+format our JSON and send only what we need; basically, we need ERB for JSON.
 
-We'll use a gem (already included in Rails) called JBuilder for this. Jbuilder
+We'll use a gem (already included in Rails) called Jbuilder for this. Jbuilder
 views have the extension `.json.jbuilder`, equivalent to `.html.erb`:
 `.jbuilder` tells Rails to use jBuilder to evaluate the template, and `.json`
 says that the evaluated template will produce JSON.
 
 ## Setting Keys
 
-JBuilder exposes an object called `json` that allows us to directly set key-value
+Jbuilder exposes an object called `json` that allows us to directly set key-value
 pairs in a JSON object:
 
 ```ruby
@@ -51,7 +51,7 @@ This will produce the JSON:
 We can also set keys with a block:
 
 ```ruby
-json.key do 
+json.key do
   "value"
 end
 ```
@@ -138,7 +138,7 @@ at arbitrary depths.
 
 ## Partials
 
-Just like in ERB, we can include partials in our JBuilder views. 
+Just like in ERB, we can include partials in our Jbuilder views.
 Let's suppose that we have a `_user.json.jbuilder` that runs:
 
 ```ruby
@@ -173,4 +173,4 @@ when reading code.
 
 ### Reference
 
-[JBuilder documentation](https://github.com/rails/jbuilder)
+[Jbuilder documentation](https://github.com/rails/jbuilder)

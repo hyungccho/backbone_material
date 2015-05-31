@@ -1,7 +1,7 @@
 ## Parse
 
 When Backbone receives data for a model, it expects a JSON object where
-each key corresponds to an attribute on the model. For a collection, it 
+each key corresponds to an attribute on the model. For a collection, it
 expects an array of such objects. This works well if
 we are simply serializing and deserializing objects: we send either a
 single object (for a model) or an array of them (for a collection).
@@ -10,7 +10,7 @@ The picture gets more complicated when we want to include more complicated
 data structures. Let's say that we have a blog post that `has_many` comments.
 
 We'd like to include the comments in the JSON we send when we fetch a post.
-So we build a JBuilder template to format the JSON payload:
+So we build a Jbuilder template to format the JSON payload:
 
 ```ruby
 # show.json.jbuilder
