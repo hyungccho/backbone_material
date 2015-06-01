@@ -16,9 +16,9 @@ with nested data from the server.
 window.Todo.Models.Todo = Backbone.Model.extend({
   urlRoot: "/api/todos",
   parse: function (jsonResp) {
-    // the jsonResp from /api/todos returns nested comments  under each
+    // The jsonResp from /api/todos returns nested comments under each
     // todo model. Rather than keep a `comments` attribute on the model
-    // containing array of json objects. It's better to create a Backbone
+    // containing array of json objects, it's better to create a Backbone
     // Collection and store the nested objects as Backbone Models.
     if (jsonResp.comments) {
       this.comments().set(jsonResp.comments);
