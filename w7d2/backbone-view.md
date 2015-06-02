@@ -1,8 +1,8 @@
 # Backbone.View
 
-Backbone.Views are used to organize the user interface into logical views that 
-are backed by data (models or collections). The best pattern to follow is to 
-allow your view to render (without redrawing the entire page) whenever the data 
+Backbone.Views are used to organize the user interface into logical views that
+are backed by data (models or collections). The best pattern to follow is to
+allow your view to render (without redrawing the entire page) whenever the data
 being displayed by the view changes.
 
 ## Setup
@@ -22,10 +22,10 @@ BackboneExample.Views.ExamplesIndex = Backbone.View.extend({
 
 ### `template`
 
-The `template` property of a Backbone.View is a good place to store a template 
-function. We will be using JST (javascript templates) but you could use any 
-templating engine here. `template` takes an object where the keys will specify 
-the names of the local variables and the values are the values of the variables. 
+The `template` property of a Backbone.View is a good place to store a template
+function. We will be using JST (JavaScript templates) but you could use any
+templating engine here. `template` takes an object where the keys will specify
+the names of the local variables and the values are the values of the variables.
 Lucky for us, JST looks and feels just like ERB.
 
 ```html
@@ -40,7 +40,7 @@ console.log(content); // => "<h1>First Ex.</h1>"
 
 ### `render`
 
-One primary responsibility of a view is to "render" content into an element on the DOM. 
+One primary responsibility of a view is to "render" content into an element on the DOM.
 `render` should:
 
 1.  Compile the template into content
@@ -51,11 +51,13 @@ One primary responsibility of a view is to "render" content into an element on t
 
 ### `initialize`
 
-`initialize` can take several special options that will be directly attached to 
-the view if passed. Special options that we will pass most commonly are 
-`collection` and `model`. **NB**: The `initialize` method will be used for setup 
-of the views listeners. Prefer passing an options hash opposed to individual 
-params to `initialize`.
+When instantiating a view, you may pass an options hash as an argument.
+Certain keys, if provided in the options hash, will automatically be set
+as instance variables of the view, most commonly `model`, `collection`,
+and/or `el`. Other values passed to the constructor in the options hash
+will need to be manually stored as instance variables in the view's
+`initialize` method. **NB**: The other major purpose of the `initialize`
+method is setting up the view's listeners.
 
 ```js
 BackboneExample.Views.ExamplesIndex = Backbone.View.extend({
@@ -71,15 +73,15 @@ var view = new BackboneExample.Views.ExamplesIndex({
 });
 ```
 
-**NB**: We do not need to set up the collection object in the `initialize` 
+**NB**: We do not need to set up the collection object in the `initialize`
 method because `collection` is one of the "special" options we may pass.
 
 ### `$el` and `el`
 
-Each Backbone.View has reference to an html element that will be used to 
-represent the view on the page. `el` will by default be created as an empty 
-`div`. `el` will hold a reference to the html element, while `$el` will hold 
-a cached jQuery object for the view's html. Prefer using the `$el` as it will 
+Each Backbone.View has reference to an html element that will be used to
+represent the view on the page. `el` will by default be created as an empty
+`div`. `el` will hold a reference to the html element, while `$el` will hold
+a cached jQuery object for the view's html. Prefer using the `$el` as it will
 have all of the jQuery methods we've grown to know and love.
 
 ```js
@@ -92,7 +94,7 @@ $('body').html(view.render().$el);
 
 ### `events`
 
-The `events` hash is used with jQuery's `on` function to register callbacks to 
+The `events` hash is used with jQuery's `on` function to register callbacks to
 DOM events. The event hash should look like this:
 
 ```js
@@ -116,7 +118,7 @@ events: {
 }
 ```
 
-Prefer using the events hash as it will correctly _bind_ and more importantly 
+Prefer using the events hash as it will correctly _bind_ and more importantly
 _unbind_ these event handlers.
 
 ## Resources
