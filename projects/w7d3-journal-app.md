@@ -107,9 +107,12 @@ started:
       handler on the delete button.
 * Use `listenTo` to listen for the `"remove"` event that will be fired
   from the underlying collection. Re-render the `PostsIndex` in this case.
-* Also go ahead and `listenTo`:
-    * `sync`
-    * `remove`
+* Also go ahead and `listenTo` `reset` events
+  * To trigger the `reset` event, you will want to `fetch` your posts
+    collection with a `reset: true` option. This will prevent the
+    wasteful triggering of an `add` event as each individual fetched
+    model is added to our collection. This is desirable when making our
+    initial fetch of the collection.
 
 [collectionview]: https://github.com/appacademy/backbone-curriculum/blob/master/w7d3/collection-view-pattern.md
 [bb-el]: http://backbonejs.org/#View-el
@@ -125,19 +128,27 @@ started:
   in `your-app-name.js`).
 * When constructing the router, you should pass in the DOM
   element that it controls. It should swap content in and out of this
-  element.
+  element using the swapping router pattern. We don't want zombie views!
 * After the router is instantiated, call `Backbone.history.start()` so
   Backbone will start listening for changes in the URL.
 * In the router's `show` route, you'll need to provide the appropriate
   `Post` model instance as the `model` for your `PostShow` view instance.
   Use the `getOrFetch` method from Phase I to retrieve the model by ID.
-* Throw a "back" link on your `PostShow`.
+* Throw a "Back to Index" link on your `PostShow`.
 
 ## Phase IV: Build a `PostForm`
 
-* Write a form for editing a post. You'll need:
+* We want to create and edit journal posts. This can de done using a
+  single, shared view and template.
+* You'll need:
     * A `PostForm` Backbone view.
     * A `post_form` EJS template.
+
+### Edit
+
+* We'll start with editing.
+* Link to the edit form for each post from both the index (via your
+  `PostsIndexItem` template) and from the post's show page.
 * In the router, get the `Post` object and pass it as the `model`
   property of the `PostForm`.
 * On submit button click:
@@ -146,28 +157,36 @@ started:
       from the form.
     * Call `Model#save` with the attributes as the first argument, and an
       [options-hash][model-save] as the second argument.
-    * On success, redirect back to the index page. Use
+    * On success, navigate to the post's show page. Use
       `Backbone.history.navigate(url, {trigger: true})`.
       * **Note:** You'll have issues if you forget `{trigger: true}`.
-    * On failure, re-render the form with errors.
-      * Note that since you don't want to lose the user input, you may
-      want to parameterize your form template with an attributes
-      object.
+    * On failure, inject the validation errors into the page. Make sure
+      that you don't lose the user's input, though.
 
 [model-save]: http://backbonejs.org/#Model-save
 [jquery-serialize]: https://github.com/appacademy/js-curriculum/blob/master/w6d5/ajax-remote-forms.md
 [router-docs]: http://backbonejs.org/#Router-navigate
 
-### Phase IV and a half: build new objects with `PostForm`
+### New
 
 * Add a `#/posts/new` route.
 * In the route, build a new, blank `Post` object.
 * Pass the new `Post` model to the `PostForm` view.
 * Also pass the `Posts` collection to the `PostForm` (as attribute
   `collection`).
-* On save, add the model to the collection use the `{ merge: true }`
-  option then use `Backbone.history.navigate` to redirect to
-  the posts index.
+* On save, `add` the model to the collection. Then use
+  `Backbone.history.navigate` to navigate to the post's show page.
+  * You might worry that we'll create duplicate posts when we `add` the
+    post model to our collection after editing a preexisting model.
+    However, by default, Backbone will ignore attempts to add a model to
+    a collection if a model with the same `id` already exists in the
+    collection.
+  * Now you might worry that the collection's copy of the model won't
+    have a post's updated attributes after we edit it. However, as long
+    as you use the `getOrFetch` pattern when passing your model to the
+    PostForm view for editing, then there's no such thing as "the
+    collection's copy of the model." The collection's model and the
+    view's model are the same object in memory.
 
 ## Phase V: `listenTo`
 
@@ -179,17 +198,38 @@ started:
   this view should never be removed by the Router. The sidebar is
   constant.
 * There is one major thing to fix: when we create a new `Post` through
-  the form, we need to update the `PostsIndex` to show the new
-  `Post`.
+  the form, we need to update the `PostsIndex` to show the new `Post`.
+  Likewise, when we edit a post's title, we want the updated title to be
+  reflected in the index.
 * The way to accomplish this is to call `listenTo` to get the View to
   monitor the `PostsCollection` for events. Check the
   [Backbone.Collection docs][backbone-collection] for the collection
   events you can listen for.
+  * Hint: most events that occur on a model will also "bubble up" and be
+    triggered on any collection containing that model, as well.
 * When one of these events fires, re-render the index view.
+* Put a `sleep 2` at the top of your PostsController#update action. Now
+  refresh the page and edit a post. Does the title change in the index
+  before your page redirects to the posts's show page? This is a little
+  awkward. Try including a `wait: true` option when saving the post.
+  This will delay the triggering of `change` events until after the
+  server has responded successfully, and should synchronize your sidebar
+  with your main content.
+* You can remove the `sleep 2`.
 
 [backbone-collection]: http://backbonejs.org/#Collection
 
-## Phase VI: Fancy edit
+## Phase VI: root route
+
+* Add a 'Delete this Post' button to your show page. When deleting a
+  post, we also want to clear it from the page and from the url bar. To
+  accomplish this, let's add a Backbone route matching `''` that calls a
+  router method called `root`.
+* This router method should remove the router's `_currentView`, if one
+  exists, and then `null` out the `_currentView`.
+* Navigate to this route in the delete method of your PostShow view.
+
+## Phase VII: Fancy edit
 
 * Add the ability to edit an article from the show view. The user double
   clicks a particular section (like 'title' or 'body'). Double clicking

@@ -1,23 +1,23 @@
 # CollectionView Pattern
 
-Often times you'll want to render a collection of items. One way to accomplish 
+Often times you'll want to render a collection of items. One way to accomplish
 this is to iterate over the collection of items in the template like this:
 
 ```js
 <ul>
   <% examples.each(function (example) { %>
-    <li><%= example.get('title') %></li>
+    <li><%= example.escape('title') %></li>
   <% }); %>
 </ul>
 ```
 
-This approach (iterating in template) is fine for simple lists of items, but to 
-add greater functionality and flexibility to each of the items, prefer rendering 
+This approach (iterating in template) is fine for simple lists of items, but to
+add greater functionality and flexibility to each of the items, prefer rendering
 a view for each of the items in the list from inside the view.
 
 ```js
 // preferred
-// app/assets/javascripts/views/example_index.js 
+// app/assets/javascripts/views/example_index.js
 tagName: 'ul',
 render: function () {
   var content = this.template();
