@@ -5,7 +5,7 @@
 
 ### Getting Started
 
-0. We will email you a project skeleton. You might need to remind us. ;)
+0. We will email you a project skeleton.
 0. Examine the schema, the models, the routes, and the controllers.
 0. Create, migrate, and seed the database.
 0. Using the browser, make sure that everything is working by visiting the index
