@@ -68,8 +68,7 @@ that card modal view. Congratulations, you just made Trello. :beers:
   remember to order them by rank, by overwriting the default comparator method.
 * Make the lists appear next to each other by making each inside a div which you
   give the CSS setting `float: left`.
-* Add the ability to create and delete cards for each list. *TODO: elaborate on
-  how to do this in Backbone.* The card deletion should be accomplished by a
+* Add the ability to create and delete cards for each list. The card deletion should be accomplished by a
   button for each card which only appears when you're hovering over the card.
   Use CSS `:hover` or the jQuery hover event to get this effect.
 
