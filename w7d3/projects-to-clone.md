@@ -4,7 +4,6 @@
 - AirBnB/Couchsurfing
 - Asana
 - Basecamp
-- BillPin
 - Billsplitter
 - Exec
 - Evernote
@@ -16,9 +15,8 @@
 - Kayak
 - Kickstarter
 - Meetup
-- Mint
-- Newsblur
 - OKCupid
+- Pinterest
 - Pivotal Tracker
 - Poll Everywhere
 - Quora
