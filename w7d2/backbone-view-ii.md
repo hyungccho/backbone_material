@@ -10,7 +10,8 @@ will be called in the `_swapView` of a swapping router.
 _swapView: function (view) {
   this._currentView && this._currentView.remove();
   this._currentView = view;
-  this.$rootEl.html(view.render().$el);
+  this.$rootEl.html(view.$el);
+  view.render();
 }
 ```
 
