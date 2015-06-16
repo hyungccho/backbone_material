@@ -51,10 +51,15 @@ that card modal view. Congratulations, you just made Trello. :beers:
 * On your index page, give every board a link to its show page.
 * Make the board show page. Add a Backbone route to it. For the moment, just
   have a board's show page contain the name of the board and a list of its
-  lists.  You can just display a list's name, given that at the moment it has no
+  lists. You can just display a list's name, given that at the moment it has no
   other content.
-  * Remember to display the lists in order of their rank. You might want to
-    overwrite the `comparator` method of the `lists` collection.
+  * Remember to display the lists in order of their rank. **NB** that if
+    you are using the CompositeView pattern, your views may not be
+    appearing in the order dictated by your collection's `comparator`
+    method. This is because the member subviews are added immediately
+    after fetching (before they can be sorted). There are ways around
+    this--think about ways to "massage" the data before it is sent out
+    by the server.
 * When the user creates a board, it should redirect them to the board's show
   page. You can use `Backbone.history.navigate()` or the router's `navigate`
   method for this.
