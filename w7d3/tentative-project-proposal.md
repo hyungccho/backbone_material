@@ -1,50 +1,42 @@
 # Tentative Project Proposal
 
-**SF 4/20 Cohort:** Please do not submit your proposals by email; use the
-form [here][proposal-form]!
-
-[proposal-form]: http://goo.gl/forms/oOhWXEdCxT
-
 Before we ask you to pour your heart and soul into crafting a polished,
 thorough blueprint for your capstone project, we want to be doubly sure
 that your core idea is strong enough not only to stand on its own, but
-to really wow employers. To facilitate this, we're requiring you to
-submit to us the basic premise (i.e., what app you plan to clone), as
-well as a bulleted list of the features you will need to implement for
-your Minimum Viable Product (MVP). You should think carefully about
-this, but it shouldn't take more than 30 minutes to finish your outline.
-Again, the idea is not to sit down and plan everything out in minute
-detail (there will be time for that later). We simply need to be able to
-screen out projects that are too ambitious, not ambitious enough, or
-that wouldn't give the best representation of your abilities.
+to really wow employers. We also want to encourage some variety among
+capstone projects; this helps distinguish graduates from each other and
+is good for the class as a whole.
 
-## Choosing a Project
-Before writing your proposal, you should figure out [which project
-you're going to clone][clone-link]. You **may not** clone an app that we
-have already partially cloned in class. That would defeat part of the
-purpose of your capstone project, which is to give you the experience of
-architecting and building an app from the ground up. Projects that we
-have already cloned include **Trello**, **Twitter**, **Reddit**, and an
-RSS feed reader app. You should think about the following:
+To facilitate this, we're going to have you submit to us your top three
+choices of project. You'll do this through a Google form we send to your
+email. At most one of your choices can be a project of your own design;
+in this case, select "Other" and write a brief outline in the provided
+text field (details below). Your other choices should be clones of
+projects on the [approved list][clone-link].
 
-* What features of this site am I going to clone? Are these features
-  self-explanatory and easily demonstrated?
-* Will these features show off everything I've learned in the course?
+## Project Outline
 
-[clone-link]: ./projects-to-clone.md
+This is required if you're proposing a unique project, but it's a good
+exercise even if you're planning a straight, no-frills clone. You should
+write a bulleted list of the features you will need to implement for
+your Minimum Viable Product (MVP). Think carefully about this, but don't
+spend more than 30 minutes actually writing the outline. The idea is not
+to sit down and plan everything out in minute detail. Instead, consider
+this a sales pitch. Give us enough detail to show that the project has
+merit and that you have a game plan for making it happen.
 
-When you're ready, go ahead and write out the features you'll need to
-implement. Your finished product should look something like this:
+### Example
 
-## Project: Trello Clone
+#### Project: Trello Clone
 * Users can sign up and sign in
 * Users can create and view boards
-* Users can create lists, and lists are shown on their board
-* Users can create cards, and cards are shown on their list
+* Users can create lists, and lists are shown on the associated board
+* Users can create cards, and cards are shown on the associated list
+* Clicking on a card triggers a modal view with details and comments
 * Lists and cards are draggable
-* Dragging lists and cards causes any changes in order to be saved to the
-  database.
+* Dragging lists and cards causes any changes in order to be saved to
+  the database.
+* Boards, lists, and cards can be destroyed or marked complete
+  (archived)
 
-Send this to instructors-sf@appacademy.io or
-instructors-ny@appacademy.io by 9am of W7D4. We will respond by the
-weekend to approve your outline or ask you to amend it.
+[clone-link]: ./projects-to-clone.md
