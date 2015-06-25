@@ -28,10 +28,10 @@ Here is an example of a JSON string:
 ```
 
 The outer double quotes are not actually part of the string itself; they
-just indicate that this is the representation of a string object.
-Because the string itself contains double quotes, the inner double
-quotes are all escaped. A simpler representation using outer single
-quotes would look like this:
+just indicate that we are dealing with a **string representation of an
+object**, and not a "live" object. Because the string itself contains
+double quotes, the inner double quotes are all escaped. A simpler
+representation using outer single quotes would look like this:
 
 ```rb
 '{"fname":"David"}'
