@@ -25,5 +25,5 @@ From the [Backbone docs](http://backbonejs.org/)
 * [backbonetutorials.com][backbone-tutorials]: Everything in the
   beginner section
 
-[backbone-tutorials]: http://backbonetutorials.com/
+[backbone-tutorials]: https://backbonetutorials.com/
 
