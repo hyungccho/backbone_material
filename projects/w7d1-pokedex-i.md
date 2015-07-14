@@ -8,53 +8,7 @@ start with in a skeleton that we will email to you at the beginning of
 the day.  **Set things up with a `bundle install`, then `rake db:setup` (this is equivalent to `rake
 db:create db:migrate db:seed`)**.
 
-Here's the schema:
-
-```ruby
-ActiveRecord::Schema.define(version: 20141105185704) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "pokemons", force: true do |t|
-    t.string   "name",       null: false
-    t.integer  "attack",     null: false
-    t.integer  "defense",    null: false
-    t.string   "poke_type",  null: false
-    t.string   "moves",      null: false
-    t.string   "image_url",  null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "toys", force: true do |t|
-    t.integer  "pokemon_id", null: false
-    t.string   "name",       null: false
-    t.integer  "price",      null: false
-    t.integer  "happiness",  null: false
-    t.string   "image_url",  null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "toys", ["pokemon_id"], name: "index_toys_on_pokemon_id", using: :btree
-
-end
-```
-
-And the routes file:
-
-```ruby
-Rails.application.routes.draw do
-  root to: 'static_pages#root'
-
-  resources(
-    :pokemon,
-    defaults: {format: :json},
-    only: [:create, :destroy, :index, :show, :update]
-  )
-end
-```
+Take a look at the schema and the routes file to get yourself oriented.
 
 **Note the `defaults: {format: :json}`**. This means that HTTP
 requests that Rails handles for the `pokemon` resource should be
@@ -66,12 +20,13 @@ will look for `template.json.jbuilder`. We'll see that soon!
 our JS application. We have provided this controller and view
 for you.
 
-## Phase 0A: Jbuilder
+## Phase 0A: JBuilder
 
-In `app/views/pokemon/` fill in the three empty jbuilder files - one
-each for `show` and `index`, and a partial called `_pokemon`. Your
-`show` and `index` files should both call the partial to render
-individual Pokemon. Render all the attributes of the `Pokemon`:
+In `app/views/pokemon/`, create three jbuilder files - one each for
+ `show` and `index`, and a partial called `_pokemon`. Remember to
+use the extension `.json.jbuilder`. Your `show` and `index` files 
+should both call the partial to render individual Pokemon. Render all 
+the attributes of the `Pokemon`:
 
 ```json
 { "id":1,
@@ -84,8 +39,8 @@ individual Pokemon. Render all the attributes of the `Pokemon`:
 ```
 
 Refer to [this excellent simple documentation][jbuilder-doc]. You'll
-use `json.array!` `json.partial!` and `json.extract!` in your Jbuilder
-templates. These are all the major Jbuilder options!
+use `json.array!` `json.partial!` and `json.extract!` in your JBuilder
+templates. These are all the major JBuilder options!
 
 **Test your views by visiting `/pokemon/123` and `/pokemon`. Call your
 TA to review.**
@@ -94,7 +49,7 @@ TA to review.**
 
 ## Phase 0B: `Models.Pokemon` and `Collections.Pokemon`
 
-In `app/assets/javascripts/pokedex-0.js`, let's write a `Pokemon`
+In `app/assets/javascripts/models/pokemon.js`, let's write a `Pokemon`
 model.  The purpose of this model class is to allow us to easily
 interact with our Rails API without having to manually make `$.ajax`
 requests each time we want to fetch data from the server or push
@@ -113,41 +68,46 @@ necessitate a `POST` to `/pokemon`, and updating the first pokemon
 would need a `PATCH` to /pokemon/1. The _root_ of all operations
 involving pokemon is `/pokemon`, so this will be our `urlRoot`.
 
-Now we also need to write a collection:
-`Pokedex.Collections.Pokemon`. This class will store all of our
-`Pokemon` models and allow us to manage them as a group. To write this
-class, like our model, we will `extend` a `Backbone` base class,
-`Backbone.Collection`.  We will need to overwrite the `url` and
+Now we also need to write a `Pokedex.Collections.Pokemon` class that
+will store all of our 'Pokemon' models and allow us to manage them as 
+a group. We'll put it in 'app/assets/javascripts/collections/pokemons.js'.
+To write this class, like our model, we will `extend` a `Backbone` base 
+class, `Backbone.Collection`.  We will need to overwrite the `url` and
 `model` properties. The `url` will be the same value as
 `Pokedex.Models.Pokemon`'s `urlRoot` property. The `model` property
-will be set to the `Pokemon` model we created above. This tells the
+will be set to the `Pokemon` model class we created above. This tells the
 base class that when we `fetch` all the pokemon from the server and
 store them in individual models, we should use instances of the
 `Pokemon` model as the class to store them in.
 
-We've written and defined a "view" class `Pokedex.RootView`. This
-class will be responsible for listening to user clicks and displaying
-Pokemon data. Look at the class, but there is nothing to write for it
-just yet.
+We've written and defined a view class in 'assets/javascripts/views/
+pokemon.js'. This will be responsible for listening to user clicks and
+displaying Pokemon data. Look at the class, but there is nothing to write 
+for it just yet.
 
 **Test your model and collection.** Navigate to the
 [root url](http://localhost:3000).  Once you are there, in the Chrome
 console, run the following commands and ensure they work as expected.
 
 ```js
-// Should print out the attributes of Pokemon #1
-Pokedex.Test.testShow(1);
-// Should print out the attributes of all Pokemon!
-Pokedex.Test.testIndex();
+var pokemon = new Pokedex.Models.Pokemon({ id: 1 });
+pokemon.fetch({ success: function () {
+  console.log(pokemon.toJSON());
+}});
+
+var pokemons = new Pokedex.Collections.Pokemon();
+pokemons.fetch({ success: function () {
+  console.log(pokemons.toJSON());
+}});
 ```
 
 ## Phase 1A: `refreshPokemon` and `addPokemonToList`
 
-**Pokedex.RootView.prototype.addPokemonToList**
+**Pokedex.Views.Pokemon.addPokemonToList**
 
-The first thing to do is get your `RootView` displaying `Pokemon`. To do
-this, we should first fill out `addPokemonToList(pokemon)` method in
-`pokedex-1A.js` which takes an instance of `Pokedex.Models.Pokemon` as an
+The first thing to do is get your `Pokemon` view displaying `Pokemon`. To do
+this, we should first add an `addPokemonToList(pokemon)` method in `pokemon.js`
+that takes an instance of `Pokedex.Models.Pokemon` as an
 argument. Create an `li` with jQuery, and list a few high-level
 details of the Pokemon: `name` and `poke_type`. This is just an index
 of Pokemon, so we won't display all data here. Append your `li` to
@@ -163,25 +123,29 @@ You can test your method in the console like so:
 var pokemon = new Pokedex.Models.Pokemon({ id: 1 });
 pokemon.fetch({
   success: function () {
-    window.Pokedex.rootView.addPokemonToList(pokemon);
+    var view = new window.Pokedex.Views.Pokemon({ el: $('#pokedex') });
+    view.addPokemonToList(pokemon);
   }
 });
 ```
 
 Does a Pokemon get added to the list?
 
-**Pokedex.RootView.prototype.refreshPokemon**
+**Pokedex.Views.Pokemon.refreshPokemon**
 
-Next, write `refreshPokemon` method. This method should fetch all the
-Pokemon by fetching `this.pokes`. Iterate through the `this.pokes`,
+Next, write a `refreshPokemon` method. This method should fetch all the
+Pokemon by fetching `this.pokemon`. Iterate through the `this.pokemon`,
 calling `addPokemonToList`.
+
+In 'app/assets/javascripts/pokedex.js', at the end of 'window.Pokedex.initialize',
+add a call to refreshPokemon. 
 
 You can verify this is working by reloading the page; your Pokemon
 should appear!
 
 ## Phase 1B: `renderPokemonDetail` and `selectPokemonFromList`
 
-**Pokedex.RootView.prototype.renderPokemonDetail**
+**Pokedex.Views.Pokemon.renderPokemonDetail**
 
 What we're going to do next is allow ourselves to see more detail
 about a `Pokemon` by selecting it from the index.
@@ -190,7 +154,8 @@ We're going to show the details of the `Pokemon` in the
 `this.$pokeDetail`. In `renderPokemonDetail` create a `div.detail`
 using jQuery. Add an image tag with the Pokemon's photo; iterate
 through all the Pokemon properties, adding each to the `div.detail`.
-Set the content of `this.$pokeDetail` to be the `div.detail`.
+It might be useful to iterate over the keys in the 'attributes' property of the 
+pokemon. Set the content of `this.$pokeDetail` to be the `div.detail`.
 
 You can verify this is working:
 
@@ -198,23 +163,25 @@ You can verify this is working:
 var pokemon = new Pokedex.Models.Pokemon({ id: 1 });
 pokemon.fetch({
   success: function () {
-    Pokedex.rootView.renderPokemonDetail(pokemon);
+    var view = new Pokedex.Views.Pokemon({ el: $('#pokedex') });
+    view.renderPokemonDetail(pokemon);
   }
 });
 ```
 
-**Pokedex.RootView.prototype.selectPokemonFromList**
+**Pokedex.Views.Pokemon.selectPokemonFromList**
 
 We want to call `renderPokemonDetail` in response to clicks. However,
-when a user clicks on a `Pokemon` list item in the `this.$pokeList`,
+when a user clicks on a pokemon list item in the `this.$pokeList`,
 we need to figure out what `Pokemon` they are clicking on, so that we
 can pass that pokemon object to `renderPokemonDetail`.
 
-To do this, modify your `addPokemonToList` method to also set a `id`
-data-attribute on the Pokemon list item. Next, in the `RootView`
-constructor, write a click handler that delegates to `li` and calls
-`this.selectPokemonFromList`. In the click handler, recover the `id`
-from `event.currentTarget`; look up the `Pokemon` in `this.pokes` with the
+To do this, modify your `addPokemonToList` method to also set an `id`
+data-attribute on the Pokemon list item. Next, in `Pokemon.initialize`, add a
+listener that calls 'selectPokemonFromList' on a click on `this.$pokeList`.
+Delegate to `li.poke-list-item`. 
+In the click handler, recover the `id`from 
+`event.currentTarget`; look up the `Pokemon` in `this.pokemon` with the
 id. Finally, use `renderPokemonDetail` to display the Pokemon.
 
 **Test it out; you should be able to click a Pokemon and see more
@@ -222,11 +189,12 @@ details about it.**
 
 ## Phase IC: `createPokemon` and `submitPokemonForm`
 
-**Pokedex.RootView.prototype.createPokemon**
+**Pokedex.Views.Pokemon.createPokemon**
 
 As you encounter new Pokemon, you will want to record your findings
 and share your wisdom with other poke-scientists. For this reason, we
-have provided you with a form. It doesn't do anything yet.
+have provided you with a form in 'app/views/static_pages/root.html.erb'. 
+It doesn't do anything yet.
 
 Before we play with the form, let's write a
 `createPokemon(attributes)` method. This should build a new `Pokemon`
@@ -238,7 +206,8 @@ collection or list **unless it was saved properly**.
 You can test it:
 
 ```javascript
-Pokedex.rootView.createPokemon({
+var view = new Pokedex.Views.Pokemon({ $el: $('#pokedex') }); 
+view.createPokemon({
   name: "PikachuAndAsh",
   image_url: "http://upload.wikimedia.org/wikipedia/en/9/92/Pok%C3%A9mon_episode_1_screenshot.png",
   poke_type: "bug",
@@ -252,26 +221,32 @@ Verify that a new pokemon is added to the list. Likewise, make sure a
 new pokemon **is not added to the list** for an invalid pokemon:
 
 ```javascript
-Pokedex.rootView.createPokemon({
-  name: "PikachuAndAsh",
+var view = new Pokedex.Views.Pokemon({ $el: $('#pokedex') });
+view.createPokemon({
+  name: "EvilTwin",
   // No image! Invalid!
   poke_type: "bug",
-  attack: 0,
+  attack: 1,
   defense: 0,
-  moves: ["spinning!", "twirling!"]
+  moves: ["cackling!", "smirking!"]
 });
 ```
 
-**Pokedex.RootView.prototype.submitPokemonForm**
+**Pokedex.Views.Pokemon.submitPokemonForm**
 
 Again, we want to improve our user interface so the user can create a
 Pokemon through the form, not the console.
 
-To do this, write a `submitPokemonForm` method; in the `RootView`
+To do this, write a `submitPokemonForm` method; in the `Pokemon`
 constructor, install this as a submit handler on the form. In the
-handler, use `serializeJSON` on the target to extract the data from
+handler, first 'event.preventDefault();' so that a post request isn't
+automatically made. Next, use `serializeJSON` on the target to extract the data from
 the form and convert it to a JS object. Then call your `createPokemon`
 method.
+
+Your `Pokedex.Views.Pokemon` class is getting a little large and unwieldy
+by now. Don't worry; tomorrow we'll see how to refactor this beast into
+smaller, more manageable files and classes.
 
 **Display Details of Newly Created Pokemon**
 
@@ -293,7 +268,7 @@ because it gives the caller flexibility to optionally do more work
 ## Phase 2A: Rendering Toys
 
 Pokemon love to play, so we've seeded the database with some toys. Our
-first step is to update our Jbuilder templates to render not just the
+first step is to update our JBuilder templates to render not just the
 Pokemon, but also their Toys.
 
 To do this, first write a `toys/_toy.json.jbuilder` partial template,
@@ -303,8 +278,8 @@ display the attributes of a toy: `id`, `happiness`, `image_url`,
 
 Modify your `pokemon/_pokemon` partial using `json.toys` to display a
 list of toys. We want to add a `toys` key to our pokemon json object which
-points to an array of json objects representing the toys. Do this using a
-block and rendering the partial (using `json.partial!`) for each of the toys
+points to an array of json objects representing the toys. Do this using 
+blocks. Render the partial (using `json.partial!`) for each of the toys 
 of the Pokemon.
 
 There is a caveat: we want to display the toys when we go to
@@ -318,24 +293,24 @@ For that reason, change your `pokemon/_pokemon` template so that
 `pokemon/show` can **optionally** specify the toys to be rendered. You
 can have it do this by passing a partial variable `display_toys:
 true`. If `display_toys`, render the toys in `pokemon/_pokemon`, else
-don't. You can write an if statement right in your Jbuilder!
+don't. You can write an if statement right in your JBuilder!
 
 **Check that this is working by loading `/pokemon` and
 `/pokemon/123`.** Call your TA over to check.
 
-## Phase 2B: Write a `Toy` Model, `PokemonToys` Collection
+## Phase 2B: Write a `Toy` Model, `Toys` Collection
 
-We're ready to write our `Toy` model and `PokemonToys` collection in
-`pokedex-0.js`. At this point, they need only extend their respective
-Backbone classes. Additionally, set the `model` property of
-`PokemonToys`.
+We're ready to write our `Toy` model in `models/toy.js` and our 
+`Toys` collection in `collections/toys.js`. At this point, 
+they need only extend their respective Backbone classes. Additionally, set 
+the `model` property of `Toys`.
 
 On the server side a Pokemon model has a `has_many` toys association.
 Backbone does not have a built in mechanism for representing
 associations, so we'll wire up our own. Write a `toys` method on
-`Pokemon` that memoizes a `PokemonToys` collection. Javascript doesn't
+`Pokemon` that memoizes a `Toys` collection. Javascript doesn't
 have an `||=` operator so we'll need to check: if `this._toys` is
-undefined, set `this._toys` equal to a new instance of `PokemonToys`.
+undefined, set `this._toys` equal to a new instance of `Toys`.
 Finally return `this._toys`.
 
 Now each `Pokemon` has a `toys` association. You might be wondering:
@@ -345,8 +320,8 @@ The Backbone `parse` method gives us the opportunity to massage an
 incoming Javascript object into the attributes our Backbone model will have.
 `parse` is called after the JSON string received from Rails is translated
 into a Javascript object, but before the Javascript object's properties
-become the Backbone model's attributes. For this reason, `parse` happens
-to be a great place to intercept any nested data and use that data to
+become the Backbone model's attributes. For this reason, `parse` happens 
+to be a great place to intercept any nested data and use that data to 
 populate associated collections.
 
 Write a `parse(payload)` method on `Pokemon`. `payload` here is the
@@ -364,7 +339,7 @@ shiny new `toys()` association over a raw array of toy Javascript objects,
 so lets be sure to `delete` the `toys` property from the `payload`
 before returning the `payload`.
 
-If you're still a bit fuzzy on how parse works review [the
+If you're still a bit fuzzy on how parse works, review [the
 reading][parse-reading].
 
 To test that `toys` and `parse` are up and running, try this in the
@@ -381,32 +356,32 @@ pokemon.fetch({
 
 ## Phase 2C: Displaying Toys in Pokemon Detail View
 
-**Pokedex.RootView.prototype.renderPokemonDetail**
+**Pokedex.Views.Pokemon.renderPokemonDetail**
 
-First, in your `renderPokemonDetail` method (in `pokedex-1B.js`),
-build and append a `ul.toys` to your `div.detail` that you are
-constructing. We'll display the toys inside this `ul` inside the
-detail view.
+First, in your `renderPokemonDetail` method (in `pokemon.js`),
+build and append a `ul.toys` to `this.$pokeDetail`. We'll display the 
+toys inside this `ul` inside the detail view.
 
-Next, in the `renderPokemonDetail`, instigate a fetch of the
+Next, still in the `renderPokemonDetail`, instigate a fetch of the
 `Pokemon`, so that we can pull down the Pokemon's toys. For now, in
 the success callback, just `console.log` each of the fetched
 `pokemon.toys()`. Verify that the toys are fetched properly.
 
-**Pokedex.RootView.prototype.addToyToList**
+**Pokedex.Views.Pokemon.addToyToList**
 
 Instead of `console.log`ing the toys, we want to add them to the toys
 list ul we've built. To do this, we'll write an `addToyToList(toy)`
-method in `pokedex-2.js`.
+method.
 
-In this method, construct an `li` for the Toy. Display basic info
-about the toy: it's `name`, `happiness`, and `price`. Add the `li` to
-the `ul.toys` inside of the `this.pokeDetail` element.
+In this method, construct an `li` for the Toy. If you give it a class of
+'toy-list-item', the css we've provided will style it nicely. Display 
+basic info about the toy: it's `name`, `happiness`, and `price`. Add the 
+`li` to the `ul.toys` inside of the `this.$pokeDetail` element.
 
-Last, modify `renderPokemonDetail` a last time to call `addToyToList`
+Last, modify `renderPokemonDetail` one last time to call `addToyToList`
 for each toy, instead of logging.
 
-**Pokedex.RootView.prototype.renderToyDetail and Pokedex.RootView.prototype.selectToyFromList**
+**Pokedex.Views.Pokemon.renderToyDetail and Pokedex.Views.Pokemon.selectToyFromList**
 
 We want to be able to show more detailed attributes of the Toy; in
 particular its image. Write the `renderToyDetail(toy)` method, which
@@ -417,6 +392,10 @@ will need a `toy-id` data-attribute as before, but you should also set
 a `pokemon-id`, so that you can look up the `toy-id` in the
 appropriate collection of `pokemon.toys()`.
 
+Note that this is kind of messy. We're adding two data attributes just for
+easy access to information when a list item is clicked. Don't worry, we'll
+see how to clean this up in a few days.
+
 [collection-set]: http://backbonejs.org/#Collection-set
 [parse-reading]: https://github.com/appacademy/backbone-curriculum/blob/268498c3e594fa9bfa5f87825295ca8dd1d84d60/w7d3/backbone-model-ii.md
 
@@ -425,8 +404,8 @@ appropriate collection of `pokemon.toys()`.
 **ToysController**
 
 We'd like to add the option to re-assign a `Toy` from one Pokemon to
-another. The first step is to write a `ToysController` with a `show`
-and `update` action, and add a resource for toys in the routes
+another. The first step is to write a `ToysController` with an `update` 
+action, and add a resource for toys in the routes
 file. You'll also want to write a `toys/show.json.jbuilder` for your
 `ToysController#update` to render; this can use your
 `_toy.json.jbuilder` partial.
@@ -468,11 +447,11 @@ assigned pokemon, so that the right option is selected initially.
 Reload your code to make sure you see the options box, with the list
 of pokemon.
 
-Next, add a handler for the change event on your select box. There is a
-`RootView#reassignToy` method in `pokedex-3.js`. To start, print the
-id of the old pokemon saved in `data-pokemon-id`, the id of the toy
-saved in `data-toy-id` and the id of the newly selected Pokemon (the
-`val` of the `select` element). Verify this is working.
+Next, add a handler for the change event on your select box. You should
+write a `reassignToy` method. For now, just print the id of the old pokemon 
+saved in `data-pokemon-id`, the id of the toy saved in `data-toy-id` 
+and the id of the newly selected Pokemon (the `val` of the `select` 
+element). Verify this is working.
 
 Next, in the `reassignToy` handler, we want to do a few things:
 
@@ -505,8 +484,3 @@ iterate through the toys, calling `addToyToList` on each.
 **update and destroy**
 
 Convert your Pokemon Detail and Toy Detail into forms. Instead of just listing the model's attributes , put the attributes in the values of the form inputs, and let the user 'update' their model on the server. Add the corresponding routes and controller actions. It may come in handy to use...
-
-<!-- **templates**
-
-Use `<script>` tags in your root.html.erb to create EJS templates. Use these to replace the long jQuery object chains in your RootView methods. You can call these with `_.template`. [Check out the readings](https://github.com/appacademy/js-curriculum/blob/master/w6d5/underscore-templates.md) for more information on rendering EJS templates in ERB.
--->
