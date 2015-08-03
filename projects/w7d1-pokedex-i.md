@@ -206,7 +206,7 @@ collection or list **unless it was saved properly**.
 You can test it:
 
 ```javascript
-var view = new Pokedex.Views.Pokemon({ $el: $('#pokedex') }); 
+var view = new Pokedex.Views.Pokemon({ el: $('#pokedex') }); 
 view.createPokemon({
   name: "PikachuAndAsh",
   image_url: "http://upload.wikimedia.org/wikipedia/en/9/92/Pok%C3%A9mon_episode_1_screenshot.png",
@@ -221,7 +221,7 @@ Verify that a new pokemon is added to the list. Likewise, make sure a
 new pokemon **is not added to the list** for an invalid pokemon:
 
 ```javascript
-var view = new Pokedex.Views.Pokemon({ $el: $('#pokedex') });
+var view = new Pokedex.Views.Pokemon({ el: $('#pokedex') });
 view.createPokemon({
   name: "EvilTwin",
   // No image! Invalid!
