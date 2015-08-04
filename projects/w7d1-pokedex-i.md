@@ -65,12 +65,12 @@ needs, we only need to overwrite one default property: `urlRoot`.
 The `urlRoot` property specifies the base path of where the `ajax`
 operations need to go.  For example: creating a new pokemon would
 necessitate a `POST` to `/pokemon`, and updating the first pokemon
-would need a `PATCH` to /pokemon/1. The _root_ of all operations
+would need a `PATCH` to `/pokemon/1`. The _root_ of all operations
 involving pokemon is `/pokemon`, so this will be our `urlRoot`.
 
 Now we also need to write a `Pokedex.Collections.Pokemon` class that
 will store all of our 'Pokemon' models and allow us to manage them as 
-a group. We'll put it in 'app/assets/javascripts/collections/pokemons.js'.
+a group. We'll put it in `app/assets/javascripts/collections/pokemons.js`.
 To write this class, like our model, we will `extend` a `Backbone` base 
 class, `Backbone.Collection`.  We will need to overwrite the `url` and
 `model` properties. The `url` will be the same value as
@@ -80,8 +80,8 @@ base class that when we `fetch` all the pokemon from the server and
 store them in individual models, we should use instances of the
 `Pokemon` model as the class to store them in.
 
-We've written and defined a view class in 'assets/javascripts/views/
-pokemon.js'. This will be responsible for listening to user clicks and
+We've written and defined a view class in `assets/javascripts/views/
+pokemon.js`. This will be responsible for listening to user clicks and
 displaying Pokemon data. Look at the class, but there is nothing to write 
 for it just yet.
 
@@ -106,7 +106,7 @@ pokemons.fetch({ success: function () {
 **Pokedex.Views.Pokemon.addPokemonToList**
 
 The first thing to do is get your `Pokemon` view displaying `Pokemon`. To do
-this, we should first add an `addPokemonToList(pokemon)` method in `pokemon.js`
+this, we should first add an `addPokemonToList(pokemon)` method in `views/pokemon.js`
 that takes an instance of `Pokedex.Models.Pokemon` as an
 argument. Create an `li` with jQuery, and list a few high-level
 details of the Pokemon: `name` and `poke_type`. This is just an index
@@ -134,10 +134,10 @@ Does a Pokemon get added to the list?
 **Pokedex.Views.Pokemon.refreshPokemon**
 
 Next, write a `refreshPokemon` method. This method should fetch all the
-Pokemon by fetching `this.pokemon`. Iterate through the `this.pokemon`,
+Pokemon by fetching `this.pokemon`. Iterate through `this.pokemon`,
 calling `addPokemonToList`.
 
-In 'app/assets/javascripts/pokedex.js', at the end of 'window.Pokedex.initialize',
+In `app/assets/javascripts/pokedex.js`, at the end of `window.Pokedex.initialize`,
 add a call to refreshPokemon. 
 
 You can verify this is working by reloading the page; your Pokemon
@@ -154,7 +154,7 @@ We're going to show the details of the `Pokemon` in the
 `this.$pokeDetail`. In `renderPokemonDetail` create a `div.detail`
 using jQuery. Add an image tag with the Pokemon's photo; iterate
 through all the Pokemon properties, adding each to the `div.detail`.
-It might be useful to iterate over the keys in the 'attributes' property of the 
+It might be useful to iterate over the keys in the `attributes` property of the 
 pokemon. Set the content of `this.$pokeDetail` to be the `div.detail`.
 
 You can verify this is working:
@@ -178,9 +178,9 @@ can pass that pokemon object to `renderPokemonDetail`.
 
 To do this, modify your `addPokemonToList` method to also set an `id`
 data-attribute on the Pokemon list item. Next, in `Pokemon.initialize`, add a
-listener that calls 'selectPokemonFromList' on a click on `this.$pokeList`.
+listener that calls `selectPokemonFromList` on a click on `this.$pokeList`.
 Delegate to `li.poke-list-item`. 
-In the click handler, recover the `id`from 
+In the click handler, recover the `id` from 
 `event.currentTarget`; look up the `Pokemon` in `this.pokemon` with the
 id. Finally, use `renderPokemonDetail` to display the Pokemon.
 
@@ -193,14 +193,14 @@ details about it.**
 
 As you encounter new Pokemon, you will want to record your findings
 and share your wisdom with other poke-scientists. For this reason, we
-have provided you with a form in 'app/views/static_pages/root.html.erb'. 
+have provided you with a form in `app/views/static_pages/root.html.erb`. 
 It doesn't do anything yet.
 
 Before we play with the form, let's write a
 `createPokemon(attributes)` method. This should build a new `Pokemon`
 model and save it. You'll want to manually add the pokemon to the
-`this.pokes` collection and call `addPokemonToList`. Do both of these
-in the success callback; that way, you don't add the pokemon to the
+`this.pokemon` collection and call `addPokemonToList`. Do both of these
+in the success callback of `save`; that way, you don't add the pokemon to the
 collection or list **unless it was saved properly**.
 
 You can test it:
@@ -239,7 +239,7 @@ Pokemon through the form, not the console.
 
 To do this, write a `submitPokemonForm` method; in the `Pokemon`
 constructor, install this as a submit handler on the form. In the
-handler, first 'event.preventDefault();' so that a post request isn't
+handler, first `event.preventDefault();` so that a post request isn't
 automatically made. Next, use `serializeJSON` on the target to extract the data from
 the form and convert it to a JS object. Then call your `createPokemon`
 method.
@@ -330,7 +330,7 @@ parsing a single model, or a collection of models returned from the
 server during a fetch. **Remember** we're including `toys` in the
 `show` action, but _not_ the `index` action.  Our `parse` method needs
 to handle either case. If `payload` has a `toys` property, use the
-array of `toys` to populate the `PokemonToys` collection returned by
+array of `toys` to populate the `Toys` collection returned by
 the `toys()` method using [`Collection#set`][collection-set].
 
 Finally, we must return a Javascript object from `parse`. This object will
@@ -358,7 +358,7 @@ pokemon.fetch({
 
 **Pokedex.Views.Pokemon.renderPokemonDetail**
 
-First, in your `renderPokemonDetail` method (in `pokemon.js`),
+First, in your `renderPokemonDetail` method (in `views/pokemon.js`),
 build and append a `ul.toys` to `this.$pokeDetail`. We'll display the 
 toys inside this `ul` inside the detail view.
 
@@ -374,7 +374,7 @@ list ul we've built. To do this, we'll write an `addToyToList(toy)`
 method.
 
 In this method, construct an `li` for the Toy. If you give it a class of
-'toy-list-item', the css we've provided will style it nicely. Display 
+`toy-list-item`, the css we've provided will style it nicely. Display 
 basic info about the toy: it's `name`, `happiness`, and `price`. Add the 
 `li` to the `ul.toys` inside of the `this.$pokeDetail` element.
 
@@ -435,7 +435,7 @@ attributes I want to, and call `save` with a blank object.
 Modify your `renderToyDetail` to display a `select` box. Give it both
 `data-pokemon-id` and `data-toy-id` data-attributes.
 
-Iterate through `this.pokes`, creating an `option` for each of the
+Iterate through `this.pokemon`, creating an `option` for each of the
 Pokemon. Set the `value` attribute of the `option` to
 `pokemon.id`. Set the `text` of the `option` to the Pokemon's
 name. Append each `option` to the `select`. Append the `select` to the
@@ -455,7 +455,7 @@ element). Verify this is working.
 
 Next, in the `reassignToy` handler, we want to do a few things:
 
-* Lookup the `pokemon-id` in `this.pokes` to get the old Pokemon.
+* Lookup the `pokemon-id` in `this.pokemon` to get the old Pokemon.
 * Lookup the `toy-id` to get the Toy in `pokemon.toys()`.
 * Set the Toy's `pokemon_id` to the new Pokemon.
 * Save the `Toy`. In the success callback:
@@ -483,4 +483,4 @@ iterate through the toys, calling `addToyToList` on each.
 
 **update and destroy**
 
-Convert your Pokemon Detail and Toy Detail into forms. Instead of just listing the model's attributes , put the attributes in the values of the form inputs, and let the user 'update' their model on the server. Add the corresponding routes and controller actions. It may come in handy to use...
+Convert your Pokemon Detail and Toy Detail into forms. Instead of just listing the model's attributes , put the attributes in the values of the form inputs, and let the user `update` their model on the server. Add the corresponding routes and controller actions. It may come in handy to use...
