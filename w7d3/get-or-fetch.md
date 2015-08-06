@@ -18,16 +18,15 @@ AppName.Collections.Widgets = Backbone.Collection.extend({
 
   getOrFetch: function (id) {
     var collection = this;
-
     var widget = collection.get(id);
+
     if (widget) {
       widget.fetch();
     } else {
-      widget = new App.Models.Widget({ id: id });
+      widget = new collection.model({ id: id });
+      collection.add(widget);
       widget.fetch({
-        success: function () {
-          collection.add(widget);
-        }
+        error: function () { collection.remove(widget); }
       });
     }
 
@@ -62,19 +61,29 @@ more data from a `show` route than from an `index`.
 
 ```js
 } else {
-  widget = new AppName.Models.Widget({ id: id });
+  widget = new collection.model({ id: id });
+  collection.add(widget);
   widget.fetch({
-    success: function () {
-      collection.add(widget);
-    }
+    error: function () { collection.remove(widget); }
   });
 }
 ```
 
 If `collection.get(id)` returned `undefined` (because our Backbone
 collection didn't contain a model with the `id` in question), then we
-need to instantiate a model with that `id`, fetch it, and add it to the
-collection if we receive data from the server.
+need to instantiate a model with that `id`, fetch it, add it to the
+collection. If we receive an error when fetching the model from the
+server, then we'll remove it from the collection.
+
+This might feel dirty on a gut level, but it's important to do things in
+this order. If we wait for a `success` callback to add our model to the collection,
+then there's a window where a model with the same id could be added to
+the collection (say, as the result of a `collection.fetch`). If this
+happens, then the model returned by getOrFetch won't actually be a
+member of the collection, rendering our work useless. Read the [fine
+print here][backbone-collection-add] for more detail.
+
+[backbone-collection-add]: http://backbonejs.org/#Collection-add
 
 ```js
 return widget;
