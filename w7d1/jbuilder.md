@@ -332,7 +332,7 @@ attributes of the user's dogs:
     {
       "user_id": 3,
       "id": 4,
-      "name": "Spot",
+      "name": "Fang",
       "created_at": "2015-06-17T04:24:16.269Z",
       "updated_at": "2015-06-17T04:24:16.269Z",
       "breed": "Husky"
