@@ -163,7 +163,7 @@ the view's `.$el` into `$("#pokedex .pokemon-detail")`. Last, call
 `render` on the `pokemonDetail` view.
 
 We have to write the render method. Set the `template` field of
-`PokemonDetail` to `JST['pokemonDetail]`. In 'PokemonDetail#render',
+`PokemonDetail` to `JST['pokemonDetail']`. In 'PokemonDetail#render',
 insert `this.template` into `this.$el`. We'll just display just the
 pokemon details for now, not any toys.  **Check that this works**.
 
@@ -206,8 +206,8 @@ Pokedex.Routers.Router();` and `Backbone.history.start()`.
 
 Write a route in the router that maps the root URL to the `pokemonIndex`
 method. In the `pokemonIndex` function, create a new `PokemonIndex`
-view. Call `refreshPokemon` on it, and set the html of `$(#pokedex
-.pokemon-list)` to its $el. Now you won't have to manually run that code
+view. Call `refreshPokemon` on it, and set the html of `$("#pokedex
+.pokemon-list")` to its $el. Now you won't have to manually run that code
 anymore. Check that you can refresh your page and see the list of
 pokemon.
 
